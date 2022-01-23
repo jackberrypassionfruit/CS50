@@ -34,29 +34,29 @@ int main(void) {
 		//Expect American Express
 		if (luhnCheck(cc)) {
 			printf("AMERICAN EXPRESS\n");
-			return 1
+			return 1;
 		}
 		else {
 			printf("INVALID\n");
 			return 0;
 		}
 	}
-	else if (cc[0] == 5 && len == 16) {
+	else if (str[0] == 5 && len == 16) {
 		//Expect MasterCard
 		if (luhnCheck(cc)) {
 			printf("MASTERCARD\n");
-			return 1
+			return 1;
 		}
 		else {
 			printf("INVALID\n");
 			return 0;
 		}
 	}
-	else if (cc[0] == 4) {
+	else if (str[0] == 4) {
 		//Expect Visa
 		if (luhnCheck(cc)) {
 			printf("VISA\n");
-			return 1
+			return 1;
 		}
 		else {
 			printf("INVALID\n");
@@ -85,13 +85,13 @@ int luhnCheck(cc) {
 }
 
 int luhnStepOne(cc) {
-
+return 1;
 }
 
 int luhnStepTwo(L1) {
-
+return 1;
 }
 
-int luhnStepTwo(L2) {
-
+int luhnStepThree(L2) {
+return 1;
 }
