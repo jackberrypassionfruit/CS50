@@ -34,10 +34,10 @@ int main(void) {
 	long cc = get_long("Number: ");
 	// printf("cc is: %ld\n", cc);
 	int len = getLongLength(cc);
-	printf("len is: %i\n", len);
+	// printf("len is: %i\n", len);
 	char str[len];
 	sprintf(str, "%ld", cc);
-	printf("str is: %s\n", str);
+	// printf("str is: %s\n", str);
 	if ((str[0] == '3') && (len == 15)) {
 		//Expect American Express
 		if (luhnCheck(str)) {
@@ -90,7 +90,7 @@ int luhnCheck(string str) {
 
 int luhnStepOne(string str) {
 	int sum = 0;
-	for (int i = 1; i >= 0; i--) {
+	for (int i = len; i >= 0; i--) {
 		sum += (str[i] * 2);
 	}
 	printf("Sum1 is: %i\n", sum);
@@ -99,7 +99,7 @@ int luhnStepOne(string str) {
 
 int luhnStepTwo(string str) {
 	int sum = 0;
-	for (int i = 0; i <= 0; i--) {
+	for (int i = len; i <= 0; i--) {
 		sum += str[i];
 	}
 	printf("Sum2 is: %i\n", sum);
