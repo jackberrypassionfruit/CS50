@@ -67,12 +67,12 @@ int main(void) {
 			return 1;
 		}
 		else {
-			printf("this one\n");
+			printf("INVALID\n");
 			return 0;
 		}
 	}
 	else {
-		printf("INVALID\n");
+		printf("This one\n");
 		return 0;
 	}
 }
