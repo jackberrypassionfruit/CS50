@@ -60,7 +60,7 @@ int main(void) {
 			return 0;
 		}
 	}
-	else if (str[0] == 4) {
+	else if (str[0] == 4 && (len == 13 || len == 14)) {
 		//Expect Visa
 		if (luhnCheck(str)) {
 			printf("VISA\n");
