@@ -23,44 +23,47 @@ int luhnStepTwo();
 int luhnStepThree();
 
 int main(void) {
-	long cc = get_long("Number: ");
-	if (cc[0] == 3) {
-		//Expect American Express
-		if luhnCheck(cc) {
-			printf("AMERICAN EXPRESS\n");
-			return 1
-		}
-		else {
-			printf("INVALID\n");
-			return 0;
-		}
-	}
-	else if (cc[0] == 5) {
-		//Expect MasterCard
-		if luhnCheck(cc) {
-			printf("MASTERCARD\n");
-			return 1
-		}
-		else {
-			printf("INVALID\n");
-			return 0;
-		}
-	}
-	else if (cc[0] == 4) {
-		//Expect Visa
-		if luhnCheck(cc) {
-			printf("VISA\n");
-			return 1
-		}
-		else {
-			printf("INVALID\n");
-			return 0;
-		}
-	}
-	else {
-		printf("INVALID\n");
-		return 0;
-	}
+	// long cc = get_long("Number: ");
+	// if (cc[0] == 3) {
+	// 	//Expect American Express
+	// 	if luhnCheck(cc) {
+	// 		printf("AMERICAN EXPRESS\n");
+	// 		return 1
+	// 	}
+	// 	else {
+	// 		printf("INVALID\n");
+	// 		return 0;
+	// 	}
+	// }
+	// else if (cc[0] == 5) {
+	// 	//Expect MasterCard
+	// 	if luhnCheck(cc) {
+	// 		printf("MASTERCARD\n");
+	// 		return 1
+	// 	}
+	// 	else {
+	// 		printf("INVALID\n");
+	// 		return 0;
+	// 	}
+	// }
+	// else if (cc[0] == 4) {
+	// 	//Expect Visa
+	// 	if luhnCheck(cc) {
+	// 		printf("VISA\n");
+	// 		return 1
+	// 	}
+	// 	else {
+	// 		printf("INVALID\n");
+	// 		return 0;
+	// 	}
+	// }
+	// else {
+	// 	printf("INVALID\n");
+	// 	return 0;
+	// }
+
+	unsigned long test = get_long("try me, user: ");
+	printf("%i", getLengthOfLong(test));
 }
 
 int luhnCheck(cc) {
