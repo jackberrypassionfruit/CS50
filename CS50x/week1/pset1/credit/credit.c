@@ -76,7 +76,7 @@ int getLongLength(num) {
         len++;
         num /= 10;
     }
-    return num;
+    return len;
 }
 
 int luhnCheck(cc) {
