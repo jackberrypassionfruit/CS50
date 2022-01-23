@@ -8,13 +8,13 @@ int getIntLength();
 // Testing Conditionals in C
 
 int main(void) {
-    double i = get_double("Gimme a long: ");
+    double i = get_double("Gimme a double: ");
     int len = getIntLength(i);
     printf("len is: %i\n", len);
     // Converting Int to String
 
     char str[len];
-    sprintf(str, "%ld", i);
+    sprintf(str, "%f", i);
     printf("str[0] is: %d\n", str[0]);
 
     if (str[0] == '4' && (len == 3 || len == 4)) {
