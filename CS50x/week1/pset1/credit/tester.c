@@ -4,7 +4,7 @@
 int getLengthOfLong();
 
 int main(void) {
-	unsigned long test = get_long("try me, user: ");
+	long long test = get_long("try me, user: ");
 	int len = getLengthOfLong(test);
 	printf("%i\n", len);
 }
