@@ -7,7 +7,7 @@ long getLengthOfLong();
 
 int main(void) {
 	long cc = get_long("try me, user: ");
-    // printf("Loong is %d\n", cc);
+    printf("Loong is %ld\n", cc);
     int len = getLengthOfLong(cc);
 	printf("%i\n", len);
     return 1;
