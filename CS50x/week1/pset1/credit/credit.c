@@ -30,18 +30,16 @@ int luhnStepOne();
 int luhnStepTwo();
 int luhnStepThree();
 
-// printf("cc is: %ld\n", cc);
-long cc = get_long("Number: ");
-
-// printf("len is: %i\n", len);
-int len = getLongLength(cc);
-
-//turning cc into a string
-char str[len];
-sprintf(str, "%ld", cc);
-// printf("str is: %s\n", str);
+int len;
 
 int main(void) {
+	long cc = get_long("Number: ");
+	// printf("cc is: %ld\n", cc);
+	len = getLongLength(cc);
+	// printf("len is: %i\n", len);
+	char str[len];
+	sprintf(str, "%ld", cc);
+	// printf("str is: %s\n", str);
 	if ((str[0] == '3') && (len == 15)) {
 		//Expect American Express
 		if (luhnCheck(str)) {
