@@ -95,9 +95,10 @@ int luhnCheck(string str) {
 
 int luhnStepOne(string str) {
 	int sum = 0;
-	printf("len is: %i\n", len);
 	for (int i = len; i >= 0; i--) {
 		sum += (str[i] * 2);
+		printf("sum is: %i\n", sum);
+
 	}
 	printf("Sum1 is: %i\n", sum);
 	return sum;
