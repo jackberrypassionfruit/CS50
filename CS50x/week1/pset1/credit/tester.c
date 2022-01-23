@@ -1,11 +1,19 @@
 #include <stdio.h>
 #include <cs50.h>
 
-int main(void) {
-    long big = get_long("Gimmme a big ass number: ");
-    // while (big > 1) {
-    big = big / 10;
-    big = big / 10;
+int getLengthOfLong();
 
-    printf("%ld\n", big);
+int main(void) {
+	unsigned long test = get_long("try me, user: ");
+	int len = getLengthOfLong(test);
+	printf("%i\n", len);
+}
+
+int getLengthOfLong(loong) {
+	int len = 0;
+	while (loong > 0) {
+		len++;
+		loong /= 10;
+	}
+    return len;
 }
