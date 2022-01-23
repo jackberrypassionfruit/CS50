@@ -12,9 +12,9 @@ int main(void) {
 
 int getLengthOfLong(loong) {
 	int len = 0;
-	while (loong > 1) {
+	while (loong > 0) {
 		len++;
-		len = loong%10;
+		loong = loong%10;
 	}
     return len;
 }
