@@ -17,7 +17,8 @@ int getLengthOfLong(loong) {
     while (loong > 0) {
         len++;
         loong = loong / 10;
-        printf("Loong is %lu", loong);
+        printf("Loong is %d\n", loong);
+        printf("Len is %i\n", len);
     }
     return len;
 }
