@@ -27,10 +27,11 @@ int main(void) {
 
 int getIntLength(num) {
     int len = 0;
+    printf("num is: %lld\n", num);
     while (num > 0) {
         len++;
         num /= 10;
-        printf("num is: %lld\n", num);
+        // printf("num is: %lld\n", num);
     }
     return len;
 }
