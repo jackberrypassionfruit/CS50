@@ -11,8 +11,8 @@ int intToString();
 int main(void) {
     int i = get_int("Gimme an int: ");
     int len = getIntLength(i);
-    string str = intToString(i);
-    if ((str[0] == 4) && (len == 3) || (len == 4)) {
+    string stringy = intToString(i);
+    if ((stringy[0] == 4) && (len == 3) || (len == 4)) {
         printf("fuck yeah");
     }
     else {
@@ -24,7 +24,7 @@ int main(void) {
 
 int intToString(i) {
     char str[len];
-    sprintf(str, "%d", i);
+    sprintf(str, "%i", i);
 }
 
 
