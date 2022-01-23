@@ -19,6 +19,7 @@ int getLengthOfLong(loong) {
     while (loong > 0) {
         len++;
         loong = loong / 10;
+        printf("%ld", loong);
     }
     return len;
 }
