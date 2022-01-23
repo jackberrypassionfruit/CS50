@@ -36,7 +36,7 @@ int main(void) {
 	long cc = get_long("Number: ");
 	// printf("cc is: %ld\n", cc);
 	len = getLongLength(cc);
-	printf("len is: %i\n", len);
+	// printf("len is: %i\n", len);
 	char str[len];
 	sprintf(str, "%ld", cc);
 	// printf("str is: %s\n", str);
@@ -92,6 +92,7 @@ int luhnCheck(string str) {
 
 int luhnStepOne(string str) {
 	int sum = 0;
+	printf("len is: %i\n", len);
 	for (int i = len; i >= 0; i--) {
 		sum += (str[i] * 2);
 	}
