@@ -4,14 +4,14 @@
 #include <string.h>
 
 int getIntLength();
-int longToString();
+int intToString();
 
 // Testing Conditionals in C
 
 int main(void) {
     int i = get_int("Gimme an int: ");
     int len = getIntLength(i);
-    string str = longToString(i);
+    string str = intToString(i);
     if ((str[0] == 4) && (len == 3) || (len == 4)) {
         printf("fuck yeah");
     }
@@ -20,11 +20,11 @@ int main(void) {
     }
 }
 
-// Converting Long to String
+// Converting Int to String
 
-int longToString(i) {
+int intToString(i) {
     char str[len];
-    sprintf(str, "%i", i);
+    sprintf(str, "%d", i);
 }
 
 
