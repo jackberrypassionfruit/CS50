@@ -7,5 +7,5 @@ int main(void) {
     big = big / 10;
     big = big / 10;
 
-    printf("%lu\n", big);
+    printf("%ld\n", big);
 }
