@@ -5,7 +5,10 @@ int drawEmpties();
 int drawBlocks();
 
 int main(void) {
-	int height = get_int("Please, dear Yahweh please, give me a number: ");
+	int height = 0;
+	while (!(height >= 1 && height <= 8)) {
+		height = get_int("Please, dear Yahweh please, give me a number: ");
+	}
 	for (int i = 1; i <= height; i++) {
 		drawEmpties(i, height);
 		drawBlocks(i, height);
