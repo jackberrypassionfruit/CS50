@@ -3,7 +3,7 @@
 
 
 int main(void) {
-	int height = get_input("Please, dear Yahweh please, give me a number: ");
+	int height = get_int("Please, dear Yahweh please, give me a number: ");
 	for (int i = 1; i <= height; i++) {
 		drawEmpties(lvl, height);
 		drawBlock(lvl, height);
