@@ -38,7 +38,7 @@ int main(void) {
 			return 1;
 		}
 		else {
-			printf("INVALID\n");
+			printf("Poop\n");
 			return 0;
 		}
 	}
