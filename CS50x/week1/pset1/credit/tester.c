@@ -29,10 +29,11 @@ int main(void) {
 
 int getLLLength(num) {
     int len = 0;
-    printf("num is: %lld\n", num);
-    while (num > 0) {
+    long long ref = num;
+    printf("ref is: %lld\n", ref);
+    while (ref > 0) {
         len++;
-        num /= 10;
+        ref /= 10;
         // printf("num is: %lld\n", num);
     }
     return len;
