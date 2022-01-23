@@ -95,8 +95,9 @@ int luhnCheck(string str) {
 
 int luhnStepOne(string str) {
 	int sum = 0;
+	int adder;
 	for (int i = len - 1; i >= 0; i -= 2) {
-		int adder = str[i - 1] - 48;
+		adder = str[i - 1] - 48;
 		sum += (adder * 2);
 		printf("adder is: %i\n", adder);
 		printf("Sum1 is: %i\n", sum);
