@@ -2,18 +2,18 @@
 #include <cs50.h>
 
 int drawEmpties();
-int drawBlock();
+int drawBlocks();
 
 int main(void) {
 	int height = get_int("Please, dear Yahweh please, give me a number: ");
 	for (int i = 1; i <= height; i++) {
 		drawEmpties(i, height);
-		drawBlock(i, height);
+		drawBlocks(i, height);
 		printf("  ");
 		drawBlocks(i, height);
 		drawEmpties(i, height);
 		printf("\n");
-	})
+	}
 }
 
 // Prints each individual Line of blocks
