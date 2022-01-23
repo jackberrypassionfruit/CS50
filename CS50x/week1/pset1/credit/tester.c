@@ -27,7 +27,7 @@ int main(void) {
     }
 }
 
-int getLLLength(num) {
+int getLLLength(long long num) {
     int len = 0;
     long long ref = num;
     printf("ref is: %lld\n", ref);
