@@ -17,10 +17,10 @@ int main(void) {
     printf("Int as a string: %s\n", str);
 
     if ((str[0] == 4) && ((len == 3) || (len == 4))) {
-        printf("fuck yeah");
+        printf("fuck yeah\n");
     }
     else {
-        printf("fuck noooo");
+        printf("fuck noooo\n");
     }
 }
 
