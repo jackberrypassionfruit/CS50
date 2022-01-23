@@ -14,7 +14,7 @@ int getLengthOfLong(loong) {
 	int len = 0;
 	while (loong > 10) {
 		len++;
-		loong = loong%10;
+		loong = loong / 10;
 	}
     return len;
 }
