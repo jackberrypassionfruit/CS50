@@ -6,8 +6,8 @@
 int main(void) {
 	long test = get_long("try me, user: ");
 	// int len = getLengthOfLong(test);
-    long len = test%10;
-	printf("%i\n", len);
+    long len = test%100;
+	printf("%ld\n", len);
 }
 
 // int getLengthOfLong(loong) {
