@@ -84,8 +84,8 @@ int getLongLength(long num) {
 int luhnCheck(string str) {
 	int L1 = luhnStepOne(str);
 	int L2 = luhnStepTwo(str);
-	int totSum = L1 + L2;
-	return luhnStepThree(totSum);
+	int L3 = L1 + L2;
+	return luhnStepThree(L3);
 }
 
 int luhnStepOne(string str) {
@@ -103,8 +103,13 @@ int luhnStepTwo(string str) {
 		sum += str[i];
 	}
 	printf("Sum2 is: %i\n", sum);
+	return sum;
 }
 
-int luhnStepThree(L2) {
-return 1;
+int luhnStepThree(int L3) {
+	long L3AsLong = (long) L3;
+	int L3Len = getLongLength(L3AsLong);
+	char L3Str[L3Len];
+	sprintf(L3Str, "%i", L3);
+	return (L3Str[L3Len -1] == 0);
 }
