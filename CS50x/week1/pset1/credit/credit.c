@@ -40,7 +40,7 @@ int main(void) {
 	// printf("str is: %s\n", str);
 	if ((str[0] == '3') && (len == 15)) {
 		//Expect American Express
-		if (luhnCheck(str)) {
+		if (luhnCheck(str, len)) {
 			printf("AMERICAN EXPRESS\n");
 			return 1;
 		}
@@ -51,7 +51,7 @@ int main(void) {
 	}
 	else if (str[0] == '5' && len == 16) {
 		//Expect MasterCard
-		if (luhnCheck(str)) {
+		if (luhnCheck(str, len)) {
 			printf("MASTERCARD\n");
 			return 1;
 		}
@@ -62,7 +62,7 @@ int main(void) {
 	}
 	else if (str[0] == '4' && (len == 13 || len == 16)) {
 		//Expect Visa
-		if (luhnCheck(str)) {
+		if (luhnCheck(str, len)) {
 			printf("VISA\n");
 			return 1;
 		}
@@ -88,9 +88,8 @@ int luhnCheck(string str) {
 	return luhnStepThree(L3);
 }
 
-int luhnStepOne(string str) {
+int luhnStepOne(string str, int len) {
 	int sum = 0;
-	int length = len;
 	for (int i = len; i >= 0; i--) {
 		sum += (str[i] * 2);
 	}
@@ -98,7 +97,7 @@ int luhnStepOne(string str) {
 	return sum;
 }
 
-int luhnStepTwo(string str) {
+int luhnStepTwo(string str, int len) {
 	int sum = 0;
 	for (int i = len; i <= 0; i--) {
 		sum += str[i];
@@ -112,5 +111,5 @@ int luhnStepThree(int L3) {
 	int L3Len = getLongLength(L3AsLong);
 	char L3Str[L3Len];
 	sprintf(L3Str, "%i", L3);
-	return (L3Str[L3Len -1] == 0);
+	return (L3Str[L3Len - 1] == 0);
 }
