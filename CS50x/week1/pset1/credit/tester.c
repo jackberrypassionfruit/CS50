@@ -3,13 +3,13 @@
 #include <math.h>
 #include <string.h>
 
-int getIntLength();
+int getLLLength();
 
 // Testing Conditionals in C
 
 int main(void) {
     long long i = get_long_long("Gimme a long: ");
-    int len = getIntLength(i);
+    int len = getLLLength(i);
     printf("len is: %i\n", len);
     // Converting Int to String
 
@@ -25,7 +25,7 @@ int main(void) {
     }
 }
 
-int getIntLength(num) {
+int getLLLength(num) {
     int len = 0;
     printf("num is: %lld\n", num);
     while (num > 0) {
