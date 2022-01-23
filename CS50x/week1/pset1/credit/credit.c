@@ -73,6 +73,14 @@ int luhnStepOne(cc) {
 
 }
 
+int luhnStepTwo(L1) {
+
+}
+
+int luhnStepTwo(L2) {
+
+}
+
 int getLengthOfLong(loong) {
 	int len = 0
 	while (loong > 0) {
