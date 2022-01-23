@@ -24,12 +24,12 @@ int luhnStepTwo();
 int luhnStepThree();
 
 int main(void) {
-	long long cc = get_long_long("Number: ");
-	printf("cc is: %lld\n", cc);
+	long cc = get_long("Number: ");
+	printf("cc is: %ld\n", cc);
 	int len = getLongLength(cc);
 	printf("len is: %i\n", len);
 	char str[len];
-	sprintf(str, "%lld", cc);
+	sprintf(str, "%ld", cc);
 	printf("str is: %s\n", str);
 	if ((str[0] == 3) && (len == 15)) {
 		//Expect American Express
@@ -70,7 +70,7 @@ int main(void) {
 	}
 }
 
-int getLongLength(num) {
+int getLongLength(long num) {
     int len = 0;
     while (num > 0) {
         len++;
