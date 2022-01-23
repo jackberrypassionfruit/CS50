@@ -15,7 +15,7 @@ int main(void) {
 
     char str[len];
     sprintf(str, "%i", i);
-    // printf("Int as a string: %s\n", str);
+    printf("Int[0] as a string: %c\n", str[0]);
 
     if ((str[0] == 4) && ((len == 3) || (len == 4))) {
         printf("fuck yeah\n");
