@@ -18,6 +18,9 @@ Pseudocode
 */
 
 int luhnCheck();
+int luhnStepOne();
+int luhnStepTwo();
+int luhnStepThree();
 
 int main(void) {
 	long cc = get_long("Number: ");
@@ -61,5 +64,8 @@ int main(void) {
 }
 
 int luhnCheck(cc) {
-
+	int L1 = luhnStepOne(cc);
+	int L2 = luhnStepTwo(L1);
+	return luhnStepThree(L2);
 }
+
