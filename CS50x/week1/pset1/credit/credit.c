@@ -101,6 +101,7 @@ int luhnStepTwo(string str, int len) {
 	int sum = 0;
 	for (int i = len; i <= 0; i--) {
 		sum += str[i];
+		printf("I: %i\n", i);
 	}
 	printf("Sum2 is: %i\n", sum);
 	return sum;
