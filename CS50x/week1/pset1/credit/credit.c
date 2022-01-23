@@ -34,10 +34,10 @@ int main(void) {
 	long cc = get_long("Number: ");
 	// printf("cc is: %ld\n", cc);
 	int len = getLongLength(cc);
-	// printf("len is: %i\n", len);
+	printf("len is: %i\n", len);
 	char str[len];
 	sprintf(str, "%ld", cc);
-	// printf("str is: %s\n", str);
+	printf("str is: %s\n", str);
 	if ((str[0] == '3') && (len == 15)) {
 		//Expect American Express
 		if (luhnCheck(str)) {
@@ -60,7 +60,7 @@ int main(void) {
 			return 0;
 		}
 	}
-	else if (str[0] == 4 && (len == 13 || len == 14)) {
+	else if (str[0] == 4 && (len == 13 || len == 16)) {
 		//Expect Visa
 		if (luhnCheck(str)) {
 			printf("VISA\n");
