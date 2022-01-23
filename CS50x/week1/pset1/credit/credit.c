@@ -99,8 +99,8 @@ int luhnStepOne(string str) {
 	for (int i = len - 1; i >= 0; i -= 2) {
 		adder = str[i - 1] - 48;
 		sum += (adder * 2);
-		printf("adder is: %i\n", adder);
-		printf("Sum1 is: %i\n", sum);
+		// printf("adder is: %i\n", adder);
+		// printf("Sum1 is: %i\n", sum);
 	}
 	return sum;
 }
@@ -110,7 +110,8 @@ int luhnStepTwo(string str) {
 	for (int i = len; i >= 0; i -= 2) {
 		int adder = str[i] - 48;
 		sum += adder;
-		// printf("Sum2 is: %i\n", sum);
+		printf("adder is: %i\n", adder);
+		printf("Sum2 is: %i\n", sum);
 	}
 	// printf("Sum2 is: %i\n", sum);
 	return sum;
