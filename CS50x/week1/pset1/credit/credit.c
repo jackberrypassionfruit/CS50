@@ -96,7 +96,8 @@ int luhnCheck(string str) {
 int luhnStepOne(string str) {
 	int sum = 0;
 	for (int i = len; i >= 0; i--) {
-		sum += (str[i] * 2);
+		int adder = atoi(str[i]);
+		sum += (adder * 2);
 		printf("sum is: %i\n", sum);
 
 	}
@@ -107,7 +108,8 @@ int luhnStepOne(string str) {
 int luhnStepTwo(string str) {
 	int sum = 0;
 	for (int i = len; i <= 0; i--) {
-		sum += str[i];
+		sum += adder
+		printf("Sum2 is: %i\n", sum);
 	}
 	printf("Sum2 is: %i\n", sum);
 	return sum;
