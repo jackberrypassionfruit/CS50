@@ -9,7 +9,7 @@ int getIntLength();
 
 int main(void) {
     long long i = get_long_long("Gimme a long: ");
-    int len = getIntLength(i);
+    long len = getIntLength(i);
     printf("len is: %i\n", len);
     // Converting Int to String
 
