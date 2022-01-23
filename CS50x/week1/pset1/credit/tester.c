@@ -17,7 +17,7 @@ int main(void) {
 
     char str[len];
     sprintf(str, "%lld", i);
-    printf("str[0] is: %c\n", str[0]);
+    // printf("str[0] is: %c\n", str[0]);
 
     if (str[0] == '4' && (len == 3 || len == 4)) {
         printf("fuck yeah\n");
