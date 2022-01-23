@@ -27,7 +27,7 @@ int luhnStepThree();
 int main(void) {
 	long cc = get_long("Number: ");
 	int len = getLongLength(cc);
-	string str = longToString(cc);
+	string str = longToString(cc, len);
 	printf("str is: %s\n", str);
 	if ((cc[0] == 3) && (len == 15)) {
 		//Expect American Express
@@ -77,7 +77,7 @@ int getLongLength(num) {
     return num;
 }
 
-string longToString(loong) {
+string longToString(loong, len) {
 	char str[len];
 	return sprintf(str, "%ld", loong);
 }
