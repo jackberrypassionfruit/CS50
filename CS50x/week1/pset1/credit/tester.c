@@ -8,9 +8,8 @@ int getLLLength();
 // Testing Conditionals in C
 
 int main(void) {
-    long i;
-    i = get_long("Gimme a long: ");
-    printf("i is: %ld\n", i);
+    long long i = get_long_long("Gimme a long: ");
+    printf("i is: %lld\n", i);
     int len = getLLLength(i);
     // Converting Int to String
 
@@ -28,7 +27,7 @@ int main(void) {
 
 int getLLLength(num) {
     int len = 0;
-    printf("num is: %ld\n", num);
+    printf("num is: %lld\n", num);
     while (num > 0) {
         len++;
         num /= 10;
