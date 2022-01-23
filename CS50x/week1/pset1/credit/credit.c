@@ -67,7 +67,7 @@ int main(void) {
 			return 1;
 		}
 		else {
-			printf("INVALID\n");
+			printf("this one\n");
 			return 0;
 		}
 	}
