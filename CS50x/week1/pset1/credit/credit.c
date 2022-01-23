@@ -72,3 +72,11 @@ int luhnCheck(cc) {
 int luhnStepOne(cc) {
 
 }
+
+int getLengthOfLong(loong) {
+	int len = 0
+	while (loong > 0) {
+		len++;
+		loong / 10;
+	}
+}
