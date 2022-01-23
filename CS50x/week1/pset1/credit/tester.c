@@ -2,18 +2,18 @@
 #include <cs50.h>
 #include <math.h>
 
-long getLengthOfLong();
+int getLengthOfLong();
 
 int main(void) {
 	long test = get_long("try me, user: ");
-	long len = getLengthOfLong(test);
+	int len = getLengthOfLong(test);
     // long len = test%10;
-	printf("%ld\n", len);
+	printf("%i\n", len);
     return 1;
 }
 
-long getLengthOfLong(loong) {
-	long len = log10(loong);
+int getLengthOfLong(loong) {
+int len = floor(log10(abs(loong))) + 1;
 
     return len;
 }
