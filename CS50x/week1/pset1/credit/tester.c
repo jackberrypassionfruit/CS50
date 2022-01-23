@@ -3,7 +3,7 @@
 #include <math.h>
 #include <string.h>
 
-long getLLLength();
+int getLLLength();
 
 // Testing Conditionals in C
 
@@ -26,12 +26,12 @@ int main(void) {
     }
 }
 
-long getLLLength(i) {
+int getLLLength(num) {
     int len = 0;
-    printf("num is: %ld\n", i);
-    while (i > 0) {
+    printf("num is: %ld\n", num);
+    while (num > 0) {
         len++;
-        i /= 10;
+        num /= 10;
         // printf("num is: %lld\n", num);
     }
     return len;
