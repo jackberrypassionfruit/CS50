@@ -11,7 +11,8 @@ int intToString();
 int main(void) {
     int i = get_int("Gimme an int: ");
     int len = getIntLength(i);
-    string stringy = intToString(i);
+    string stringy;
+    stringy = intToString(i);
     if ((stringy[0] == 4) && (len == 3) || (len == 4)) {
         printf("fuck yeah");
     }
