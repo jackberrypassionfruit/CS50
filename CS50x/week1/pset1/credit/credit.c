@@ -21,6 +21,7 @@ int luhnCheck();
 int luhnStepOne();
 int luhnStepTwo();
 int luhnStepThree();
+int getLengthOfLong();
 
 int main(void) {
 	// long cc = get_long("Number: ");
@@ -63,7 +64,8 @@ int main(void) {
 	// }
 
 	unsigned long test = get_long("try me, user: ");
-	printf("%i", getLengthOfLong(test));
+	int len = getLengthOfLong(test);
+	printf("%i", len);
 }
 
 int luhnCheck(cc) {
