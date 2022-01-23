@@ -90,6 +90,7 @@ int luhnCheck(string str) {
 
 int luhnStepOne(string str) {
 	int sum = 0;
+	int length = len;
 	for (int i = len; i >= 0; i--) {
 		sum += (str[i] * 2);
 	}
