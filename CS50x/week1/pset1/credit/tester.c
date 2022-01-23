@@ -10,6 +10,7 @@ int getIntLength();
 int main(void) {
     int i = get_int("Gimme an int: ");
     int len = getIntLength(i);
+    printf("len is: %i\n", len);
     // Converting Int to String
 
     char str[len];
