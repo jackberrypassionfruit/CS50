@@ -20,6 +20,10 @@ What We've Learned
 - When calling a function, even if the functions expected a certain type of number, you still have to specifiy its type when you call that variable. It's dumb, but it'll assume it's an "int" if you don't
 - I like c, but it's unforgiving
 
+Where we left off:
+- Trying to make luhn's steps work
+- Weird print len problem (described below)
+
 Weird Problems
 - For some reason, not having an early printf statement for the global len variable cause the initial length test case to fail. Does printf change something about it?
 
