@@ -4,9 +4,10 @@
 // int getLengthOfLong();
 
 int main(void) {
-	long test = get_long("try me, user: ");
+	double test = get_long("try me, user: ");
 	// int len = getLengthOfLong(test);
-    int tester = (int) test;
+    int tester;
+    tester = test;
     int len = log(tester, 10);
 	printf("%i\n", len);
 }
