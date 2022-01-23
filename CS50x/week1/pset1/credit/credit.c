@@ -111,7 +111,7 @@ int luhnStepTwo(string str) {
 		sum += adder;
 		// printf("Sum2 is: %i\n", sum);
 	}
-	printf("Sum2 is: %i\n", sum);
+	// printf("Sum2 is: %i\n", sum);
 	return sum;
 }
 
