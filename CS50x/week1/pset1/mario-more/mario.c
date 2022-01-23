@@ -11,7 +11,6 @@ int main(void) {
 		drawBlocks(i, height);
 		printf("  ");
 		drawBlocks(i, height);
-		drawEmpties(i, height);
 		printf("\n");
 	}
 	return 1;
@@ -38,5 +37,5 @@ for i in rows:
 	print empty spaces for the amount of height minus the level
 	print as many hashes as the level
 	print 2 empty spaces
-	# do the last two things, but in reverse order
+	print just the hashes
 */
