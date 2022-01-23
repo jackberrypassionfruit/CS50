@@ -12,6 +12,8 @@ int main(void) {
     printf("i is: %lld\n", i);
     int len = getLLLength(i);
     // Converting Int to String
+    printf("i is: %lld\n", i);
+
 
     char str[len];
     sprintf(str, "%lld", i);
@@ -27,10 +29,11 @@ int main(void) {
 
 int getLLLength(num) {
     int len = 0;
-    printf("num is: %lld\n", num);
-    while (num > 0) {
+    long long ref = num;
+    printf("ref is: %lld\n", ref);
+    while (ref > 0) {
         len++;
-        num /= 10;
+        ref /= 10;
         // printf("num is: %lld\n", num);
     }
     return len;
