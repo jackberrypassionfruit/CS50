@@ -99,9 +99,8 @@ int luhnStepOne(string str) {
 		int adder = str[i - 1] - 48;
 		sum += (adder * 2);
 		printf("adder is: %i\n", adder);
-
+		printf("Sum1 is: %i\n", sum);
 	}
-	printf("Sum1 is: %i\n", sum);
 	return sum;
 }
 
