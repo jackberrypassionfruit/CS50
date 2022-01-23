@@ -17,6 +17,7 @@ Pseudocode
 
 */
 
+int luhnCheck();
 
 int main(void) {
 	long cc = get_long("Number: ");
@@ -57,4 +58,8 @@ int main(void) {
 		printf("INVALID");
 		return 0;
 	}
+}
+
+int luhnCheck(cc) {
+
 }
