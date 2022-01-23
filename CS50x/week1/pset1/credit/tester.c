@@ -4,29 +4,25 @@
 #include <string.h>
 
 int getIntLength();
-int intToString();
 
 // Testing Conditionals in C
 
 int main(void) {
     int i = get_int("Gimme an int: ");
     int len = getIntLength(i);
-    string stringy = intToString(i);
-    if ((stringy[0] == 4) && (len == 3) || (len == 4)) {
+    // Converting Int to String
+
+    char str[len];
+    sprintf(str, "%i", i);
+    printf("Int as a string: %s\n", str);
+
+    if ((str[0] == 4) && ((len == 3) || (len == 4))) {
         printf("fuck yeah");
     }
     else {
         printf("fuck noooo");
     }
 }
-
-// Converting Int to String
-
-string intToString(i) {
-    char str[len];
-    return sprintf(str, "%i", i);
-}
-
 
 int getIntLength(num) {
     int len = 0;
