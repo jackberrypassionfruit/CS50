@@ -30,7 +30,7 @@ int getIntLength(num) {
     while (num > 0) {
         len++;
         num /= 10;
-        printf("num is: %i\n", num);
+        printf("num is: %lld\n", num);
     }
     return len;
 }
