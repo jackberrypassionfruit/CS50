@@ -79,7 +79,8 @@ int getLongLength(num) {
 
 string longToString(loong, len) {
 	char str[len];
-	return sprintf(str, "%ld", loong);
+	sprintf(str, "%ld", loong);
+	return str;
 }
 
 int luhnCheck(cc) {
