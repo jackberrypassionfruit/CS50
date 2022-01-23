@@ -10,8 +10,8 @@ int getLLLength();
 int main(void) {
     long i;
     i = get_long("Gimme a long: ");
+    printf("i is: %ld\n", i);
     int len = getLLLength(i);
-    printf("len is: %i\n", len);
     // Converting Int to String
 
     char str[len];
