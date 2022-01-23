@@ -3,6 +3,25 @@
 #include <math.h>
 #include <string.h>
 
-int main(void) {
+int getIntLength();
 
+int main(void) {
+    int i = get_int("Gimme an int: ");
+    int len = getIntLength(i);
+    if ((i[1] == 4) && (len == 3) || (len == 4)) {
+        printf("fuck yeah");
+    }
+    else {
+        printf("fuck noooo");
+    }
+}
+
+
+int getIntLength(num) {
+    int len = 0;
+    while (num > 0) {
+        len++;
+        num /= 10;
+    }
+    return num;
 }
