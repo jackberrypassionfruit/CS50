@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <cs50.h>
 
-int drawEmpties(lvl, height);
-int drawBlock(lvl, height);
+int drawEmpties();
+int drawBlock();
 
 int main(void) {
 	int height = get_int("Please, dear Yahweh please, give me a number: ");
