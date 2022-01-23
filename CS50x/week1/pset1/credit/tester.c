@@ -5,6 +5,8 @@
 
 int getIntLength();
 
+// Testing Conditionals in C
+
 int main(void) {
     int i = get_int("Gimme an int: ");
     int len = getIntLength(i);
@@ -15,6 +17,8 @@ int main(void) {
         printf("fuck noooo");
     }
 }
+
+// Converting Long to String
 
 
 int getIntLength(num) {
