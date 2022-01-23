@@ -22,9 +22,9 @@ int main(void) {
 
 // Converting Int to String
 
-int intToString(i) {
+string intToString(i) {
     char str[len];
-    sprintf(str, "%i", i);
+    return sprintf(str, "%i", i);
 }
 
 
