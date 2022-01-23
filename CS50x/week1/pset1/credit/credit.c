@@ -40,7 +40,7 @@ int main(void) {
 	// printf("str is: %s\n", str);
 	if ((str[0] == '3') && (len == 15)) {
 		//Expect American Express
-		if (luhnCheck(str, len)) {
+		if (luhnCheck(str)) {
 			printf("AMERICAN EXPRESS\n");
 			return 1;
 		}
@@ -51,7 +51,7 @@ int main(void) {
 	}
 	else if (str[0] == '5' && len == 16) {
 		//Expect MasterCard
-		if (luhnCheck(str, len)) {
+		if (luhnCheck(str)) {
 			printf("MASTERCARD\n");
 			return 1;
 		}
@@ -62,7 +62,7 @@ int main(void) {
 	}
 	else if (str[0] == '4' && (len == 13 || len == 16)) {
 		//Expect Visa
-		if (luhnCheck(str, len)) {
+		if (luhnCheck(str)) {
 			printf("VISA\n");
 			return 1;
 		}
@@ -88,20 +88,19 @@ int luhnCheck(string str) {
 	return luhnStepThree(L3);
 }
 
-int luhnStepOne(string str, int length) {
+int luhnStepOne(string str) {
 	int sum = 0;
-	for (int i = length; i >= 0; i--) {
-		sum += (str[i] * 2);
+	for (int i = 16; i >= 0; i--) {
+		sum += (atoi(str[i]) * 2);
 	}
 	printf("Sum1 is: %i\n", sum);
 	return sum;
 }
 
-int luhnStepTwo(string str, int length) {
+int luhnStepTwo(string str) {
 	int sum = 0;
-	for (int i = length; i <= 0; i--) {
-		sum += str[i];
-		printf("I: %i\n", i);
+	for (int i = 16; i <= 0; i--) {
+		sum += atoi(str[i]);
 	}
 	printf("Sum2 is: %i\n", sum);
 	return sum;
@@ -112,5 +111,5 @@ int luhnStepThree(int L3) {
 	int L3Len = getLongLength(L3AsLong);
 	char L3Str[L3Len];
 	sprintf(L3Str, "%i", L3);
-	return (L3Str[L3Len - 1] == 0);
+	return (L3Str[L3Len -1] == 0);
 }
