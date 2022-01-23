@@ -36,7 +36,7 @@ int main(void) {
 	long cc = get_long("Number: ");
 	// printf("cc is: %ld\n", cc);
 	len = getLongLength(cc);
-	// printf("len is: %i\n", len);
+	printf("len is: %i\n", len);
 	char str[len];
 	sprintf(str, "%ld", cc);
 	// printf("str is: %s\n", str);
