@@ -26,7 +26,7 @@ int luhnStepThree();
 int main(void) {
 	long cc = get_long("Number: ");
 	len = getLongLength(cc);
-	if (cc[0] == 3 && len == 15) {
+	if ((cc[0] == 3) && (len == 15)) {
 		//Expect American Express
 		if luhnCheck(cc) {
 			printf("AMERICAN EXPRESS\n");
