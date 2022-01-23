@@ -1,19 +1,20 @@
 #include <stdio.h>
 #include <cs50.h>
 
-int getLengthOfLong();
+// int getLengthOfLong();
 
 int main(void) {
 	long long test = get_long("try me, user: ");
-	int len = getLengthOfLong(test);
+	// int len = getLengthOfLong(test);
+    test = log(test, 10);
 	printf("%i\n", len);
 }
 
-int getLengthOfLong(loong) {
-	int len = 0;
-	while (loong > 0) {
-		len++;
-		loong /= 10;
-	}
-    return len;
-}
+// int getLengthOfLong(loong) {
+// 	int len = 0;
+// 	while (loong > 0) {
+// 		len++;
+// 		loong /= 10;
+// 	}
+//     return len;
+// }
