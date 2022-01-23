@@ -7,11 +7,11 @@ int drawBlock();
 int main(void) {
 	int height = get_int("Please, dear Yahweh please, give me a number: ");
 	for (int i = 1; i <= height; i++) {
-		drawEmpties(lvl, height);
-		drawBlock(lvl, height);
+		drawEmpties(i, height);
+		drawBlock(i, height);
 		printf("  ");
-		drawBlocks(lvl, height);
-		drawEmpties(lvl, height);
+		drawBlocks(i, height);
+		drawEmpties(i, height);
 		printf("\n");
 	})
 }
