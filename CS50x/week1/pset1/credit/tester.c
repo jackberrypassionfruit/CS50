@@ -5,6 +5,6 @@
 
 int main(void) {
     long num = get_long("gimme a long: ");
-    printf("Long after input is: %ld", long);
+    printf("Long after input is: %ld\n", num);
     return 1;
 }
