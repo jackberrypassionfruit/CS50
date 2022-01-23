@@ -14,7 +14,7 @@ int main(void) {
     // Converting Int to String
 
     char str[len];
-    sprintf(str, "%ld", i);
+    sprintf(str, "%lld", i);
     printf("str[0] is: %c\n", str[0]);
 
     if (str[0] == '4' && (len == 3 || len == 4)) {
