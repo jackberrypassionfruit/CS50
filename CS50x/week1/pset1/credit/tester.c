@@ -3,7 +3,7 @@
 #include <math.h>
 #include <string.h>
 
-long getLengthOfLong();
+int getLengthOfLong();
 
 int main(void) {
 	long cc = get_long("try me, user: ");
@@ -13,10 +13,11 @@ int main(void) {
     return 1;
 }
 
-long getLengthOfLong(loong) {
+int getLengthOfLong(loong) {
     int len = 0;
     while (loong > 0) {
         len++;
+        printf("Loong is %ld\n", loong);
         loong = loong / 10;
         printf("Loong is %ld\n", loong);
         printf("Len is %i\n", len);
