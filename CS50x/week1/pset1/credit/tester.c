@@ -8,7 +8,8 @@ int main(void) {
 	// int len = getLengthOfLong(test);
     int tester;
     tester = test;
-    int len = log(tester, 10);
+    int f = 4;
+    int len = log(f, 10);
 	printf("%i\n", len);
 }
 
