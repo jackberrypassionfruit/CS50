@@ -22,9 +22,9 @@ int main(void) {
 
 // Converting Long to String
 
-int longToString(loong) {
+int longToString(i) {
     char str[len];
-    sprintf(str, "%ld", loong);
+    sprintf(str, "%i", i);
 }
 
 
