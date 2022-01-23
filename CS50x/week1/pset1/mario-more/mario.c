@@ -14,18 +14,22 @@ int main(void) {
 		drawEmpties(i, height);
 		printf("\n");
 	}
+	return 1;
 }
 
 // Prints each individual Line of blocks
 int drawEmpties(lvl, height) {
 	for (int i = 0; i < (height - lvl); i++) {
-		printf(' ');
+		printf(" ");
 	}
+	return 1;
 }
 
 int drawBlocks(lvl, height) {
 	for (int i = 0; i < lvl; i++) {
-		printf('#');
+		printf("#");
+	}
+	return 1;
 }
 
 /* Pseudocode
