@@ -10,18 +10,21 @@ int main(void) {
 }
 
 // Prints each individual Line of blocks
-int drawLine(lvl) {
-    for (int i = 1; i < lvl; i++) {
-        // Draw left side
-        for (int i = 1; i < lvl; i++) {
-            if
+int drawEmpties(lvl) {
+    for (int i = 1; i < (height - 1); i++) {
+        printf(" ");
     }
 }
 
+int drawBlocks(lvl) {
+    for (int i = 1; i < lvl; i++) {
+
+}
+
 /* Pseudocode
-as for HEIGHT from user
+ask for HEIGHT from user
 for i in rows:
     print empty spaces for the amount of height minus the level
-    print as many astericks as the level
+    print as many hashes as the level
     print 2 empty spaces
     # do the last two things, but in reverse order
