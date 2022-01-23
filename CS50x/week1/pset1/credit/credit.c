@@ -28,7 +28,6 @@ int main(void) {
 	int len = getLongLength(cc);
 	char str[len];
 	sprintf(str, "%ld", cc);
-	printf("str is %s\n", str);
 	printf("str is: %s\n", str);
 	if ((str[0] == 3) && (len == 15)) {
 		//Expect American Express
