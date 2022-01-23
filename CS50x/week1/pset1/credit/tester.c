@@ -15,7 +15,7 @@ int main(void) {
 
     char str[len];
     sprintf(str, "%i", i);
-    printf("Int as a string: %s\n", str);
+    // printf("Int as a string: %s\n", str);
 
     if ((str[0] == 4) && ((len == 3) || (len == 4))) {
         printf("fuck yeah\n");
@@ -30,6 +30,7 @@ int getIntLength(num) {
     while (num > 0) {
         len++;
         num /= 10;
+        printf("num is: %i\n", num);
     }
     return num;
 }
