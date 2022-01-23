@@ -18,6 +18,7 @@ Pseudocode
 */
 
 int getLongLength();
+int longToString();
 int luhnCheck();
 int luhnStepOne();
 int luhnStepTwo();
@@ -25,7 +26,9 @@ int luhnStepThree();
 
 int main(void) {
 	long cc = get_long("Number: ");
-	len = getLongLength(cc);
+	int len = getLongLength(cc);
+	string str = longToString(cc);
+	printf("str is: %s\n", str);
 	if ((cc[0] == 3) && (len == 15)) {
 		//Expect American Express
 		if luhnCheck(cc) {
@@ -72,6 +75,11 @@ int getLongLength(num) {
         num /= 10;
     }
     return num;
+}
+
+string longToString(loong) {
+	char str[len];
+	return sprintf(str, "%ld", loong);
 }
 
 int luhnCheck(cc) {
