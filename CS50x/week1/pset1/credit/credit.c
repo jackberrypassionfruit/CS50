@@ -25,6 +25,7 @@ int luhnStepThree();
 
 int main(void) {
 	long cc = get_long("Number: ");
+	printf("cc is: %ld\n", cc);
 	int len = getLongLength(cc);
 	char str[len];
 	sprintf(str, "%ld", cc);
