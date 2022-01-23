@@ -25,20 +25,20 @@ int luhnStepThree();
 
 int main(void) {
 	long cc = get_long("Number: ");
-	printf("cc is: %ld\n", cc);
+	// printf("cc is: %ld\n", cc);
 	int len = getLongLength(cc);
-	printf("len is: %i\n", len);
+	// printf("len is: %i\n", len);
 	char str[len];
 	sprintf(str, "%ld", cc);
-	printf("str is: %s\n", str);
-	if ((str[0] == 3) && (len == 15)) {
+	// printf("str is: %s\n", str);
+	if ((str[0] == '3') && (len == 15)) {
 		//Expect American Express
 		if (luhnCheck(cc)) {
 			printf("AMERICAN EXPRESS\n");
 			return 1;
 		}
 		else {
-			printf("Poop\n");
+			printf("INVALID\n");
 			return 0;
 		}
 	}
