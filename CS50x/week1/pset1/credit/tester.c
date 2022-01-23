@@ -4,7 +4,7 @@
 // int getLengthOfLong();
 
 int main(void) {
-	long long test = get_long("try me, user: ");
+	long test = get_long("try me, user: ");
 	// int len = getLengthOfLong(test);
     test = log(test, 10);
 	printf("%i\n", len);
