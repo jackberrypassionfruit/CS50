@@ -17,6 +17,7 @@ Pseudocode
 
 */
 
+int getLongLength();
 int luhnCheck();
 int luhnStepOne();
 int luhnStepTwo();
@@ -61,6 +62,15 @@ int main(void) {
 		printf("INVALID\n");
 		return 0;
 	}
+}
+
+int getLongLength(num) {
+    int len = 0;
+    while (num > 0) {
+        len++;
+        num /= 10;
+    }
+    return num;
 }
 
 int luhnCheck(cc) {
