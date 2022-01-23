@@ -6,7 +6,8 @@
 int main(void) {
 	long test = get_long("try me, user: ");
 	// int len = getLengthOfLong(test);
-    test = log(test, 10);
+    int tester = (int) test;
+    int len = log(tester, 10);
 	printf("%i\n", len);
 }
 
