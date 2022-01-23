@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <cs50.h>
+#include <math.h>
 
 /* Notes
 Credit Card Identitifiers
@@ -77,12 +78,7 @@ int main(void) {
 }
 
 int getLongLength(long num) {
-    int len = 0;
-    while (num > 0) {
-        len++;
-        num /= 10;
-    }
-    return len;
+	return floor(log10(num)) + 1;
 }
 
 int luhnCheck(cc) {
