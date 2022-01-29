@@ -35,7 +35,6 @@ int getLongLength();
 int luhnCheck();
 int luhnStepOne();
 int luhnStepTwo();
-int luhnStepThree();
 
 int len;
 
