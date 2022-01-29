@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <cs50.h>
-#include <math.h>
+// #include <math.h>
 
 /* Notes
 Credit Card Identitifiers
