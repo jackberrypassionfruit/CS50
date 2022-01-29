@@ -102,11 +102,15 @@ int luhnStepOne(string str) {
 	int sum = 0;
 	int adder;
 	for (int i = len - 1; i >= 0; i -= 2) {
-		//This is the problem. I'm not adding each number, but the digits in each number
-		adder = str[i - 1] - 48;
-		sum += (adder * 2);
-		// printf("adder is: %i\n", adder);
-		// printf("Sum1 is: %i\n", sum);
+		//Set adder to every other digit in the credit card, doubled, starting from the 2nd last
+		adder = 2 * (str[i - 1] - 48);
+		//Add the digits within the number "adder" to sum, BUT NOT ADDER ITSELF
+		if (adder >= 10) {
+			sum += 1 + (adder - 10);
+		}
+		else {sum += adder;}
+		printf("adder is: %i\n", adder);
+		printf("Sum1 is: %i\n", sum);
 	}
 	printf("Sum1 is: %i\n", sum);
 	return sum;
