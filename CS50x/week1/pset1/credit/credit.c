@@ -108,10 +108,10 @@ int luhnStepOne(string str) {
 			sum += 1 + (adder - 10);
 		}
 		else {sum += adder;}
-		printf("adder is: %i\n", adder);
-		printf("Sum1 is: %i\n", sum);
+		// printf("adder is: %i\n", adder);
+		// printf("Sum1 is: %i\n", sum);
 	}
-	printf("Sum1 is: %i\n", sum);
+	// printf("Sum1 is: %i\n", sum);
 	return sum;
 }
 
@@ -123,6 +123,6 @@ int luhnStepTwo(string str) {
 		// printf("adder is: %i\n", adder);
 		// printf("Sum2 is: %i\n", sum);
 	}
-	printf("Sum2 is: %i\n", sum);
+	// printf("Sum2 is: %i\n", sum);
 	return sum;
 }
