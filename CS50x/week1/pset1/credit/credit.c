@@ -57,7 +57,7 @@ int main(void) {
 			return 0;
 		}
 	}
-	else if (str[0] == '5' && len == 16) {
+	else if (str[0] == '5' && (str[1] == '1' || str[1] == '2' || str[1] == '3' || str[1] == '4' || str[1] == '5') && len == 16) {
 		//Expect MasterCard
 		if (luhnCheck(str)) {
 			printf("MASTERCARD\n");
