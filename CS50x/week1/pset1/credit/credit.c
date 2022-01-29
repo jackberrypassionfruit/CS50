@@ -45,7 +45,7 @@ int main(void) {
 	char str[len];
 	sprintf(str, "%ld", cc);
 	// printf("str is: %s\n", str);
-	printf("len is: %i\n", len);
+	// printf("len is: %i\n", len);
 	if ((str[0] == '3') && (len == 15)) {
 		//Expect American Express
 		if (luhnCheck(str)) {
@@ -111,7 +111,7 @@ int luhnStepOne(string str) {
 		// printf("adder is: %i\n", adder);
 		// printf("Sum1 is: %i\n", sum);
 	}
-	printf("Sum1 is: %i\n", sum);
+	// printf("Sum1 is: %i\n", sum);
 	return sum;
 }
 
@@ -123,6 +123,6 @@ int luhnStepTwo(string str) {
 		// printf("adder is: %i\n", adder);
 		// printf("Sum2 is: %i\n", sum);
 	}
-	printf("Sum2 is: %i\n", sum);
+	// printf("Sum2 is: %i\n", sum);
 	return sum;
 }
