@@ -54,7 +54,7 @@ int main(void) {
 		}
 		else {
 			printf("INVALID\n");
-			return 1;
+			return 0;
 		}
 	}
 	else if (str[0] == '5' && len == 16) {
@@ -65,7 +65,7 @@ int main(void) {
 		}
 		else {
 			printf("INVALID\n");
-			return 1;
+			return 0;
 		}
 	}
 	else if (str[0] == '4' && (len == 13 || len == 16)) {
@@ -76,12 +76,12 @@ int main(void) {
 		}
 		else {
 			printf("INVALID\n");
-			return 1;
+			return 0;
 		}
 	}
 	else {
 		printf("INVALID\n");
-		return 1;
+		return 0;
 	}
 }
 
@@ -111,7 +111,7 @@ int luhnStepOne(string str) {
 		// printf("adder is: %i\n", adder);
 		// printf("Sum1 is: %i\n", sum);
 	}
-	// printf("Sum1 is: %i\n", sum);
+	printf("Sum1 is: %i\n", sum);
 	return sum;
 }
 
@@ -123,6 +123,6 @@ int luhnStepTwo(string str) {
 		// printf("adder is: %i\n", adder);
 		// printf("Sum2 is: %i\n", sum);
 	}
-	// printf("Sum2 is: %i\n", sum);
+	printf("Sum2 is: %i\n", sum);
 	return sum;
 }
