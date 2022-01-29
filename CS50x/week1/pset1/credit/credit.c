@@ -46,7 +46,7 @@ int main(void) {
 	sprintf(str, "%ld", cc);
 	// printf("str is: %s\n", str);
 	printf("");
-	if ((str[0] == '3') && (len == 15)) {
+	if ((str[0] == '3' && (str[1] == '4' || str[1] == '7')) && (len == 15)) {
 		//Expect American Express
 		if (luhnCheck(str)) {
 			printf("AMEX\n");
