@@ -96,7 +96,6 @@ int luhnCheck(string str) {
 	return (L3 % 10 == 0);
 }
 
-// This one gets the sum, but I fogot that I have to add te numbers digits instead
 int luhnStepOne(string str) {
 	int sum = 0;
 	int adder;
