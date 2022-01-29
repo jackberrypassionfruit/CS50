@@ -94,7 +94,7 @@ int luhnCheck(string str) {
 	int L1 = luhnStepOne(str);
 	int L2 = luhnStepTwo(str);
 	int L3 = L1 + L2;
-	return luhnStepThree(L3);
+	return (L3 % 10 == 0);
 }
 
 // This one gets the sum, but I fogot that I have to add te numbers digits instead
@@ -121,17 +121,9 @@ int luhnStepTwo(string str) {
 	for (int i = len; i > 0; i -= 2) {
 		int adder = str[i - 1] - 48;
 		sum += adder;
-		printf("adder is: %i\n", adder);
-		printf("Sum2 is: %i\n", sum);
+		// printf("adder is: %i\n", adder);
+		// printf("Sum2 is: %i\n", sum);
 	}
 	printf("Sum2 is: %i\n", sum);
 	return sum;
-}
-
-int luhnStepThree(int L3) {
-	long L3AsLong = (long) L3;
-	int L3Len = getLongLength(L3AsLong);
-	char L3Str[L3Len];
-	sprintf(L3Str, "%i", L3);
-	return (L3Str[L3Len -1] == 0);
 }
