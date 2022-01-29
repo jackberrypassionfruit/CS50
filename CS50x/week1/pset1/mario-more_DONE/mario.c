@@ -6,9 +6,11 @@ int drawBlocks();
 
 int main(void) {
 	int height = 0;
-	while (!(height >= 1 && height <= 8)) {
+	do {
 		height = get_int("Please, dear Yahweh please, give me a number: ");
 	}
+	while (height < 1 || height > 8);
+
 	for (int i = 1; i <= height; i++) {
 		drawEmpties(i, height);
 		drawBlocks(i, height);
@@ -20,14 +22,14 @@ int main(void) {
 }
 
 // Prints each individual Line of blocks
-int drawEmpties(lvl, height) {
+int drawEmpties(int lvl, int height) {
 	for (int i = 0; i < (height - lvl); i++) {
 		printf(" ");
 	}
 	return 1;
 }
 
-int drawBlocks(lvl, height) {
+int drawBlocks(int lvl, int height) {
 	for (int i = 0; i < lvl; i++) {
 		printf("#");
 	}
