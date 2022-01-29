@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <cs50.h>
-// #include <math.h>
+#include <math.h>
 
 /* Notes
 Credit Card Identitifiers
@@ -45,7 +45,7 @@ int main(void) {
 	char str[len];
 	sprintf(str, "%ld", cc);
 	// printf("str is: %s\n", str);
-	// printf("len is: %i\n", len);
+	printf("");
 	if ((str[0] == '3') && (len == 15)) {
 		//Expect American Express
 		if (luhnCheck(str)) {
