@@ -50,38 +50,38 @@ int main(void) {
 		//Expect American Express
 		if (luhnCheck(str)) {
 			printf("AMERICAN EXPRESS\n");
-			return 1;
+			return 0;
 		}
 		else {
 			printf("INVALID\n");
-			return 0;
+			return 1;
 		}
 	}
 	else if (str[0] == '5' && len == 16) {
 		//Expect MasterCard
 		if (luhnCheck(str)) {
 			printf("MASTERCARD\n");
-			return 1;
+			return 0;
 		}
 		else {
 			printf("INVALID\n");
-			return 0;
+			return 1;
 		}
 	}
 	else if (str[0] == '4' && (len == 13 || len == 16)) {
 		//Expect Visa
 		if (luhnCheck(str)) {
 			printf("VISA\n");
-			return 1;
+			return 0;
 		}
 		else {
 			printf("INVALID\n");
-			return 0;
+			return 1;
 		}
 	}
 	else {
-		printf("This awful one\n");
-		return 0;
+		printf("INVALID\n");
+		return 1;
 	}
 }
 
