@@ -49,7 +49,7 @@ int main(void) {
 	if ((str[0] == '3') && (len == 15)) {
 		//Expect American Express
 		if (luhnCheck(str)) {
-			printf("AMERICAN EXPRESS\n");
+			printf("AMEX\n");
 			return 0;
 		}
 		else {
