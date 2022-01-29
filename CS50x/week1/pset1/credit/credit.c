@@ -97,6 +97,7 @@ int luhnCheck(string str) {
 	return luhnStepThree(L3);
 }
 
+// This one is working
 int luhnStepOne(string str) {
 	int sum = 0;
 	int adder;
@@ -104,7 +105,7 @@ int luhnStepOne(string str) {
 		adder = str[i - 1] - 48;
 		sum += (adder * 2);
 		// printf("adder is: %i\n", adder);
-		printf("Sum1 is: %i\n", sum);
+		// printf("Sum1 is: %i\n", sum);
 	}
 	return sum;
 }
@@ -112,7 +113,7 @@ int luhnStepOne(string str) {
 int luhnStepTwo(string str) {
 	int sum = 0;
 	for (int i = len; i >= 0; i -= 2) {
-		int adder = str[i] - 48;
+		int adder = str[i - 1] - 48;
 		sum += adder;
 		printf("adder is: %i\n", adder);
 		printf("Sum2 is: %i\n", sum);
