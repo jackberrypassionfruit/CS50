@@ -100,7 +100,7 @@ int luhnCheck(string str) {
 int luhnStepOne(string str) {
 	int sum = 0;
 	int adder;
-	for (int i = len - 1; i >= 0; i -= 2) {
+	for (int i = len - 1; i >= 1; i -= 2) {
 		//Set adder to every other digit in the credit card, doubled, starting from the 2nd last
 		adder = 2 * (str[i - 1] - 48);
 		//Add the digits within the number "adder" to sum, BUT NOT ADDER ITSELF
@@ -108,8 +108,8 @@ int luhnStepOne(string str) {
 			sum += 1 + (adder - 10);
 		}
 		else {sum += adder;}
-		// printf("adder is: %i\n", adder);
-		// printf("Sum1 is: %i\n", sum);
+		printf("adder is: %i\n", adder);
+		printf("Sum1 is: %i\n", sum);
 	}
 	printf("Sum1 is: %i\n", sum);
 	return sum;
