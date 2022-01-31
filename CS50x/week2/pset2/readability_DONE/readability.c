@@ -2,6 +2,7 @@
 #include <cs50.h>
 #include <string.h>
 #include <math.h>
+#include <ctype.h>
 
 float numberOfLetters(string text);
 float numberOfWords(string text);
