@@ -3,5 +3,5 @@
 #include <cs50.h>
 
 int main(int argc, string argv[]) {
-  printf("idk: %s\n", argv[1]);
+  printf("argc is: %i\n", argc);
 }
