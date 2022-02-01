@@ -49,7 +49,13 @@ int main(int argc, string argv[])
     }
     for (int i = 0; i < 26; i++)
     {
-        key[i] = toupper(key[i]);
+        char k = key[i];
+        if (tolower(k) == tolower(k))
+        {
+            printf("Key must have only letter, a-Z\n");
+            return 1;
+        }
+        key[i] = toupper(k);
     }
     string ptext = get_string("plaintext: ");
     string ctext = cypher(ptext);
