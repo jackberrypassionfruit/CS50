@@ -5,6 +5,7 @@ int drawEmpties();
 int drawBlocks();
 
 int main(void) {
+
     int height = 0;
     do {
         height = get_int("Please, dear Yahweh please, give me a number: ");
