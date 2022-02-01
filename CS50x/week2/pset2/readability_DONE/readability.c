@@ -33,7 +33,7 @@ int main(void)
     }
     else
     {
-        printf("Grade Level: %i\n", ans);
+        printf("Grade %i\n", ans);
     }
     return 0;
 }
