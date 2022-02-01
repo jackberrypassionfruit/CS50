@@ -39,8 +39,10 @@ int compute_score(string word)
     int pnts = 0;
     int alph;
     // word = word.tolower();
-    for (int i = 0; i < len; i++) {
-        if (toupper(word[i]) != tolower(word[i])) {
+    for (int i = 0; i < len; i++)
+    {
+        if (toupper(word[i]) != tolower(word[i]))
+        {
             word[i] = tolower(word[i]);
             // printf("word[i] is: %c\n", word[i]);
             alph = word[i] - 97;
