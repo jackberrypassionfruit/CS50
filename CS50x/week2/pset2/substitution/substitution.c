@@ -2,6 +2,7 @@
 #include <ctype.h>
 #include <cs50.h>
 #include <string.h>
+#include <stdlib.h>
 
 /*
 Pseudocode
@@ -33,19 +34,38 @@ Return the ciphertext
 
 string cypher(string ptext);
 string key;
+int checkForChar(string text, char c);
+string stringSlice(string text, int beg, int end);
 
-int main(int argc, string argv[]) {
+int main(int argc, string argv[]) 
+{
+    if (argc != 2) 
+    {
+        printf("Usage: ./substitution key\n");
+        return 1;
+    }
     key = argv[1];
-    if (strlen(key) != 26) {
+    if (strlen(key) != 26) 
+    {
         printf("Key must contain 26 characters.\n");
         return 1;
     }
-    if (argc != 2) {
-        printf("Usage: ./substitution key");
-        return 1;
-    }
-    for (int i = 0; i < 26; i++) {
+    for (int i = 0; i < 26; i++) 
+    {
+        if (toupper(key[i]) == tolower(key[i])) 
+        {
+            printf("Key must contain only letters\n");
+            return 1;
+        }
         key[i] = toupper(key[i]);
+        string slice = stringSlice(key, 0, i);
+        printf("Slice is: %s\n", slice);
+        printf("key[i] is: %c\n", key[i]);
+        if (checkForChar(slice, key[i + 1]))
+        {
+            printf("No Repeated characters in key\n");
+            return 1;
+        }
     }
     string ptext = get_string("plaintext: ");
     string ctext = cypher(ptext);
@@ -54,23 +74,52 @@ int main(int argc, string argv[]) {
     return 0;
 }
 
-string cypher(string ptext) {
+string cypher(string ptext) 
+{
     int len = strlen(ptext);
     int up;
     char c;
-    for (int i = 0; i < len; i++) {
+    for (int i = 0; i < len; i++) 
+    {
         c = ptext[i];
-        if (toupper(c) != tolower(c)) {
+        if (toupper(c) != tolower(c)) 
+        {
             up = isupper(c);
             c = tolower(c);
             // printf("up is: %i\n", up);
             c %= 97;
             ptext[i] = key[c];
-            if (!up) {
+            if (!up) 
+            {
                 ptext[i] = tolower(ptext[i]);
             }
             // printf("ptext[i] is: %c\n\n", ptext[i]);
         }
     }
     return ptext;
+}
+
+int checkForChar(string text, char c)
+{
+    for (int i = 0; i < strlen(text); i++)
+    {
+        if (c == text[i])
+        {
+        return 1;
+        }
+    }
+    return 0;
+}
+
+string stringSlice(string text, int beg, int end)
+{
+    int len = end - beg;
+    // char newt[len];
+    char *newt = malloc(len);
+    for (int i = 0; i <= len; i++)
+    {
+        newt[i] = text[beg + i];
+        // printf("Newt is %s\n", newt);
+    }
+    return newt;
 }
