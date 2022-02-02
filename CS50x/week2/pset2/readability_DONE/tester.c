@@ -9,4 +9,5 @@ int main(void) {
     float S = sent / words;
     printf("Letters per word: %f\n", L);
     printf("Letters per sentences: %f\n", S);
+    print("poopp")
 }
