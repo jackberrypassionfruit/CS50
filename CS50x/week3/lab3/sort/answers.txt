@@ -1,11 +1,29 @@
-sort1 uses: TODO
+sort1 uses: Selection Sort
 
-How do you know?: TODO
+How do you know?:
 
-sort2 uses: TODO
+sort2 uses: Merge Sort
 
-How do you know?: TODO
+How do you know?:
 
-sort3 uses: TODO
+sort3 uses: Bubble Sort
 
-How do you know?: TODO
+How do you know?:
+
+
+Notes:
+-----
+Sorted5000.txt
+sort1: 0.008s
+sort2: 0.006s
+sort3: 0.025s
+
+Random5000.txt
+sort1: 0.061s
+sort2: 0.005s
+sort3: 0.028s
+
+Reversed5000.txt
+sort1: 0.071s
+sort2: 0.009s
+sort3: 0.031s
