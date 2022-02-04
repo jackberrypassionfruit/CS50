@@ -1,14 +1,17 @@
 sort1 uses: Bubble Sort
 
-How do you know?: After running each algorithm over the 5000number list when Random, Sorted, and Reversed, sort1's runtime was best when the list was pre-sorted and worst when it was completely reversed. Bubble sort is the algorithm that's runtime is affected the most by the original list, so this is must be this sort 1.
+How do you know?:
+After running each algorithm over the 5000number list when Random, Sorted, and Reversed, sort1's runtime was best when the list was pre-sorted and worst when it was completely reversed. Bubble sort is the algorithm that's runtime is affected the most by the original list, so this is must be this sort 1.
 
 sort2 uses: Merge Sort
 
-How do you know?: sort2's runtime was the fastest in all 3 test cases, and Merge Sort has the best Big O time of the 3 algorithms anyway, so it must be this one.
+How do you know?:
+sort2's runtime was the fastest in all 3 test cases, and Merge Sort has the best Big O time of the 3 algorithms anyway, so it must be this one.
 
 sort3 uses: Selection Sort
 
-How do you know?: sort3's runtime was very similar in all 3 test cases, leading to the conclusion that it was not affected much by the condition of the original list of numbers to be sorted. This is in line with the  Selection sort, where the the algorithm will pass over the list "n" regardless of what it sees each time it repeats.
+How do you know?:
+sort3's runtime was very similar in all 3 test cases, leading to the conclusion that it was not affected much by the condition of the original list of numbers to be sorted. This is in line with the  Selection sort, where the the algorithm will pass over the list "n" regardless of what it sees each time it repeats.
 
 
 Notes:
