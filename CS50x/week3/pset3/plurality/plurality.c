@@ -101,6 +101,7 @@ void print_winner(void)
             }
             winner_count = 1;
             winners[0] = candidates[i].name;
+            winning_votes = candidates[i].votes;
         }
         else if (candidates[i].votes == winning_votes)
         {
