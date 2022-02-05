@@ -87,7 +87,7 @@ void print_winner(void)
     for (int i = 0; i < candidate_count; i++)
     {
         // Debugging Start
-        for (int j = 0; )
+        for (int j = 0; j < candidate_count; j++)
         {
             printf("winners[i].name is: %s and their votes is: %i\n", winners[j].name, winners[j].votes);
         }
