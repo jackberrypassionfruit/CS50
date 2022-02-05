@@ -68,7 +68,6 @@ bool vote(string name)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        // printf("name is %s and candidates[i].name is %s\n", name, candidates[i].name);
         if (!strcmp(name, candidates[i].name))
         {
             candidates[i].votes += 1;
@@ -87,6 +86,10 @@ void print_winner(void)
     int winner_count = 1;
     for (int i = 0; i < candidate_count; i++)
     {
+        // Debugging Start
+        for (int i = 0; )
+        printf("winners_name is: %s\n", winners)
+        // Debugging End
         if (candidates[i].votes > winning_votes)
         {
             //Clear array
