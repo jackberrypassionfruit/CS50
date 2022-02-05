@@ -87,10 +87,10 @@ void print_winner(void)
     for (int i = 0; i < candidate_count; i++)
     {
         // Debugging Start
-        for (int j = 0; j < candidate_count; j++)
-        {
-            printf("winners[j] is: %s, ", winners[j]);
-        }
+        // for (int j = 0; j < candidate_count; j++)
+        // {
+        //     printf("winners[j] is: %s, ", winners[j]);
+        // }
         // Debugging End
 
         if (candidates[i].votes > winning_votes)
@@ -109,7 +109,7 @@ void print_winner(void)
             winner_count += 1;
             winners[winner_count - 1] = candidates[i].name;
         }
-        printf("\n");
+        // printf("\n");
     }
     for (int i = 0; i < candidate_count; i++)
     {
