@@ -89,7 +89,7 @@ void print_winner(void)
         // Debugging Start
         for (int j = 0; j < candidate_count; j++)
         {
-            printf("winners[i].name is: %s and their votes is: %i\n", winners[j].name, winners[j].votes);
+            printf("winners[j].name is: %s, ", winners[j]);
         }
         // Debugging End
         if (candidates[i].votes > winning_votes)
