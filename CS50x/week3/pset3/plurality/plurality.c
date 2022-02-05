@@ -81,14 +81,36 @@ bool vote(string name)
 void print_winner(void)
 {
     // Because there may be more than one winner, as you check the number of votes for each candidate, store the people who tie for the most in an array. If someone new has winning_votes, reset the array and winner_count
-    string winner[candidate_count];
+    string winners[candidate_count];
     int winning_votes = 0;
-    int winner_count = 0;
+    int winner_count = 1;
     for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].votes > winning_votes)
         {
-
+            //Clear array
+            for (int j = 0; j < candidate_count; j++)
+            {
+                winners[j] = NULL;
+            }
+            winner_count = 1;
+            winners[0] = candidates[i].name;
+        }
+        else if (candidates[i].votes = winning_votes)
+        {
+            winner_count += 1;
+            winners[i - 1] = candidates[i].name;
+        }
+    }
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (winners[i] != NULL)
+        {
+            return;
+        }
+        else
+        {
+            printf("%s\n", winners[i].name);
         }
     }
     return;
