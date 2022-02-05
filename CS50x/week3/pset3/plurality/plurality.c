@@ -110,7 +110,7 @@ void print_winner(void)
         }
         else
         {
-            printf("%s\n", winners[i].name);
+            printf("%s\n", winners[i]);
         }
     }
     return;
