@@ -96,7 +96,7 @@ void print_winner(void)
             winner_count = 1;
             winners[0] = candidates[i].name;
         }
-        else if (candidates[i].votes = winning_votes)
+        else if (candidates[i].votes == winning_votes)
         {
             winner_count += 1;
             winners[i - 1] = candidates[i].name;
