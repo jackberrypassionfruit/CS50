@@ -80,6 +80,16 @@ bool vote(string name)
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
-    // TODO
+    // Because there may be more than one winner, as you check the number of votes for each candidate, store the people who tie for the most in an array. If someone new has winning_votes, reset the array and winner_count
+    string winner[candidate_count];
+    int winning_votes = 0;
+    int winner_count = 0;
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].votes > winning_votes)
+        {
+
+        }
+    }
     return;
 }
