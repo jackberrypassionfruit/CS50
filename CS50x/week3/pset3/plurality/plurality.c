@@ -92,6 +92,7 @@ void print_winner(void)
             printf("winners[j] is: %s, ", winners[j]);
         }
         // Debugging End
+
         if (candidates[i].votes > winning_votes)
         {
             //Clear array
@@ -106,7 +107,7 @@ void print_winner(void)
         else if (candidates[i].votes == winning_votes)
         {
             winner_count += 1;
-            winners[i - 1] = candidates[i].name;
+            winners[winner_count - 1] = candidates[i].name;
         }
         printf("\n");
     }
