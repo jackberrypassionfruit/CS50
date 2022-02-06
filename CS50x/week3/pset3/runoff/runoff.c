@@ -180,6 +180,12 @@ void tabulate(void)
         }
         candidates[pref_cand].votes += 1;
     }
+
+    // Debugging
+    for (int i = 0; i < candidate_count; i++)
+    {
+        printf("Candidate %s has %i votes at %ith step\n", candidates[i].name, candidates[i].votes, i);
+    }
 }
 
 // DONE
