@@ -164,7 +164,7 @@ void tabulate(void)
             }
             else
             {
-                // Voter's highest pref was already eliminated, so no vote yet. Do nothing, and check next preference
+                // Voter hasn't cast a ballot yet, so check next highest pref
                 ;
             }
             // Loop through candidates names
