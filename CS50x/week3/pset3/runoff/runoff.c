@@ -143,7 +143,7 @@ bool vote(int voter, int rank, string name)
     return false;
 }
 
-// DONE
+
 // Tabulate votes for non-eliminated candidates
 void tabulate(void)
     // ******  Where we left off **** ///////////
@@ -165,36 +165,11 @@ void tabulate(void)
     int ballots_drawn = 0;
     for (int i = 0; i < voter_count; i++)
     {
-        // Loop through rank in their votes
         for (int j = 0; j < candidate_count; j++)
         {
-            if (ballots_drawn > i)
-            {
-                // Voter's highest pref was given a vote, so break each next pref and go to next voter
-                break;
-            }
-            else
-            {
-                // Voter hasn't cast a ballot yet, so check next highest pref
-                ;
-            }
-            // Loop through candidates names
-            for (int k = 0; k < candidate_count; k++)
-            {
-                // If they are eliminated, check the next name
-                if (!strcmp(preferences[i][j], candidates[k].name))
-                {
-                    // If they are not eliminated, give them a vote
-                    if (!candidates[k].eliminated)
-                    {
-                        candidates[k].votes += 1;
-                        ballots_drawn += 1;
-                    }
-                }
-            }
+
         }
     }
-    return;
 }
 
 // DONE
