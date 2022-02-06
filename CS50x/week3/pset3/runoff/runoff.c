@@ -176,9 +176,7 @@ void tabulate(void)
                     if (!candidates[k].eliminated)
                     {
                         candidates[k].votes += 1;
-                    }
-                    else {
-
+                        ballots_drawn += 1;
                     }
                 }
             }
