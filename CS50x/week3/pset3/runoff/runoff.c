@@ -184,7 +184,7 @@ void tabulate(void)
     // Debugging
     for (int i = 0; i < candidate_count; i++)
     {
-        printf("Candidate %s has %i votes at %ith step\n", candidates[i].name, candidates[i].votes, i);
+        printf("Candidate %s has %i votes\n", candidates[i].name, candidates[i].votes);
     }
 }
 
