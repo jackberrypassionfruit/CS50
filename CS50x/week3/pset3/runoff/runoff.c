@@ -172,6 +172,7 @@ void tabulate(void)
         {
             if (preferences[i][j] <  highest_pref && candidates[j].eliminated == false)
             {
+                highest_pref = preferences[i][j];
                 pref_cand = j;
             }
         }
