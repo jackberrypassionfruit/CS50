@@ -152,6 +152,12 @@ void tabulate(void)
     */
     // Loop through voters
 
+    // Clear all candidates' votes
+    for (int i = 0; i < candidate_count; i++)
+    {
+        candidates[i].votes = 0;
+    }
+
     int ballots_drawn = 0;
     for (int i = 0; i < voter_count; i++)
     {
