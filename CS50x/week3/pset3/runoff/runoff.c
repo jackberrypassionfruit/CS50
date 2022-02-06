@@ -143,39 +143,22 @@ bool vote(int voter, int rank, string name)
 
 // Tabulate votes for non-eliminated candidates
 void tabulate(void)
-    // ******  Where we left off **** ///////////
-    /* Method For making sure each voter only gets one vote:
-        - Create a variable called ballots_drawn
-        - Whenever someone's highest preference vote gets cast, int ballots is incremented
-        - Then, when looping through rank in each voter's choice, check int ballot
-        - If it is not less than their voter number, break from that loop
-        - Check next voter
-    */
-    // Loop through voters
-
-    // Clear all candidates' votes
-
-    {
+{
     for (int i = 0; i < candidate_count; i++)
     {
         candidates[i].votes = 0;
     }
 
-    int ballots_drawn = 0;
-    int highest_pref;
-    int pref_cand;
     for (int i = 0; i < voter_count; i++)
     {
-        highest_pref = candidate_count;
-        for (int j = 0; j < candidate_count; j++)
+        for (int j = 0; j < candidate_count ; j++)
         {
-            if (preferences[i][j] <  highest_pref && candidates[j].eliminated == false)
+            if (!candidates[preferences[i][j]].eliminated)
             {
-                highest_pref = preferences[i][j];
-                pref_cand = j;
+                candidates[preferences[i][j]].votes += 1;
+                break;
             }
         }
-        candidates[pref_cand].votes += 1;
     }
 
     // Debugging
