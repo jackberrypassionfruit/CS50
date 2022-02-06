@@ -192,7 +192,8 @@ bool print_winner(void)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if ((float) candidates[i].votes / (float) voter_count > 0.5)
+        // Hopefully 0.5 is made into a float as well, I'll assign it just in case
+        if ((float) candidates[i].votes / (float) voter_count > (float) 0.5)
         {
             printf("%s is the Winner!\n", candidates[i].name);
             return true;
