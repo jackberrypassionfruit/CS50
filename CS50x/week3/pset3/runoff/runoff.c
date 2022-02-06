@@ -163,11 +163,14 @@ void tabulate(void)
     }
 
     int ballots_drawn = 0;
+    int highest_pref;
+    int pref_cand;
     for (int i = 0; i < voter_count; i++)
     {
+        highest_pref = candidate_count;
         for (int j = 0; j < candidate_count; j++)
         {
-
+            if (preferences[i][j] <  highest_pref)
         }
     }
 }
