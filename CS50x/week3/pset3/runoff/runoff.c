@@ -170,8 +170,12 @@ void tabulate(void)
         highest_pref = candidate_count;
         for (int j = 0; j < candidate_count; j++)
         {
-            if (preferences[i][j] <  highest_pref)
+            if (preferences[i][j] <  highest_pref && candidates[j].eliminated == false)
+            {
+                pref_cand = j;
+            }
         }
+        candidates[pref_cand].votes += 1;
     }
 }
 
