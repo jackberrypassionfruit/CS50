@@ -7,5 +7,5 @@ int main(void)
 {
     int x = 4;
     int y = 93;
-    printf("x / y = %f\n", (float) y / (float) x);
+    printf("x / y = %d\n", (float) y / (float) x > 20.0);
 }
