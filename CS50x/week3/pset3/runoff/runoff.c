@@ -206,7 +206,8 @@ bool print_winner(void)
 // Return the minimum number of votes any remaining candidate has
 int find_min(void)
 {
-    int min_votes MAX;
+    // Technically, the maximum number of votes a candidate can have. It can only be lower
+    int min_votes = MAX_CANDIDATES;
     for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].votes < min_votes)
