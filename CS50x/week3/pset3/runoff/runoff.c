@@ -129,14 +129,11 @@ int main(int argc, string argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-    // 2D Array Pref ultimately stores candidates and their rank for each voter...
-    // ...so as user gives a votename in their order of preference...
-    // kinda switch that, and store the pref in place of that name in the array
     for (int i = 0; i < candidate_count; i++)
     {
         if (!strcmp(name, candidates[i].name))
         {
-            preferences[voter][i] = rank;
+            preferences[voter][rank] = i;
             return true;
         }
     }
