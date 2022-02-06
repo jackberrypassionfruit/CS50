@@ -159,11 +159,12 @@ void tabulate(void)
         {
             if (ballots_drawn > i)
             {
+                // Voter's highest pref was given a vote, so break each next pref and go to next voter
                 break;
             }
             else
             {
-                // Voter's next highest voter was already eliminated, so no vote yet. Do nothing, and check next preference
+                // Voter's highest pref was already eliminated, so no vote yet. Do nothing, and check next preference
                 ;
             }
             // Loop through candidates names
