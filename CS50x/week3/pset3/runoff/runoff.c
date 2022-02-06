@@ -225,6 +225,7 @@ int find_min(void)
     return min_votes;
 }
 
+// DONE
 // Return true if the election is tied between all candidates, false otherwise
 bool is_tie(int min)
 {
