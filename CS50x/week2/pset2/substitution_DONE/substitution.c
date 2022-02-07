@@ -88,7 +88,7 @@ string cypher(string ptext)
             c = tolower(c);
             // printf("up is: %i\n", up);
             c %= 97;
-            ptext[i] = key[c];
+            ptext[i] = key[(int) c];
             if (!up)
             {
                 ptext[i] = tolower(ptext[i]);
