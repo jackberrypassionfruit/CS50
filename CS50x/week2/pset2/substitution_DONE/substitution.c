@@ -59,8 +59,8 @@ int main(int argc, string argv[])
         }
         key[i] = toupper(key[i]);
         string slice = stringSlice(key, 0, i);
-        printf("Slice is: %s\n", slice);
-        printf("key[i] is: %c\n", key[i + 1]);
+        // printf("Slice is: %s\n", slice);
+        // printf("key[i] is: %c\n", key[i + 1]);
         if (checkForChar(slice, key[i + 1]))
         {
             printf("No Repeated characters in key\n");
