@@ -37,8 +37,7 @@ int main(int argc, char *argv[])
     uint8_t header[44];
 
     fread(&header, sizeof(uint8_t), 44, input);
-
-    printf("%i\n", header[1]);
+    fwrite(&header, sizeof(uint8_t), 44, output);
 
     // TODO: Read samples from input file and write updated data to output file
 
