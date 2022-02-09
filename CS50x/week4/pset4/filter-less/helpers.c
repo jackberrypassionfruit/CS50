@@ -83,6 +83,18 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 }
 
 // Blur image
+
+/* Idea that I'm too tired to implement:
+    copy data from image into a new RGBTRIPLE called buffer
+    row by row, column by column, check if pixel is on a wall
+    and then change the pixels in image to the "blurred" ones from the buffer accordingly
+    The weird part is that you use different edges based on where the pixel is
+    And the ones that you exclude aren't themelves exclusive
+    So it's weird
+    But I'll  just write a bunch of ifs and it'll be fine
+    I think the only helper function that I'll really need is one to change all 3 pixel values at once
+    I can do that as long as buffer is global (which it is) and image is global (which I THINK it is because it's from a pointer)
+
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     buffer = image;
@@ -129,4 +141,9 @@ void blur_helper(int y, int x, int side)
 
             int new_
     }
+}
+
+void blur_pixel_helper(int i, RGBTRIPLE input, RGBTRIPLE output)
+{
+
 }
