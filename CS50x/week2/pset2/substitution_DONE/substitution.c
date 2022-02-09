@@ -50,14 +50,19 @@ int main(int argc, string argv[])
         printf("Key must contain 26 characters.\n");
         return 1;
     }
+
     for (int i = 0; i < 26; i++)
+    {
+        key[i] = toupper(key[i]);
+    }
+
+    for (int i = 0; i < 25; i++)
     {
         if (toupper(key[i]) == tolower(key[i]))
         {
             printf("Key must contain only letters\n");
             return 1;
         }
-        key[i] = toupper(key[i]);
         string slice = stringSlice(key, 0, i);
         // printf("Slice is: %s\n", slice);
         // printf("key[i] is: %c\n", key[i + 1]);
