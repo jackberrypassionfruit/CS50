@@ -81,7 +81,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             image[i][width].rgbtBlue = buffer[j].rgbtBlue;
             if (j == 0)
             {
-            printf("image[i][width].rgbtRed is %i\n", image[i][width].rgbtRed);
+                printf("image[i][width].rgbtRed is %i\n", image[i][width].rgbtRed);
             }
         }
     }
