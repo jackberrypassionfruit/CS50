@@ -14,7 +14,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
             int g = image[i][j].rgbtGreen;
             int b = image[i][j].rgbtBlue;
 
-            int rgb_avg = ceil((float) (r + g + b) / 3.0);
+            float rgb_avg = (float) (r + g + b) / 3.0;
 
             image[i][j].rgbtRed = rgb_avg;
             image[i][j].rgbtGreen = rgb_avg;
