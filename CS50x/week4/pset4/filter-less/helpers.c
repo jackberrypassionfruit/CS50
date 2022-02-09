@@ -95,6 +95,8 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     I think the only helper function that I'll really need is one to change all 3 pixel values at once
     I can do that as long as buffer is global (which it is) and image is global (which I THINK it is because it's from a pointer)
 
+*/
+
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     buffer = image;
