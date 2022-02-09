@@ -114,7 +114,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 int bm = image[i + 1][j];
                 int br = image[i + 1][j + 1];
 
-                int rbg_avg = (ml + mr + bl + bm + br) / 5;
+                int rgb_avg = (ml + mr + bl + bm + br) / 5;
 
                 image[i][j].rgbtRed = rgb_avg;
                 image[i][j].rgbtGreen = rgb_avg;
@@ -187,11 +187,4 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         }
     }
     return;
-}
-
-void rgb_swapper(RGBTRIPLE input, RGBTRIPLE output)
-{
-    output.rgbtRed = input.rgbtRed;
-    output.rgbtGreen = input.rgbtGreen;
-    output.rgbtBlue = input.rgbtBlue;
 }
