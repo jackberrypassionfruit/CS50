@@ -96,7 +96,27 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-void blur_helper(int height, int width, bool top, bool right, bool bottom, bool left)
+void blur_helper(int y, int x, int side)
 {
+    switch (top)
+    {
+        // Pixel on Top
+        case 0:
 
+        break;
+        // Pixel on Right Wall
+        case 1:
+
+        break;
+        // Pixel on Bottom
+        case 2:
+
+        break;
+        // Pixel on Left Wall
+        case 3:
+
+        break;
+        default:
+
+    }
 }
