@@ -3,6 +3,6 @@
 
 int main (void)
 {
-    printf("%i\n", (4 + 9) / 3);
+    printf("%f\n", (4.0 + 9.0) / 3.0);
     return 0;
 }
