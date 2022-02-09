@@ -139,7 +139,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                 image[i][j].rgbtRed = round(r_avg);
                 image[i][j].rgbtGreen = round(g_avg);
-                image[i][j].rgbtBlue = round(b_avg;
+                image[i][j].rgbtBlue = round(b_avg);
             }
             // If pixel is on the left wall
             else if (j == 0)
