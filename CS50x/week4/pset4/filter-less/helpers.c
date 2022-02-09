@@ -127,6 +127,6 @@ void blur_helper(int y, int x, int side)
             int bm = image[y + 1][x];
             int br = image[y + 1][x + 1];
 
-
+            int new_
     }
 }
