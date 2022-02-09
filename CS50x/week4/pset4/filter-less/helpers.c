@@ -118,6 +118,15 @@ void blur_helper(int y, int x, int side)
 
         break;
         default:
-            image[y - 1][x - 1]
+            int tl = image[y - 1][x - 1];
+            int tm = image[y - 1][x];
+            int tr = image[y - 1][x + 1];
+            int ml = image[y][x - 1];
+            int mr = image[y][x + 1];
+            int bl = image[y + 1][x - 1];
+            int bm = image[y + 1][x];
+            int br = image[y + 1][x + 1];
+
+
     }
 }
