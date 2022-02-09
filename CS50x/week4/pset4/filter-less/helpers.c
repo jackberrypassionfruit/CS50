@@ -126,12 +126,20 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // If pixel is on the left wall
             else if (j == 0)
             {
-
+                int tm = image[y - 1][x];
+                int tr = image[y - 1][x + 1];
+                int mr = image[y][x + 1];
+                int bm = image[y + 1][x];
+                int br = image[y + 1][x + 1];
             }
             // If pixel is on the right wall
             else if (j == width)
             {
-
+                int tl = image[y - 1][x - 1];
+                int tm = image[y - 1][x];
+                int ml = image[y][x - 1];
+                int bl = image[y + 1][x - 1];
+                int bm = image[y + 1][x];
             }
             // Anywhere else
             else
