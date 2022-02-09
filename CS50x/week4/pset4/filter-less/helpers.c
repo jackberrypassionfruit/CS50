@@ -1,6 +1,8 @@
 #include "helpers.h"
 #include <stdio.h>
 
+RGBTRIPLE buffer;
+
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
@@ -83,8 +85,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    RGBTRIPLE buffer = image;
-
+    buffer = image;
 
     for (int i = 0; i < height; i++)
     {
@@ -98,6 +99,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
 void blur_helper(int y, int x, int side)
 {
+    int tl = buffer[]
     switch (top)
     {
         // Pixel on Top
@@ -117,6 +119,6 @@ void blur_helper(int y, int x, int side)
 
         break;
         default:
-
+            image[y - 1][x - 1]
     }
 }
