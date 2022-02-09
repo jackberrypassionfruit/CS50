@@ -125,7 +125,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
             }
             // If pixel is on the bottom
-            else if (i == height - 1)
+            else if (i == height)
             {
                 RGBTRIPLE tl = image[i - 1][j - 1];
                 RGBTRIPLE tm = image[i - 1][j];
