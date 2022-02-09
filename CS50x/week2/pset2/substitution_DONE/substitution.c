@@ -110,7 +110,7 @@ int checkForChar(string text, char c)
     {
         if (c == text[i])
         {
-        return 1;
+            return 1;
         }
     }
     return 0;
