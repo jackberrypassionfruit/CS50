@@ -99,7 +99,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
 void blur_helper(int y, int x, int side)
 {
-    int tl = buffer[]
     switch (top)
     {
         // Pixel on Top
