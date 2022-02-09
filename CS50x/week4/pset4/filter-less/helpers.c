@@ -125,13 +125,14 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // If pixel is on the bottom
             else if (i == height)
             {
+                RGBTRIPLE tl = image[i - 1][j - 1];
+                RGBTRIPLE tm = image[i - 1][j];
+                RGBTRIPLE tr = image[i - 1][j + 1];
                 RGBTRIPLE ml = image[i][j - 1];
                 RGBTRIPLE mr = image[i][j + 1];
-                RGBTRIPLE bl = image[i + 1][j - 1];
-                RGBTRIPLE bm = image[i + 1][j];
-                RGBTRIPLE br = image[i + 1][j + 1];
 
-                int rgb_avg = (ml + mr + bl + bm + br) / 5;
+                int rgb_avg = (tl + tm + tr + ml + mr) / 5;
+                int r_avg = (tl.rgbtRed +tm.rgbtRed + tr.rgbtRed + ml.rgbtRed + mr.rgbtRed) / 5;
 
                 image[i][j].rgbtRed = rgb_avg;
                 image[i][j].rgbtGreen = rgb_avg;
