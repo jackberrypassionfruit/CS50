@@ -131,8 +131,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 RGBTRIPLE ml = image[i][j - 1];
                 RGBTRIPLE mr = image[i][j + 1];
 
-                int rgb_avg = (tl + tm + tr + ml + mr) / 5;
                 int r_avg = (tl.rgbtRed +tm.rgbtRed + tr.rgbtRed + ml.rgbtRed + mr.rgbtRed) / 5;
+                int g_avg = (tl.rgbtGreen +tm.rgbtGreen + tr.rgbtGreen + ml.rgbtGreen + mr.rgbtGreen) / 5;
+                int b_avg = (tl.rgbtBlue +tm.rgbtBlue + tr.rgbtBlue + ml.rgbtBlue + mr.rgbtBlue) / 5;
 
                 image[i][j].rgbtRed = rgb_avg;
                 image[i][j].rgbtGreen = rgb_avg;
