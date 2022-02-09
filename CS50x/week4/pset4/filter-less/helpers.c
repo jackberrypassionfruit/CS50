@@ -114,9 +114,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 RGBTRIPLE bm = image[i + 1][j];
                 RGBTRIPLE br = image[i + 1][j + 1];
 
-                int r_avg = (ml.rgbtRed + mr.rgbtRed + bl.rgbtRed + bm.rgbtRed + br.rgbtRed) / 5;
-                int g_avg = (ml.rgbtGreen + mr.rgbtGreen + bl.rgbtGreen + bm.rgbtGreen + br.rgbtGreen) / 5;
-                int b_avg = (ml.rgbtBlue + mr.rgbtBlue + bl.rgbtBlue + bm.rgbtBlue + br.rgbtBlue) / 5;
+                double r_avg = (double) (ml.rgbtRed + mr.rgbtRed + bl.rgbtRed + bm.rgbtRed + br.rgbtRed) / 5.0;
+                double g_avg = (double) (ml.rgbtGreen + mr.rgbtGreen + bl.rgbtGreen + bm.rgbtGreen + br.rgbtGreen) / 5.0;
+                double b_avg = (double) (ml.rgbtBlue + mr.rgbtBlue + bl.rgbtBlue + bm.rgbtBlue + br.rgbtBlue) / 5.0;
 
 
                 image[i][j].rgbtRed = r_avg;
@@ -133,9 +133,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 RGBTRIPLE ml = image[i][j - 1];
                 RGBTRIPLE mr = image[i][j + 1];
 
-                int r_avg = (tl.rgbtRed +tm.rgbtRed + tr.rgbtRed + ml.rgbtRed + mr.rgbtRed) / 5;
-                int g_avg = (tl.rgbtGreen +tm.rgbtGreen + tr.rgbtGreen + ml.rgbtGreen + mr.rgbtGreen) / 5;
-                int b_avg = (tl.rgbtBlue +tm.rgbtBlue + tr.rgbtBlue + ml.rgbtBlue + mr.rgbtBlue) / 5;
+                double r_avg = (double) (tl.rgbtRed +tm.rgbtRed + tr.rgbtRed + ml.rgbtRed + mr.rgbtRed) / 5;
+                double g_avg = (double) (tl.rgbtGreen +tm.rgbtGreen + tr.rgbtGreen + ml.rgbtGreen + mr.rgbtGreen) / 5;
+                double b_avg = (double) (tl.rgbtBlue +tm.rgbtBlue + tr.rgbtBlue + ml.rgbtBlue + mr.rgbtBlue) / 5;
 
                 image[i][j].rgbtRed = r_avg;
                 image[i][j].rgbtGreen = g_avg;
@@ -150,9 +150,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 RGBTRIPLE bm = image[i + 1][j];
                 RGBTRIPLE br = image[i + 1][j + 1];
 
-                int r_avg = (tm.rgbtRed +tr.rgbtRed + mr.rgbtRed + bm.rgbtRed + br.rgbtRed) / 5;
-                int g_avg = (tm.rgbtGreen +tr.rgbtGreen + mr.rgbtGreen + bm.rgbtGreen + br.rgbtGreen) / 5;
-                int b_avg = (tm.rgbtBlue +tr.rgbtBlue + mr.rgbtBlue + bm.rgbtBlue + br.rgbtBlue) / 5;
+                double r_avg = (double) (tm.rgbtRed +tr.rgbtRed + mr.rgbtRed + bm.rgbtRed + br.rgbtRed) / 5.0;
+                double g_avg = (double) (tm.rgbtGreen +tr.rgbtGreen + mr.rgbtGreen + bm.rgbtGreen + br.rgbtGreen) / 5.0;
+                double b_avg = (double) (tm.rgbtBlue +tr.rgbtBlue + mr.rgbtBlue + bm.rgbtBlue + br.rgbtBlue) / 5.0;
 
                 image[i][j].rgbtRed = r_avg;
                 image[i][j].rgbtGreen = g_avg;
@@ -167,9 +167,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 RGBTRIPLE bl = image[i + 1][j - 1];
                 RGBTRIPLE bm = image[i + 1][j];
 
-                int r_avg = (tl.rgbtRed +tm.rgbtRed + ml.rgbtRed + bl.rgbtRed + bm.rgbtRed) / 5;
-                int g_avg = (tl.rgbtGreen +tm.rgbtGreen + ml.rgbtGreen + bl.rgbtGreen + bm.rgbtGreen) / 5;
-                int b_avg = (tl.rgbtBlue +tm.rgbtBlue + ml.rgbtBlue + bl.rgbtBlue + bm.rgbtBlue) / 5;
+                double r_avg = (double) (tl.rgbtRed +tm.rgbtRed + ml.rgbtRed + bl.rgbtRed + bm.rgbtRed) / 5.0;
+                double g_avg = (double) (tl.rgbtGreen +tm.rgbtGreen + ml.rgbtGreen + bl.rgbtGreen + bm.rgbtGreen) / 5.0;
+                double b_avg = (double) (tl.rgbtBlue +tm.rgbtBlue + ml.rgbtBlue + bl.rgbtBlue + bm.rgbtBlue) / 5.0;
 
                 image[i][j].rgbtRed = r_avg;
                 image[i][j].rgbtGreen = g_avg;
@@ -187,9 +187,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 RGBTRIPLE bm = image[i + 1][j];
                 RGBTRIPLE br = image[i + 1][j + 1];
 
-                int r_avg = (tl.rgbtRed + tm.rgbtRed + tr.rgbtRed + ml.rgbtRed + mr.rgbtRed + bl.rgbtRed + bm.rgbtRed + br.rgbtRed) / 8;
-                int g_avg = (tl.rgbtGreen + tm.rgbtGreen + tr.rgbtGreen + ml.rgbtGreen + mr.rgbtGreen + bl.rgbtGreen + bm.rgbtGreen + br.rgbtGreen) / 8;
-                int b_avg = (tl.rgbtBlue + tm.rgbtBlue + tr.rgbtBlue + ml.rgbtBlue + mr.rgbtBlue + bl.rgbtBlue + bm.rgbtRed + br.rgbtBlue) / 8;
+                double r_avg = (double) (tl.rgbtRed + tm.rgbtRed + tr.rgbtRed + ml.rgbtRed + mr.rgbtRed + bl.rgbtRed + bm.rgbtRed + br.rgbtRed) / 8.0;
+                double g_avg = (double) (tl.rgbtGreen + tm.rgbtGreen + tr.rgbtGreen + ml.rgbtGreen + mr.rgbtGreen + bl.rgbtGreen + bm.rgbtGreen + br.rgbtGreen) / 8.0;
+                double b_avg = (double) (tl.rgbtBlue + tm.rgbtBlue + tr.rgbtBlue + ml.rgbtBlue + mr.rgbtBlue + bl.rgbtBlue + bm.rgbtRed + br.rgbtBlue) / 8.0;
 
 
                 image[i][j].rgbtRed = r_avg;
