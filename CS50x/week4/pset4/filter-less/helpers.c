@@ -97,7 +97,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    RGBTRIPLE buffer = image;
+    RGBTRIPLE buffer = *image;
 
     for (int i = 0; i < height; i++)
     {
@@ -135,9 +135,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 int g_avg = (tl.rgbtGreen +tm.rgbtGreen + tr.rgbtGreen + ml.rgbtGreen + mr.rgbtGreen) / 5;
                 int b_avg = (tl.rgbtBlue +tm.rgbtBlue + tr.rgbtBlue + ml.rgbtBlue + mr.rgbtBlue) / 5;
 
-                image[i][j].rgbtRed = rgb_avg;
-                image[i][j].rgbtGreen = rgb_avg;
-                image[i][j].rgbtBlue = rgb_avg;
+                image[i][j].rgbtRed = r_avg;
+                image[i][j].rgbtGreen = g_avg;
+                image[i][j].rgbtBlue = b_avg;
             }
             // If pixel is on the left wall
             else if (j == 0)
@@ -152,9 +152,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 int g_avg = (tm.rgbtGreen +tr.rgbtGreen + mr.rgbtGreen + bm.rgbtGreen + br.rgbtGreen) / 5;
                 int b_avg = (tm.rgbtBlue +tr.rgbtBlue + mr.rgbtBlue + bm.rgbtBlue + br.rgbtBlue) / 5;
 
-                image[i][j].rgbtRed = rgb_avg;
-                image[i][j].rgbtGreen = rgb_avg;
-                image[i][j].rgbtBlue = rgb_avg;
+                image[i][j].rgbtRed = r_avg;
+                image[i][j].rgbtGreen = g_avg;
+                image[i][j].rgbtBlue = b_avg;
             }
             // If pixel is on the right wall
             else if (j == width)
@@ -169,9 +169,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 int g_avg = (tl.rgbtGreen +tm.rgbtGreen + ml.rgbtGreen + bl.rgbtGreen + bm.rgbtGreen) / 5;
                 int b_avg = (tl.rgbtBlue +tm.rgbtBlue + ml.rgbtBlue + bl.rgbtBlue + bm.rgbtBlue) / 5;
 
-                image[i][j].rgbtRed = rgb_avg;
-                image[i][j].rgbtGreen = rgb_avg;
-                image[i][j].rgbtBlue = rgb_avg;
+                image[i][j].rgbtRed = r_avg;
+                image[i][j].rgbtGreen = g_avg;
+                image[i][j].rgbtBlue = b_avg;
             }
             // Anywhere else
             else
