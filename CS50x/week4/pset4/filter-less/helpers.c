@@ -119,9 +119,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 double b_avg = (double) (ml.rgbtBlue + mr.rgbtBlue + bl.rgbtBlue + bm.rgbtBlue + br.rgbtBlue) / 5.0;
 
 
-                image[i][j].rgbtRed = r_avg;
-                image[i][j].rgbtGreen = g_avg;
-                image[i][j].rgbtBlue = b_avg;
+                image[i][j].rgbtRed = round(r_avg);
+                image[i][j].rgbtGreen = round(g_avg);
+                image[i][j].rgbtBlue = round(b_avg);
 
             }
             // If pixel is on the bottom
@@ -137,9 +137,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 double g_avg = (double) (tl.rgbtGreen +tm.rgbtGreen + tr.rgbtGreen + ml.rgbtGreen + mr.rgbtGreen) / 5;
                 double b_avg = (double) (tl.rgbtBlue +tm.rgbtBlue + tr.rgbtBlue + ml.rgbtBlue + mr.rgbtBlue) / 5;
 
-                image[i][j].rgbtRed = r_avg;
-                image[i][j].rgbtGreen = g_avg;
-                image[i][j].rgbtBlue = b_avg;
+                image[i][j].rgbtRed = round(r_avg);
+                image[i][j].rgbtGreen = round(g_avg);
+                image[i][j].rgbtBlue = round(b_avg;
             }
             // If pixel is on the left wall
             else if (j == 0)
@@ -154,9 +154,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 double g_avg = (double) (tm.rgbtGreen +tr.rgbtGreen + mr.rgbtGreen + bm.rgbtGreen + br.rgbtGreen) / 5.0;
                 double b_avg = (double) (tm.rgbtBlue +tr.rgbtBlue + mr.rgbtBlue + bm.rgbtBlue + br.rgbtBlue) / 5.0;
 
-                image[i][j].rgbtRed = r_avg;
-                image[i][j].rgbtGreen = g_avg;
-                image[i][j].rgbtBlue = b_avg;
+                image[i][j].rgbtRed = round(r_avg);
+                image[i][j].rgbtGreen = round(g_avg);
+                image[i][j].rgbtBlue = round(b_avg);
             }
             // If pixel is on the right wall
             else if (j == width - 1)
@@ -171,9 +171,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 double g_avg = (double) (tl.rgbtGreen +tm.rgbtGreen + ml.rgbtGreen + bl.rgbtGreen + bm.rgbtGreen) / 5.0;
                 double b_avg = (double) (tl.rgbtBlue +tm.rgbtBlue + ml.rgbtBlue + bl.rgbtBlue + bm.rgbtBlue) / 5.0;
 
-                image[i][j].rgbtRed = r_avg;
-                image[i][j].rgbtGreen = g_avg;
-                image[i][j].rgbtBlue = b_avg;
+                image[i][j].rgbtRed = round(r_avg);
+                image[i][j].rgbtGreen = round(g_avg);
+                image[i][j].rgbtBlue = round(b_avg);
             }
             // Anywhere else
             else
@@ -192,9 +192,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 double b_avg = (double) (tl.rgbtBlue + tm.rgbtBlue + tr.rgbtBlue + ml.rgbtBlue + mr.rgbtBlue + bl.rgbtBlue + bm.rgbtRed + br.rgbtBlue) / 8.0;
 
 
-                image[i][j].rgbtRed = r_avg;
-                image[i][j].rgbtGreen = g_avg;
-                image[i][j].rgbtBlue = b_avg;
+                image[i][j].rgbtRed = round(r_avg);
+                image[i][j].rgbtGreen = round(g_avg);
+                image[i][j].rgbtBlue = round(b_avg);
             }
         }
     }
