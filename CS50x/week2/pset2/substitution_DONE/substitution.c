@@ -124,7 +124,7 @@ string stringSlice(string text, int beg, int end)
     for (int i = 0; i <= len; i++)
     {
         newt[i] = text[beg + i];
-        printf("Newt is %s\n", newt);
+        // printf("Newt is %s\n", newt);
     }
     return newt;
 }
