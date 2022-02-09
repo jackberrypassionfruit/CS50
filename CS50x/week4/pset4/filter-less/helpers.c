@@ -85,26 +85,18 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE buffer = image;
 
+
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            if (j == 0)
-            {
-                // Left wall Blur
-            }
-            else if (j == width - 1)
-            {
-                // Right wall Blur
-            }
-            else
-            {
-                // Regular Blur
 
-            }
         }
     }
     return;
 }
 
-void blur
+void blur_helper(int height, int width, bool top, bool right, bool bottom, bool left)
+{
+
+}
