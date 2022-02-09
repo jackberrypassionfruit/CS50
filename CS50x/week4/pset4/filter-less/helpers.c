@@ -158,41 +158,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-void blur_helper(int y, int x, int side)
+void rgb_swapper(RGBTRIPLE input, RGBTRIPLE output)
 {
-    switch (top)
-    {
-        // Pixel on Top
-        case 0:
-
-        break;
-        // Pixel on Right Wall
-        case 1:
-
-        break;
-        // Pixel on Bottom
-        case 2:
-
-        break;
-        // Pixel on Left Wall
-        case 3:
-
-        break;
-        default:
-            int tl = image[y - 1][x - 1];
-            int tm = image[y - 1][x];
-            int tr = image[y - 1][x + 1];
-            int ml = image[y][x - 1];
-            int mr = image[y][x + 1];
-            int bl = image[y + 1][x - 1];
-            int bm = image[y + 1][x];
-            int br = image[y + 1][x + 1];
-
-            int new_
-    }
-}
-
-void blur_pixel_helper(int i, RGBTRIPLE input, RGBTRIPLE output)
-{
-
+    output.rgbtRed = input.rgbtRed;
+    output.rgbtGreen = input.rgbtGreen;
+    output.rgbtBlue = input.rgbtBlue;
 }
