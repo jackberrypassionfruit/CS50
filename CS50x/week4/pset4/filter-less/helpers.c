@@ -165,7 +165,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 RGBTRIPLE bl = image[i + 1][j - 1];
                 RGBTRIPLE bm = image[i + 1][j];
 
-                int rgb_avg = (tl + tm + ml + bl + bm) / 5;
+                int r_avg = (tl.rgbtRed +tm.rgbtRed + ml.rgbtRed + bl.rgbtRed + bm.rgbtRed) / 5;
+                int g_avg = (tl.rgbtGreen +tm.rgbtGreen + ml.rgbtGreen + bl.rgbtGreen + bm.rgbtGreen) / 5;
+                int b_avg = (tl.rgbtBlue +tm.rgbtBlue + ml.rgbtBlue + bl.rgbtBlue + bm.rgbtBlue) / 5;
 
                 image[i][j].rgbtRed = rgb_avg;
                 image[i][j].rgbtGreen = rgb_avg;
@@ -183,11 +185,14 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 RGBTRIPLE bm = image[i + 1][j];
                 RGBTRIPLE br = image[i + 1][j + 1];
 
-                int rgb_avg = (tl + tm + tr + ml + mr + bl + bm + br) / 8;
+                int r_avg = (tl.rgbtRed + tm.rgbtRed + tr.rgbtRed + ml.rgbtRed + mr.rgbtRed + bl.rgbtRed + bm.rgbtRed + br.rgbtRed) / 8;
+                int g_avg = (tl.rgbtGreen + tm.rgbtGreen + tr.rgbtGreen + ml.rgbtGreen + mr.rgbtGreen + bl.rgbtGreen + bm.rgbtGreen + br.rgbtGreen) / 8;
+                int b_avg = (tl.rgbtBlue + tm.rgbtBlue + tr.rgbtBlue + ml.rgbtBlue + mr.rgbtBlue + bl.rgbtBlue + bm.rgbtRed + br.rgbtBlue) / 8;
 
-                image[i][j].rgbtRed = rgb_avg;
-                image[i][j].rgbtGreen = rgb_avg;
-                image[i][j].rgbtBlue = rgb_avg;
+
+                image[i][j].rgbtRed = r_avg;
+                image[i][j].rgbtGreen = g_avg;
+                image[i][j].rgbtBlue = b_avg;
             }
         }
     }
