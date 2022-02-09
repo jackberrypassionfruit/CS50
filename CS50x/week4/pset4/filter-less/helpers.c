@@ -1,5 +1,6 @@
 #include "helpers.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
@@ -97,7 +98,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    RGBTRIPLE buffer = *image;
+    RGBTRIPLE(*buffer)[width] = calloc(height, width * sizeof(RGBTRIPLE));
 
     for (int i = 0; i < height; i++)
     {
