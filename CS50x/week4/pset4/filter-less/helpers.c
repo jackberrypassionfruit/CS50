@@ -106,27 +106,30 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // If pixel is on the top
             if (i == 0)
             {
-                int ml = image[i][j - 1];
-                int mr = image[i][j + 1];
-                int bl = image[i + 1][j - 1];
-                int bm = image[i + 1][j];
-                int br = image[i + 1][j + 1];
+                RGBTRIPLE ml = image[i][j - 1];
+                RGBTRIPLE mr = image[i][j + 1];
+                RGBTRIPLE bl = image[i + 1][j - 1];
+                RGBTRIPLE bm = image[i + 1][j];
+                RGBTRIPLE br = image[i + 1][j + 1];
 
-                int rgb_avg = (ml + mr + bl + bm + br) / 5;
+                int r_avg = (ml.rgbtRed + mr.rgbtRed + bl.rgbtRed + bm.rgbtRed + br.rgbtRed) / 5;
+                int g_avg = (ml.rgbtGreen + mr.rgbtGreen + bl.rgbtGreen + bm.rgbtGreen + br.rgbtGreen) / 5;
+                int b_avg = (ml.rgbtBlue + mr.rgbtBlue + bl.rgbtBlue + bm.rgbtBlue + br.rgbtBlue) / 5;
 
-                image[i][j].rgbtRed = rgb_avg;
-                image[i][j].rgbtGreen = rgb_avg;
-                image[i][j].rgbtBlue = rgb_avg;
+
+                image[i][j].rgbtRed = r_avg;
+                image[i][j].rgbtGreen = g_avg;
+                image[i][j].rgbtBlue = b_avg;
 
             }
             // If pixel is on the bottom
             else if (i == height)
             {
-                int ml = image[i][j - 1];
-                int mr = image[i][j + 1];
-                int bl = image[i + 1][j - 1];
-                int bm = image[i + 1][j];
-                int br = image[i + 1][j + 1];
+                RGBTRIPLE ml = image[i][j - 1];
+                RGBTRIPLE mr = image[i][j + 1];
+                RGBTRIPLE bl = image[i + 1][j - 1];
+                RGBTRIPLE bm = image[i + 1][j];
+                RGBTRIPLE br = image[i + 1][j + 1];
 
                 int rgb_avg = (ml + mr + bl + bm + br) / 5;
 
@@ -137,11 +140,11 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // If pixel is on the left wall
             else if (j == 0)
             {
-                int tm = image[i - 1][j];
-                int tr = image[i - 1][j + 1];
-                int mr = image[i][j + 1];
-                int bm = image[i + 1][j];
-                int br = image[i + 1][j + 1];
+                RGBTRIPLE tm = image[i - 1][j];
+                RGBTRIPLE tr = image[i - 1][j + 1];
+                RGBTRIPLE mr = image[i][j + 1];
+                RGBTRIPLE bm = image[i + 1][j];
+                RGBTRIPLE br = image[i + 1][j + 1];
 
                 int rgb_avg = (tm + tr + mr + bm + br) / 5;
 
@@ -152,11 +155,11 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // If pixel is on the right wall
             else if (j == width)
             {
-                int tl = image[i - 1][j - 1];
-                int tm = image[i - 1][j];
-                int ml = image[i][j - 1];
-                int bl = image[i + 1][j - 1];
-                int bm = image[i + 1][j];
+                RGBTRIPLE tl = image[i - 1][j - 1];
+                RGBTRIPLE tm = image[i - 1][j];
+                RGBTRIPLE ml = image[i][j - 1];
+                RGBTRIPLE bl = image[i + 1][j - 1];
+                RGBTRIPLE bm = image[i + 1][j];
 
                 int rgb_avg = (tl + tm + ml + bl + bm) / 5;
 
@@ -167,14 +170,14 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // Anywhere else
             else
             {
-                int tl = image[i - 1][j - 1];
-                int tm = image[i - 1][j];
-                int tr = image[i - 1][j + 1];
-                int ml = image[i][j - 1];
-                int mr = image[i][j + 1];
-                int bl = image[i + 1][j - 1];
-                int bm = image[i + 1][j];
-                int br = image[i + 1][j + 1];
+                RGBTRIPLE tl = image[i - 1][j - 1];
+                RGBTRIPLE tm = image[i - 1][j];
+                RGBTRIPLE tr = image[i - 1][j + 1];
+                RGBTRIPLE ml = image[i][j - 1];
+                RGBTRIPLE mr = image[i][j + 1];
+                RGBTRIPLE bl = image[i + 1][j - 1];
+                RGBTRIPLE bm = image[i + 1][j];
+                RGBTRIPLE br = image[i + 1][j + 1];
 
                 int rgb_avg = (tl + tm + tr + ml + mr + bl + bm + br) / 8;
 
