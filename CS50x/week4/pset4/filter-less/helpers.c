@@ -108,50 +108,81 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // If pixel is on the top
             if (i == 0)
             {
-                int ml = image[y][x - 1];
-                int mr = image[y][x + 1];
-                int bl = image[y + 1][x - 1];
-                int bm = image[y + 1][x];
-                int br = image[y + 1][x + 1];
+                int ml = image[i][j - 1];
+                int mr = image[i][j + 1];
+                int bl = image[i + 1][j - 1];
+                int bm = image[i + 1][j];
+                int br = image[i + 1][j + 1];
+
+                int rbg_avg = (ml + mr + bl + bm + br) / 5;
+
+                image[i][j].rgbtRed = rgb_avg;
+                image[i][j].rgbtGreen = rgb_avg;
+                image[i][j].rgbtBlue = rgb_avg;
+
             }
             // If pixel is on the bottom
             else if (i == height)
             {
-                int ml = image[y][x - 1];
-                int mr = image[y][x + 1];
-                int bl = image[y + 1][x - 1];
-                int bm = image[y + 1][x];
-                int br = image[y + 1][x + 1];
+                int ml = image[i][j - 1];
+                int mr = image[i][j + 1];
+                int bl = image[i + 1][j - 1];
+                int bm = image[i + 1][j];
+                int br = image[i + 1][j + 1];
+
+                int rgb_avg = (ml + mr + bl + bm + br) / 5;
+
+                image[i][j].rgbtRed = rgb_avg;
+                image[i][j].rgbtGreen = rgb_avg;
+                image[i][j].rgbtBlue = rgb_avg;
             }
             // If pixel is on the left wall
             else if (j == 0)
             {
-                int tm = image[y - 1][x];
-                int tr = image[y - 1][x + 1];
-                int mr = image[y][x + 1];
-                int bm = image[y + 1][x];
-                int br = image[y + 1][x + 1];
+                int tm = image[i - 1][j];
+                int tr = image[i - 1][j + 1];
+                int mr = image[i][j + 1];
+                int bm = image[i + 1][j];
+                int br = image[i + 1][j + 1];
+
+                int rgb_avg = (tm + tr + mr + bm + br) / 5;
+
+                image[i][j].rgbtRed = rgb_avg;
+                image[i][j].rgbtGreen = rgb_avg;
+                image[i][j].rgbtBlue = rgb_avg;
             }
             // If pixel is on the right wall
             else if (j == width)
             {
-                int tl = image[y - 1][x - 1];
-                int tm = image[y - 1][x];
-                int ml = image[y][x - 1];
-                int bl = image[y + 1][x - 1];
-                int bm = image[y + 1][x];
+                int tl = image[i - 1][j - 1];
+                int tm = image[i - 1][j];
+                int ml = image[i][j - 1];
+                int bl = image[i + 1][j - 1];
+                int bm = image[i + 1][j];
+
+                int rgb_avg = (tl + tm + ml + bl + bm) / 5;
+
+                image[i][j].rgbtRed = rgb_avg;
+                image[i][j].rgbtGreen = rgb_avg;
+                image[i][j].rgbtBlue = rgb_avg;
             }
             // Anywhere else
             else
             {
-                int tl = image[y - 1][x - 1];
-                int tm = image[y - 1][x];
-                int tr = image[y - 1][x + 1];
-                int ml = image[y][x - 1];
-                int mr = image[y][x + 1];
-                int bl = image[y + 1][x - 1];
-                int bm = image[y + 1][x];
-                int br = image[y + 1][x + 1];
+                int tl = image[i - 1][j - 1];
+                int tm = image[i - 1][j];
+                int tr = image[i - 1][j + 1];
+                int ml = image[i][j - 1];
+                int mr = image[i][j + 1];
+                int bl = image[i + 1][j - 1];
+                int bm = image[i + 1][j];
+                int br = image[i + 1][j + 1];
+
+                int rgb_avg = (tl + tm + tr + ml + mr + bl + bm + br) / 8;
+
+                image[i][j].rgbtRed = rgb_avg;
+                image[i][j].rgbtGreen = rgb_avg;
+                image[i][j].rgbtBlue = rgb_avg;
             }
         }
     }
