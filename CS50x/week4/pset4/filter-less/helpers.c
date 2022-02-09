@@ -51,9 +51,9 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
                 sepiaBlue = 255;
             }
 
-            image[i][j].rgbtRed = (int) sepiaRed;
-            image[i][j].rgbtGreen = (int) sepiaGreen;
-            image[i][j].rgbtBlue = (int) sepiaBlue;
+            image[i][j].rgbtRed = round(sepiaRed);
+            image[i][j].rgbtGreen = round(sepiaGreen);
+            image[i][j].rgbtBlue = round(sepiaBlue);
         }
     }
     return;
