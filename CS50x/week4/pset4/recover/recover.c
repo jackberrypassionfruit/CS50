@@ -21,8 +21,14 @@ int main(int argc, char *argv[])
     }
 
     FILE *output;
-    uint8_t bytes[512];
+    uint8_t block[512];
 
 
-    while (fread())
+    while (fread(&block, sizeof(uint8_t), 512, input))
+    {
+        if (block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && block[3] >= 224 && block[3] <= 239)
+        {
+
+        }
+    }
 }
