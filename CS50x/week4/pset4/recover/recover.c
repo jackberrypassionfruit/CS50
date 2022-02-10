@@ -19,4 +19,8 @@ int main(int argc, char *argv[])
         printf("Could not open file.\n");
         return 1;
     }
+
+    FILE *output;
+
+
 }
