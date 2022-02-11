@@ -27,8 +27,12 @@ int main(int argc, char *argv[])
     int i = 0;
     char *name = malloc(sizeof(char) * 7);
 
-    /* My problem is only the first lines of the image are written.
-    This is because I only check for the
+    /* My problem is that only the first lines of the image are written.
+    This is because I write to the jpegs only when I see the start of a new one.
+    I stop writing, and leave off the rest this way.
+
+    What I SHOULD do, is every time I see te start condition, close the outp[ut file I had been writing, iterate the filename, and open a newfile for the new jpeg.
+    This is the file I will continue writing to until the new beginning.
     */
 
     while (fread(&block, 512, 1, card) == 1)
