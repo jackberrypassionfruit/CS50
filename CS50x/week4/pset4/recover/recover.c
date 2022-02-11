@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     char *name = malloc(sizeof(char) * 7);
 
     // Hopfully block is rest with new info every time this next fread function is called
-    while (fread(&block, sizeof(uint8_t), 512, card) == 512)
+    while (fread(&block, 512, 1, card) == 512)
     {
         printf("blocks [1], [2], and [3] are: %x, %x,  %x, and %x\n", block[0], block[1], block[2], block[3]);
         if (block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 0xe0) && (block[3] <= 0xef))
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
             sprintf(name, "%03i.jpg", i);
             printf("name is: %s\n", name);
             FILE *output = fopen(name,  "w");
-            fwrite(&block, sizeof(uint8_t), 512, output);
+            fwrite(&block, 512, 1, output);
             fclose(output);
             i++;
         }
