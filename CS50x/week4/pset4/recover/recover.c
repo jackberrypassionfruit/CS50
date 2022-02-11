@@ -27,7 +27,10 @@ int main(int argc, char *argv[])
     int i = 0;
     char *name = malloc(sizeof(char) * 7);
 
-    // Hopfully block is rest with new info every time this next fread function is called
+    /* My problem is only the first lines of the image are written.
+    This is because I only check for the
+    */
+
     while (fread(&block, 512, 1, card) == 1)
     {
         printf("blocks [1], [2], and [3] are: %x, %x,  %x, and %x\n", block[0], block[1], block[2], block[3]);
