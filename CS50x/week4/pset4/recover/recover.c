@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     char name[7];
 
     // Hopfully block is rest with new info every time this next fread function is called
-    while (fread(&block, sizeof(uint8_t), 512, card) == sizeof(uint8_t))
+    while (fread(&block, sizeof(uint8_t), 512, card) == 512)
     {
         if (block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 224) && (block[3] <= 239))
         {
