@@ -2,5 +2,5 @@
 
 int main(int argc, char *argv[])
 {
-    printf("i\n", 300 > 0xe0);
+    printf("b\n", (300 > 0xe0));
 }
