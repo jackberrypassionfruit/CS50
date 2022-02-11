@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 
 
     int i = 0;
-    char name[7] = malloc(sizeof(char) * 7);
+    char *name = malloc(sizeof(char) * 7);
 
     // Hopfully block is rest with new info every time this next fread function is called
     while (fread(&block, sizeof(uint8_t), 512, card) == 512)
