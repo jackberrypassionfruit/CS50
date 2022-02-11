@@ -20,7 +20,6 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    FILE *output;
     uint8_t block[512];
 
 
@@ -29,6 +28,8 @@ int main(int argc, char *argv[])
     {
         if (block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && block[3] >= 224 && block[3] <= 239)
         {
+
+            FILE *output = fopen(
 
         }
     }
