@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
 
     int i = 0
     char name[7];
+
     // Hopfully block is rest with new info every time this next fread function is called
     while (fread(&block, sizeof(uint8_t), 512, card))
     {
@@ -33,7 +34,7 @@ int main(int argc, char *argv[])
             sprintf(name, "%03i.jpg\n", i);
             FILE *output = fopen(name,  "r");
             fwrite(&block, sizeof(uint8_t), 512, output);
-            fclose("%03i.jpg", i,);
+            fclose(output);
             i++;
         }
     }
