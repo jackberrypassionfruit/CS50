@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
         {
             FILE *output = fopen("%03i.jpg", "r");
             i++;
-
+            fwrite(&block, sizeof(uint8_t), 512, output)
 
         }
     }
