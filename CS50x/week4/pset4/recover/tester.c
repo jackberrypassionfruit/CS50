@@ -2,5 +2,8 @@
 
 int main(int argc, char *argv[])
 {
-    printf("b\n", (300 > 0xe0));
+    if (300 > 0xe0)
+    {
+        printf("true\n");
+    }
 }
