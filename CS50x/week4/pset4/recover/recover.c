@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    uint8_t block[512];
+    char block[512];
 
 
     int i = 0;
