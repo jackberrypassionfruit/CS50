@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
         if (block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 224) && (block[3] <= 239))
         {
             sprintf(name, "%03i.jpg\n", i);
-            FILE *output = fopen(name,  "r");
+            FILE *output = fopen(name,  "w");
             fwrite(&block, sizeof(uint8_t), 512, output);
             fclose(output);
             i++;
