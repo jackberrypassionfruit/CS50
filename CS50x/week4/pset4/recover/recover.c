@@ -24,14 +24,16 @@ int main(int argc, char *argv[])
 
 
     int i = 0
+    char name[7];
     // Hopfully block is rest with new info every time this next fread function is called
     while (fread(&block, sizeof(uint8_t), 512, card))
     {
         if (block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 224) && (block[3] <= 239))
         {
-            FILE *output = fopen("%03i.jpg", i,  "r");
+            sprintf(name, "%03i.jpg\n", i);
+            FILE *output = fopen(name,  "r");
             fwrite(&block, sizeof(uint8_t), 512, output);
-            fclose();
+            fclose("%03i.jpg", i,);
             i++;
         }
     }
