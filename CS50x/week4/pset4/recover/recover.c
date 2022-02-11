@@ -38,4 +38,6 @@ int main(int argc, char *argv[])
             i++;
         }
     }
+    fclose(card);
+    return 1;
 }
