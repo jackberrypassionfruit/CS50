@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     uint8_t block[512];
 
 
-    int i = 0
+    int i = 0;
     char name[7];
 
     // Hopfully block is rest with new info every time this next fread function is called
