@@ -29,10 +29,10 @@ int main(int argc, char *argv[])
     {
         if (block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 224) && (block[3] <= 239))
         {
-            FILE *output = fopen("%03i.jpg", "r");
+            FILE *output = fopen("%03i.jpg", i,  "r");
+            fwrite(&block, sizeof(uint8_t), 512, output);
+            fclose();
             i++;
-            fwrite(&block, sizeof(uint8_t), 512, output)
-
         }
     }
 }
