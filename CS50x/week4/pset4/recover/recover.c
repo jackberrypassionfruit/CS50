@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
         if (block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 0xe0) && (block[3] <= 0xef))
         {
             sprintf(name, "%03i.jpg", i);
+            printf("name is: %s\n", name);
             FILE *output = fopen(name,  "w");
             fwrite(&block, sizeof(uint8_t), 512, output);
             fclose(output);
