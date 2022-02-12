@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 
 
     int i = 0;
-    char *name = malloc(sizeof(char) * 7);
+    char *name = malloc(sizeof(char) * 8);
 
     /* My problem is that only the first lines of the image are written.
     This is because I write to the jpegs only when I see the start of a new one.
