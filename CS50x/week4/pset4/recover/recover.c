@@ -38,10 +38,11 @@ int main(int argc, char *argv[])
     sprintf(name, "000.jpg");
     FILE *output = fopen(name, "w");
 
-    while (!(block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 0xe0) && (block[3] <= 0xef)))
-        {
-            fread(&block, sizeof(uint8_t), 512, card);
-        }
+    // This next bit wouldn't work, reads date before I can use it
+    // while (!(block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 0xe0) && (block[3] <= 0xef)))
+    //     {
+    //         fread(&block, sizeof(uint8_t), 512, card);
+    //     }
 
     while (fread(&block, sizeof(uint8_t), 512, card) == 512)
     {
@@ -52,11 +53,11 @@ int main(int argc, char *argv[])
             fclose(output);
             sprintf(name, "%03i.jpg", i);
             // printf("name is: %s\n", name);
-            FILE *output = fopen(name,  "w");
+            output = fopen(name,  "w");
         }
         fwrite(&block, 512, 1, output);
     }
-    fclose(output);)
+    fclose(output);
     fclose(card);
     return 1;
 }
