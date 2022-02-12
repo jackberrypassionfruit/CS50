@@ -39,12 +39,6 @@ int main(int argc, char *argv[])
     FILE *output = fopen(name, "w");
     int ready = 1;
 
-    // This next bit wouldn't work, reads date before I can use it
-    // while (!(block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 0xe0) && (block[3] <= 0xef)))
-    //     {
-    //         fread(&block, sizeof(uint8_t), 512, card);
-    //     }
-
     while (fread(&block, sizeof(uint8_t), 512, card) == 512)
     {
         // printf("blocks [1], [2], and [3] are: %x, %x,  %x, and %x\n", block[0], block[1], block[2], block[3]);
@@ -59,7 +53,6 @@ int main(int argc, char *argv[])
             ready = 0;
             fclose(output);
             sprintf(name, "%03i.jpg", i);
-            // printf("name is: %s\n", name);
             output = fopen(name,  "w");
             i++;
         }
