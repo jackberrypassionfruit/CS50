@@ -2,8 +2,8 @@
 
 int main(int argc, char *argv[])
 {
-    if (300 > 0xe0)
-    {
-        printf("true\n");
-    }
+    sprintf(name, "005.jpg", i);
+    printf("%s\n", name);
+    sprintf(name, "00.jpg", i);
+    printf("%s\n", name);
 }
