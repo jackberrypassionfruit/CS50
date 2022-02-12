@@ -67,5 +67,5 @@ int main(int argc, char *argv[])
     }
     fclose(output);
     fclose(card);
-    return 1;
+    return 0;
 }
