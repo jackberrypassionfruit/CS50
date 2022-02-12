@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
             // printf("name is: %s\n", name);
             FILE *output = fopen(name,  "w");
         }
-        fwrite(&block, 512, 1, output);
+        fwrite(&block, sizeof(uint8_t), 512, output);
     }
     fclose(output);)
     fclose(card);
