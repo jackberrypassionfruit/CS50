@@ -7,7 +7,7 @@ int main(void)
     char *heap = "hello";
 
     char *heap_string_malloc = malloc(7);
-    heap_string_malloc = "hellop\0";
+    sprintf(heap_string_malloc, "hellop");
 
     printf("Address of stack[0]: %p\n", stack);
     printf("Address of heap[0]: %p\n", heap);
