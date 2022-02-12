@@ -13,5 +13,5 @@ int main(void)
     printf("Address of heap[0]: %p\n", heap);
     printf("Address of heap_string_malloc[0]: %p\n", heap_string_malloc);
 
-    free(heap);
+    free(heap_string_malloc);
 }
