@@ -49,6 +49,7 @@ int main(int argc, char *argv[])
             continue;
         }
 
+        // Does same jpeg header check but now with
         if (block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 0xe0) && (block[3] <= 0xef))
         {
             ready = 0;
@@ -59,6 +60,7 @@ int main(int argc, char *argv[])
         }
         fwrite(&block, sizeof(uint8_t), 512, output);
     }
+    free(name);
     fclose(output);
     fclose(card);
     return 0;
