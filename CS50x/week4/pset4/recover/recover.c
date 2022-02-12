@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
         }
         fwrite(&block, sizeof(uint8_t), 512, output);
     }
-    // free(name);
+    free(name);
     fclose(output);
     fclose(card);
     return 0;
