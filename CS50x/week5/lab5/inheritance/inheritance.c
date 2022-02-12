@@ -40,7 +40,12 @@ int main(void)
 person *create_family(int generations)
 {
     // TODO: Allocate memory for new person
-
+    person *child = malloc(sizeof(person));
+    if (child == NULL)
+    {
+        printf("No room in memory for new person.\n");
+        return;
+    }
     // If there are still generations left to create
     if (generations > 1)
     {
