@@ -44,7 +44,7 @@ person *create_family(int generations)
     if (child == NULL)
     {
         printf("No room in memory for new person.\n");
-        return;
+        return child;
     }
 
     // If there are still generations left to create
@@ -87,10 +87,11 @@ void free_family(person *p)
     {
         free(p);
     }
-    // TODO: Free parents recursively
+    // TODO_DONE: Free parents recursively
     else
     {
-
+        free_family(p.parents[0]);
+        free_family(p.parents[1]);
     }
     // TODO_DONE: Free child
     free(p);
