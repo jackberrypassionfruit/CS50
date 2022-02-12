@@ -6,8 +6,8 @@ int main(void)
     char stack[] = "hello";
     char *heap = "hello";
 
-    char *heap_string_malloc = malloc(5);
-    heap_string_malloc = "hellop";
+    char *heap_string_malloc = malloc(7);
+    heap_string_malloc = "hellop\n";
 
     printf("Address of stack[0]: %p\n", stack);
     printf("Address of heap[0]: %p\n", heap);
