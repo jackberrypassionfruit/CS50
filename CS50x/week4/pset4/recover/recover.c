@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     uint8_t block[512];
 
 
-    int i = 1;
+    int i = 0;
     char *name = malloc(sizeof(char) * 7);
 
     /* My problem is that only the first lines of the image are written.
@@ -43,11 +43,13 @@ int main(int argc, char *argv[])
         printf("blocks [1], [2], and [3] are: %x, %x,  %x, and %x\n", block[0], block[1], block[2], block[3]);
         if (block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 0xe0) && (block[3] <= 0xef))
         {
+            i++;
+            fclose(output);
             sprintf(name, "%03i.jpg", i);
-            printf("name is: %s\n", name);
+            // printf("name is: %s\n", name);
             FILE *output = fopen(name,  "w");
-            fwrite(&block, 512, 1, output);
         }
+        fwrite(&block, 512, 1, output);
     }
     fclose(output);)
     fclose(card);
