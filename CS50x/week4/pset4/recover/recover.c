@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 
     while (fread(&block, sizeof(uint8_t), 512, card) == 512)
     {
-        printf("blocks [1], [2], and [3] are: %x, %x,  %x, and %x\n", block[0], block[1], block[2], block[3]);
+        // printf("blocks [1], [2], and [3] are: %x, %x,  %x, and %x\n", block[0], block[1], block[2], block[3]);
 
         if (!((block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 0xe0) && (block[3] <= 0xef))) && ready == 1)
         {
@@ -57,11 +57,11 @@ int main(int argc, char *argv[])
         if (block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 0xe0) && (block[3] <= 0xef))
         {
             ready = 0;
-            i++;
             fclose(output);
             sprintf(name, "%03i.jpg", i);
             // printf("name is: %s\n", name);
             output = fopen(name,  "w");
+            i++;
         }
         fwrite(&block, sizeof(uint8_t), 512, output);
     }
