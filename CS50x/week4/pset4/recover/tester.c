@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char *argv[])
 {
-    sprintf(name, "005.jpg", i);
+    char *name = malloc(sizeof(char) * 8);
+    sprintf(name, "005.jpg");
     printf("%s\n", name);
-    sprintf(name, "00.jpg", i);
+    sprintf(name, "006.jpg");
     printf("%s\n", name);
 }
