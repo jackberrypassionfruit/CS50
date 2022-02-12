@@ -35,14 +35,16 @@ int main(int argc, char *argv[])
     This is the file I will continue writing to until the new beginning.
     */
 
-    sprintf(name, "000.jpg");
-    FILE *output = fopen(name, "w");
-
     while (fread(&block, sizeof(uint8_t), 512, card) == 512)
     {
         printf("blocks [1], [2], and [3] are: %x, %x,  %x, and %x\n", block[0], block[1], block[2], block[3]);
         if (block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 0xe0) && (block[3] <= 0xef))
         {
+            if (output == NULL)
+            {
+                sprintf(name, "%03i.jpg", i);
+                FILE *output = fopen(name, "w");
+            }
             i++;
             fclose(output);
             sprintf(name, "%03i.jpg", i);
