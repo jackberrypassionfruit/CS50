@@ -85,7 +85,7 @@ void free_family(person *p)
     // TODO_DONE: Handle base case
     if ((*p).parents[0] == NULL)
     {
-        free(p);
+        continue;
     }
     // TODO_DONE: Free parents recursively
     else
