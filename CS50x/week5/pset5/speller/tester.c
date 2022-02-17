@@ -10,8 +10,11 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    FILE *word = fopen("word.txt", "w");
-    while (fscanf(dict, "%s", word) == EOF)
+    char *word[46];
+    while (fscanf(dict, "%s", word) != EOF)
+    {
+        printf("word is: %s\n", word);
+    }
     return 0;
 
 }
