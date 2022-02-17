@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <ctype.h>
 
 int main(int argc, char *argv[])
 {
@@ -15,7 +16,8 @@ int main(int argc, char *argv[])
 
     for (int i = 0; i < len; i++)
     {
-        hash_num += ((int) argv[1][i]) * pow(26, i + 1);
+        int ind = tolower(argv[1][i] % 96);
+        hash_num += (ind * pow(26, i + 1));
     }
 
     printf("hash_num is: %u\n", hash_num);
