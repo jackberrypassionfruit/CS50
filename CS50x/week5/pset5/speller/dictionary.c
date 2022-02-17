@@ -31,7 +31,29 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    // TODO: Improve this hash function
+    // TODO_DONE
+    /*
+    Hashes the first 6 letters of a word (at most) into an unsigned int
+    26*6 is the number of buckets I will have in my hash table
+    Any words that share the same first 6 letters will thus share a hash an collide
+    Each of those will be in their own linked list together
+    Wouldn't a trie be nice? Yes, but insanely too much memory, and wouldn't have the fun of hashing
+    */
+    int len = strlen(word);
+    unsigned int hash_num = 0;
+
+    if (len > 6)
+    {
+        len = 6;
+    }
+
+    for (int i = 0; i < len; i++)
+    {
+        int ind = tolower(argv[1][i] % 96);
+        hash_num += (ind * pow(26, i));
+    }
+
+    // printf("hash_num is: %u\n", hash_num);
 
     return hash_num;
 }
