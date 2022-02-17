@@ -32,21 +32,6 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    int len = strlen(word);
-    unsigned int hash_num = 0;
-
-    if (len > 6)
-    {
-        len = 6;
-    }
-
-    for (int i = 0; i < len; i++)
-    {
-        int ind = tolower(argv[1][i] % 96);
-        hash_num += (ind * pow(26, i));
-    }
-
-    // printf("hash_num is: %u\n", hash_num);
 
     return hash_num;
 }
