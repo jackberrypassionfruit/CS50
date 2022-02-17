@@ -55,6 +55,7 @@ bool load(const char *dictionary)
             return 2;
         }
         strcpy((*n).name, &each_word);
+
     }
 
 
