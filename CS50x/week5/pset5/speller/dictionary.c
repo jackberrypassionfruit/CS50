@@ -22,16 +22,8 @@ node *table[N];
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    FILE *dict = fopen("./dictionary/large", "r");
-    char word[46];
-    while (fscanf(dict, "%s", word) != EOF)
-    {
-        if (!(strcmp(argv[2], word)))
-        {
-            return true;
-        }
-    }
-        return false;
+    // TODO
+    return false;
 }
 
 // Hashes word to a number
