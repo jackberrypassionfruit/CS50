@@ -82,8 +82,8 @@ bool load(const char *dictionary)
         }
 
         strcpy((*n).word, each_word);
-        unsigned int hash_index = hash(each_word);
 
+        unsigned int hash_index = hash(each_word);
         (*n).next = table[hash_index].next;
 
     }
