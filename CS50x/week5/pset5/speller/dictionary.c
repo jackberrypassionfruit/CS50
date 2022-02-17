@@ -54,7 +54,9 @@ bool load(const char *dictionary)
             printf("couldn't creat new node\n");
             return 2;
         }
+
         strcpy((*n).name, &each_word);
+        unsigned int index = hash(each_word);
 
     }
 
