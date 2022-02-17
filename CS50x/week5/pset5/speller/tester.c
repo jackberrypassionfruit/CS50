@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
         hash_num += ((int) argv[1][i]) * pow(26, i + 1);
     }
 
-    printf("hash_num is: %lu\n", hash_num);
+    printf("hash_num is: %u\n", hash_num);
 
     return 1;
 }
