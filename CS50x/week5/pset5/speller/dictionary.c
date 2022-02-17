@@ -55,7 +55,7 @@ bool load(const char *dictionary)
             return 2;
         }
 
-        strcpy((*n).name, &each_word);
+        strcpy((*n).word, each_word);
         unsigned int index = hash(each_word);
 
     }
