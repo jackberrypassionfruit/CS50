@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     for (int i = 0; i < len; i++)
     {
         int ind = tolower(argv[1][i] % 96);
-        hash_num += (ind * pow(26, i + 1));
+        hash_num += (ind * pow(26, i));
     }
 
     printf("hash_num is: %u\n", hash_num);

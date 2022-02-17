@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <string.h>
+#include <math.h>
 
 #include "dictionary.h"
 
@@ -32,22 +33,20 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     int len = strlen(word);
-    char *hash_word[6];
+    unsigned int hash_num = 0;
+
+    if (len > 6)
+    {
+        len = 6;
+    }
 
     for (int i = 0; i < len; i++)
     {
-        hash_word[i] = word[i];
-        if (i == 5)
-        {
-            break;
-        }
+        int ind = tolower(argv[1][i] % 96);
+        hash_num += (ind * pow(26, i));
     }
 
-    int hash_len = strlen(hash_word);
-    for (int i = 0; i < hash_word; i++)
-    {
-
-    }
+    // printf("hash_num is: %u\n", hash_num);
 
     return hash_num;
 }
