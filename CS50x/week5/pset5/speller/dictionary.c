@@ -73,7 +73,7 @@ bool load(const char *dictionary)
     while (fscanf(dict, "%s", each_word) != EOF)
     {
         printf("word is: %s\n", each_word);
-        node *n = malloc(sizeof(node))
+        node *n = malloc(sizeof(node));
         if (n == NULL)
         {
             printf("couldn't creat new node\n");
@@ -83,13 +83,6 @@ bool load(const char *dictionary)
         strcpy((*n).word, each_word);
         unsigned int hash_index = hash(each_word);
 
-        node *n = malloc(sizeof(node));
-        if (n == NULL)
-        {
-            printf("no memory for new node\n");
-            return 1;
-        }
-        (*n).word = each_word;
         (*n).next = table[hash_index].next;
 
     }
