@@ -83,6 +83,9 @@ bool load(const char *dictionary)
         strcpy((*n).word, each_word);
         unsigned int hash_index = hash(each_word);
 
+        node *n = malloc(sizeof(node));
+        (*n).next = table[hash_index];
+
     }
 
 
