@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
         if (!(strcmp(argv[2], word)))
         {
             printf("word is in dictionary\n");
-            return 0;
+            return true;
         }
     }
     printf("not a word, shitfuck\n");
