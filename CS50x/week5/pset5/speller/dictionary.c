@@ -22,7 +22,7 @@ node *table[N];
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    FILE *dict = fopen(argv[1], "r");
+    FILE *dict = fopen("./dictionary/large", "r");
     char word[46];
     while (fscanf(dict, "%s", word) != EOF)
     {
