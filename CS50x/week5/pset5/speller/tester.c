@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     }
 
     char word[46];
-    while (fscanf(word, "%s", dict) != EOF)
+    while (fscanf(dict, "%s", word) != EOF)
     {
         printf("word is: %s\n", word);
     }
