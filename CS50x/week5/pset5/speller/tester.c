@@ -10,8 +10,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    char *word[46];
-    while (fscanf(dict, "%s", word) != EOF)
+    char word[46];
+    while (fscanf(word, "%s", dict) != EOF)
     {
         printf("word is: %s\n", word);
     }
