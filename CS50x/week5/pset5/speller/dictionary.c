@@ -62,7 +62,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO - Still has to actually take each of these words and put them into a hash table...after I implement the hash table function
-    FILE *dict = fopen(argv[1], "r");
+    FILE *dict = fopen(dictionary, "r");
     if (dict == NULL)
     {
         printf("dictionary couldn't load\n");
@@ -76,7 +76,8 @@ bool load(const char *dictionary)
         node *n = malloc(sizeof(node));
         if (n == NULL)
         {
-            printf("couldn't creat new node\n");
+            printf("couldn't create new node\n");
+            fclose(dictionary);
             return 2;
         }
 
