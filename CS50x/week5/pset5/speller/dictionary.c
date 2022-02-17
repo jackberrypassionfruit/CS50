@@ -51,7 +51,7 @@ unsigned int hash(const char *word)
 
     for (int i = 0; i < len; i++)
     {
-        int alph_index = tolower(argv[1][i] % 96);
+        int alph_index = tolower(word[i] % 96);
         hash_num += (alph_index * pow(26, i));
     }
 
