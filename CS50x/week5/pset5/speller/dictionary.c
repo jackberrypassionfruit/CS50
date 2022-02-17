@@ -99,9 +99,10 @@ bool load(const char *dictionary)
         (*n).next = table[hash_index].next;
 
         // 3
+        table[hash_index].next = (*n).next;
 
-
-        (*n).next = table[hash_index].next;
+        // 4
+        strcpy(table[hash_index].next, each_word);
 
     }
 
