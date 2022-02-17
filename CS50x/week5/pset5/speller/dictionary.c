@@ -90,10 +90,17 @@ bool load(const char *dictionary)
             4 - make current hashtable node.word the last each_word read from dictionary
         */
 
-        // 1
-        strcpy((*n).word, each_word);
-
         unsigned int hash_index = hash(each_word);
+
+        // 1
+        (*n).word = table[hash_index].word;
+
+        // 2
+        (*n).next = table[hash_index].next;
+
+        // 3
+
+
         (*n).next = table[hash_index].next;
 
     }
