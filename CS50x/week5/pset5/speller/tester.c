@@ -5,12 +5,16 @@
 int main(int argc, char *argv[])
 {
     FILE *dict = fopen(argv[1], "r");
-    char *word[46];
-    while (fscan(dict, "%s", word))
+    char word[46];
+    while (fscanf(dict, "%s", word) != EOF)
     {
-        if (!(str))
+        if (!(strcmp(argv[2], word)))
+        {
+            printf("word is in dictionary\n");
+            return 0;
+        }
     }
-
+    printf("not a word, shitfuck\n");
 
 
 
