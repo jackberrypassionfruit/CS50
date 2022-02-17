@@ -48,6 +48,13 @@ bool load(const char *dictionary)
     while (fscanf(dict, "%s", word) != EOF)
     {
         printf("word is: %s\n", word);
+        node n = malloc(sizeof(node))
+        if (n == NULL)
+        {
+            printf("couldn't creat new node\n");
+            return 2;
+        }
+
     }
 
 
