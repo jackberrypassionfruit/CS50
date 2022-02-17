@@ -84,7 +84,13 @@ bool load(const char *dictionary)
         unsigned int hash_index = hash(each_word);
 
         node *n = malloc(sizeof(node));
-        (*n).next = table[hash_index];
+        if (n == NULL)
+        {
+            printf("no memory for new node\n");
+            return 1;
+        }
+        (*n).word = each_word;
+        (*n).next = table[hash_index].next;
 
     }
 
