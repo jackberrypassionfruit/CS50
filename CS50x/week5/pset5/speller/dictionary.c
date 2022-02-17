@@ -63,7 +63,7 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    // TODO - Still has to actually take each of these words and put them into a hash table...after I implement the hash table function
+    // TODO - Haven't tested yet. Very excited though
     FILE *dict = fopen(dictionary, "r");
     if (dict == NULL)
     {
@@ -102,11 +102,8 @@ bool load(const char *dictionary)
         table[hash_index].next = (*n).next;
 
         // 4
-        strcpy(table[hash_index].next, each_word);
-
+        strcpy(table[hash_index].word, each_word);
     }
-
-
 
     return false;
 }
