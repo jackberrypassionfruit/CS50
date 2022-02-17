@@ -64,6 +64,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO - Haven't tested yet. Very excited though
+        // Watch out, doesn't do anything about null pointer at the end of the linked list
     FILE *dict = fopen(dictionary, "r");
     if (dict == NULL)
     {
