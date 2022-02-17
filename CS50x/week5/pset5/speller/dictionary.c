@@ -36,8 +36,20 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    // TODO
-    FILE *dict = fopen(dictionary);
+    // TODO - Still has to actually take each of these words and put them into a hash table...after I implement the hash table function
+    FILE *dict = fopen(argv[1], "r");
+    if (dict == NULL)
+    {
+        printf("dictionary couldn't load\n");
+        return 1;
+    }
+
+    char word[46];
+    while (fscanf(dict, "%s", word) != EOF)
+    {
+        printf("word is: %s\n", word);
+    }
+
 
 
     return false;
