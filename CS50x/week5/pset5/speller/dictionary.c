@@ -81,6 +81,13 @@ bool load(const char *dictionary)
             return 2;
         }
 
+        /* 4 Steps
+            assign current hashtable node.word to new node.word
+            make new node.next the same as current hashtable node.next
+            make current hashtable node.next point to new node
+            make current hashtable node.word the last each_word read from dictionary
+        */
+
         strcpy((*n).word, each_word);
 
         unsigned int hash_index = hash(each_word);
