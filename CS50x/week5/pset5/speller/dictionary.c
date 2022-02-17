@@ -40,6 +40,7 @@ unsigned int hash(const char *word)
     Each of those will be in their own linked list together
     Wouldn't a trie be nice? Yes, but insanely too much memory, and wouldn't have the fun of hashing
     */
+
     int len = strlen(word);
     unsigned int hash_num = 0;
 
@@ -50,8 +51,8 @@ unsigned int hash(const char *word)
 
     for (int i = 0; i < len; i++)
     {
-        int ind = tolower(argv[1][i] % 96);
-        hash_num += (ind * pow(26, i));
+        int alph_index = tolower(argv[1][i] % 96);
+        hash_num += (alph_index * pow(26, i));
     }
 
     // printf("hash_num is: %u\n", hash_num);
