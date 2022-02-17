@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[])
 {
-    printf("%i\n", sizeof(int));
+    printf("%lu\n", sizeof(unsigned int));
     return 0;
 
 }
