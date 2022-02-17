@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[])
 {
-    FILE *dict = fopen(argv[1], "w");
+    FILE *dict = fopen(argv[1], "r");
     if (dict == NULL)
     {
         printf("dictionary couldn't load\n");
