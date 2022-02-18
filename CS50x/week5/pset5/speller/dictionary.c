@@ -144,7 +144,7 @@ bool check(const char *word)
 
     while (pntr != NULL)
     {
-        if (!(strcmp(word, (*pntr).word)))
+        if (!(strcasecmp(word, (*pntr).word)))
             {
                 return true;
             }
