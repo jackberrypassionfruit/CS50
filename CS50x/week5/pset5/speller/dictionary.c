@@ -135,6 +135,7 @@ unsigned int size(void)
 {
     // TODO_DONE
     // NVM, made a counter in load() now
+
     // unsigned int count = 0;
     // node *pntr;
 
