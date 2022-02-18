@@ -107,6 +107,7 @@ bool load(const char *dictionary)
         if (table[hash_index] == NULL)
         {
             table[hash_index] = n;
+            strcpy((*table[hash_index]).word, each_word);
         }
         else
         {
