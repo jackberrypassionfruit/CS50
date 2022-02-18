@@ -29,7 +29,7 @@ unsigned int count = 0;
 bool check(const char *word)
 {
     // TODO_DONE
-    node *pntr = table[hash(word)].next;
+    node *pntr = (*table[hash(word)]).next;
 
     while ((*pntr).next) != NULL)
     {
