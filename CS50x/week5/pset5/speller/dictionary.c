@@ -26,7 +26,7 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO_DONE
-    int pntr = table[hash(word)].next;
+    int *pntr = table[hash(word)].next;
 
     while ((*pntr).next) != NULL)
     {
@@ -131,6 +131,7 @@ unsigned int size(void)
 {
     // TODO
     unsigned int count = 0;
+    int *pntr;
 
     for (int i = 0; i < N; i++)
     {
