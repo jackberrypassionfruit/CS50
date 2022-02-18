@@ -106,7 +106,7 @@ bool load(const char *dictionary)
         // If no word at that node in the hash tree yet
         if ((*table[hash_index]).next == NULL)
         {
-            table[hash_index] = n;
+            (*table[hash_index]).next = (*n).next;
             strcpy((*table[hash_index]).word, each_word);
         }
         else
