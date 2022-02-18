@@ -68,7 +68,7 @@ bool load(const char *dictionary)
     {
         count++;
         node *n = malloc(sizeof(node));
-        (*n).next = NULL;
+        (*n).next = NULL; // This seems odd to me, why assign if you haven't check if it exists yet? Maybe checking is just old school converntion
         if (n == NULL)
         {
             // printf("couldn't create new node\n");
