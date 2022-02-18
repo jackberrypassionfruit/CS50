@@ -134,18 +134,19 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     // TODO_DONE
-    unsigned int count = 0;
-    node *pntr;
+    // NVM, made a counter in load() now
+    // unsigned int count = 0;
+    // node *pntr;
 
-    for (int i = 0; i < N; i++)
-    {
-        pntr = table[i].next;
-        while ((*pntr).next != NULL)
-        {
-            count ++;
-            pntr = (*pntr).next;
-        }
-    }
+    // for (int i = 0; i < N; i++)
+    // {
+    //     pntr = table[i].next;
+    //     while ((*pntr).next != NULL)
+    //     {
+    //         count ++;
+    //         pntr = (*pntr).next;
+    //     }
+    // }
 
     return count;
 }
