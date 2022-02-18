@@ -71,7 +71,7 @@ bool load(const char *dictionary)
     FILE *dict = fopen(dictionary, "r");
     if (dict == NULL)
     {
-        printf("dictionary couldn't load\n");
+        // printf("dictionary couldn't load\n");
         return false;
     }
 
@@ -83,7 +83,7 @@ bool load(const char *dictionary)
         node *n = malloc(sizeof(node));
         if (n == NULL)
         {
-            printf("couldn't create new node\n");
+            // printf("couldn't create new node\n");
             fclose(dict);
             return false;
         }
