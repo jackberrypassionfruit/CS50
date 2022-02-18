@@ -4,22 +4,11 @@
 #include <math.h>
 #include <ctype.h>
 
+#include "dictionary.c"
+
 int main(int argc, char *argv[])
 {
-    typedef struct node
-    {
-        char word[46 + 1];
-        struct node *next;
-    }
-
-    node;
-
-    node *n = malloc(sizeof(node));
-
-    if ((*n).next == NULL)
-    {
-        printf("true\n");
-    }
-    free(n);
+    int hash_index = hash("abbey's");
+    printf("%i\n", hash_index);
     return 1;
 }
