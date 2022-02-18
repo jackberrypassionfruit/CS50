@@ -130,6 +130,8 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     // TODO
+    unsigned int count = 0;
+
     return 0;
 }
 
