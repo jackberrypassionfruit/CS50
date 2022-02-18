@@ -6,21 +6,20 @@
 
 int main(int argc, char *argv[])
 {
-    int len = strlen(argv[1]);
-    unsigned int hash_num = 0;
+    typedef struct node
+{
+    char word[46 + 1];
+    struct node *next;
+}
+    node;
 
-    if (len > 6)
+    node *n;
+
+    (*n).next = NULL;
+
+    if ((*n).next == NULL)
     {
-        len = 6;
+        printf("true\n");
     }
-
-    for (int i = 0; i < len; i++)
-    {
-        int ind = tolower(argv[1][i] % 96);
-        hash_num += (ind * pow(26, i));
-    }
-
-    printf("hash_num is: %u\n", hash_num);
-
     return 1;
 }
