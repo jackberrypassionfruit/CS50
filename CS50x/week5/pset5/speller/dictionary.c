@@ -157,14 +157,17 @@ bool unload(void)
 {
     // TODO
     node *pntr;
+    node *tmp;
 
     for (int i = 0; i < N; i++)
     {
         pntr = table[i].next;
+        tmp = pntr;
         while ((*pntr).next != NULL)
         {
             pntr = (*pntr).next;
-
+            free(tmp);
+            tmp = pntr;
         }
     }
 
