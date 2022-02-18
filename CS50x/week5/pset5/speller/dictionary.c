@@ -67,7 +67,7 @@ unsigned int hash(const char *word)
 
     for (int i = 0; i < len; i++)
     {
-        int alph_index = tolower(word[i]) % 96;
+        int alph_index = tolower(word[i]) % 97;
         if (word[i] == '\'')
         {
             alph_index = 27;
