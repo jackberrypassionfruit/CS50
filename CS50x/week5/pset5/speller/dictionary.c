@@ -84,14 +84,23 @@ bool load(const char *dictionary)
             return 2;
         }
 
+
+        unsigned int hash_index = hash(each_word);
+
+        // If no word at that node in the hash tree yet
+        if (table[hash_index].next == NULL)
+        {
+            table[hash_index].next = n;
+            table[hash_index].word = each_word;
+        }
+
+
         /* 4 Steps to add node to linked list in hash table
             1 - assign current hashtable node.word to new node.word
             2 - make new node.next the same as current hashtable node.next
             3 - make current hashtable node.next point to new node
             4 - make current hashtable node.word the last each_word read from dictionary
         */
-
-        unsigned int hash_index = hash(each_word);
 
         // 1
         (*n).word = table[hash_index].word;
