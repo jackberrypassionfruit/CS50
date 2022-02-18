@@ -51,8 +51,6 @@ unsigned int hash(const char *word)
         hash_num *= alph_index;
     }
 
-    // printf("hash_num is: %u\n", hash_num);
-
     return hash_num;
 }
 
@@ -63,7 +61,6 @@ bool load(const char *dictionary)
     FILE *dict = fopen(dictionary, "r");
     if (dict == NULL)
     {
-        // printf("dictionary couldn't load\n");
         return false;
     }
 
@@ -71,7 +68,6 @@ bool load(const char *dictionary)
     while (fscanf(dict, "%s", each_word) != EOF)
     {
         count++;
-        // printf("word is: %s\n", each_word);
         node *n = malloc(sizeof(node));
         if (n == NULL)
         {
@@ -79,7 +75,6 @@ bool load(const char *dictionary)
             fclose(dict);
             return false;
         }
-
 
         unsigned int hash_index = hash(each_word);
 
