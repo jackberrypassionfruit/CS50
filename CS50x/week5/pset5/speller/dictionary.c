@@ -19,7 +19,7 @@ node;
 
 // TODO_DONE: Choose number of buckets in hash table
 // The biggest power of 26 that fits in an unsigned int, 4 bytes
-const unsigned int N = 308915776;
+const unsigned int N = 387420489;
 
 // Hash table
 node *table[N];
