@@ -182,6 +182,8 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO_DONE
+
+    /*      Bad Way
     for (int i = 0; i < N; i++)
     {
         node *pntr = table[i];
@@ -194,6 +196,18 @@ bool unload(void)
             tmp = pntr;
         }
     }
+    */
+
+    FILE *dict = fopen(dictionary, "r");
+    if (dict == NULL)
+    {
+        printf("dictionary couldn't load\n");
+        return false;
+    }
+
+    char each_word[46];
+    while (fscanf(dict, "%s", each_word) != EOF)
+    {
 
     return true;
 }
