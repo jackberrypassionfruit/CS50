@@ -68,7 +68,7 @@ unsigned int hash(const char *word)
 
     // printf("hash_num is: %u\n", hash_num);
 
-    return hash_num;
+    return hash_num - 1;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
@@ -135,7 +135,7 @@ unsigned int size(void)
 
     for (int i = 0; i < N; i++)
     {
-
+        if table[]
     }
 
     return 0;
