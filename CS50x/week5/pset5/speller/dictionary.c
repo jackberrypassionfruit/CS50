@@ -183,7 +183,7 @@ bool unload(void)
     // TODO
     for (int i = 0; i < N; i++)
     {
-        node *pntr = (*table[i]).next;
+        node *pntr = table[i];
         node *tmp = pntr;
         while ((*pntr).next != NULL)
         {
