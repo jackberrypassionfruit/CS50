@@ -6,22 +6,22 @@
 
 int main(int argc, char *argv[])
 {
-    typedef struct node
+    int len = strlen(argv[1]);
+    unsigned int hash_num = 0;
+
+    if (len > 6)
     {
-        char word[46 + 1];
-        struct node *next;
+        len = 6;
     }
 
-    node;
-
-    node *n = malloc(sizeof(node));
-
-    // (*n).next = NULL;
-
-    if ((*n).next == NULL)
+    for (int i = 0; i < len; i++)
     {
-        printf("true\n");
+        int alph_index = tolower(argv[1][i] % 96);
+        hash_num += (alph_index * pow(26, i));
     }
-    free(n);
-    return 1;
+
+    hash_num -= 1;
+    printf("hash_num is: %u\n", hash_num);
+
+    return hash_num;
 }
