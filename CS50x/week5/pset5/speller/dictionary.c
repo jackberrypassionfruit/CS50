@@ -69,7 +69,7 @@ bool load(const char *dictionary)
     if (dict == NULL)
     {
         printf("dictionary couldn't load\n");
-        return 1;
+        return false;
     }
 
     char each_word[46];
@@ -81,7 +81,7 @@ bool load(const char *dictionary)
         {
             printf("couldn't create new node\n");
             fclose(dictionary);
-            return 2;
+            return false;
         }
 
 
@@ -93,8 +93,7 @@ bool load(const char *dictionary)
             strcpy(table[hash_index].word, each_word);
         }
 
-
-        /* 4 Steps to add node to linked list in hash table
+        /* 4 Steps to add new node to linked list in hash table
             1 - assign current hashtable node.word to new node.word
             2 - make new node.next the same as current hashtable node.next
             3 - make current hashtable node.next point to new node
@@ -111,7 +110,7 @@ bool load(const char *dictionary)
         strcpy(table[hash_index].word, each_word);
     }
 
-    return false;
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
