@@ -22,6 +22,9 @@ const unsigned int N = 308915776;
 // Hash table
 node *table[N];
 
+// Size counter for size()
+unsigned int count = 0;
+
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
@@ -85,7 +88,8 @@ bool load(const char *dictionary)
     char each_word[46];
     while (fscanf(dict, "%s", each_word) != EOF)
     {
-        printf("word is: %s\n", each_word);
+        count++;
+        // printf("word is: %s\n", each_word);
         node *n = malloc(sizeof(node));
         if (n == NULL)
         {
@@ -150,7 +154,17 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
+    node *pntr;
 
+    for (int i = 0; i < N; i++)
+    {
+        pntr = table[i].next;
+        while ((*pntr).next != NULL)
+        {
+            pntr = (*pntr).next;
+
+        }
+    }
 
     return false;
 }
