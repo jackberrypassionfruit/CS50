@@ -135,10 +135,15 @@ unsigned int size(void)
 
     for (int i = 0; i < N; i++)
     {
-        if table[]
+        pntr = table[i].next;
+        while ((*pntr).next != NULL)
+        {
+            count ++;
+            pntr = (*pntr).next;
+        }
     }
 
-    return 0;
+    return count;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
