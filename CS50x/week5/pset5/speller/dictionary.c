@@ -96,7 +96,7 @@ bool load(const char *dictionary)
         if (n == NULL)
         {
             printf("couldn't create new node\n");
-            fclose(dictionary);
+            fclose(dict);
             return false;
         }
 
@@ -119,7 +119,7 @@ bool load(const char *dictionary)
             */
 
             // 1
-            (*n).word = (*table[hash_index]).word;
+            strcpy((*n).word, (*table[hash_index]).word);
             // 2
             (*n).next = (*table[hash_index]).next;
             // 3
