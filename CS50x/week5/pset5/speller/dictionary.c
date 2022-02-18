@@ -25,16 +25,16 @@ node *table[N];
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // TODO
+    // TODO_DONE
     int pntr = table[hash(word)].next;
 
-    while (table[hash_index].next != NULL)
+    while ((*pntr).next) != NULL)
     {
-        if (!(strcmp(word, table[hash_index].word)))
+        if (!(strcmp(word, (*pntr).word)))
             {
                 return true;
             }
-
+        pntr = (*pntr).next;
     }
 
     return false;
@@ -74,7 +74,7 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    // TODO - Haven't tested yet. Very excited though
+    // TODO_DONE
     FILE *dict = fopen(dictionary, "r");
     if (dict == NULL)
     {
