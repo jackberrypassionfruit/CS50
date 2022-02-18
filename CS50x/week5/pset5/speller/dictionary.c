@@ -31,7 +31,7 @@ bool check(const char *word)
     // TODO_DONE
     node *pntr = (*table[hash(word)]).next;
 
-    while ((*pntr).next) != NULL)
+    while ((*pntr).next != NULL)
     {
         if (!(strcmp(word, (*pntr).word)))
             {
@@ -102,9 +102,9 @@ bool load(const char *dictionary)
         unsigned int hash_index = hash(each_word);
 
         // If no word at that node in the hash tree yet
-        if (table[hash_index].next == NULL)
+        if ((*table[hash_index]).next == NULL)
         {
-            strcpy(table[hash_index].word, each_word);
+            strcpy((*table[hash_index]).word, each_word);
         }
         else
         {
@@ -117,13 +117,13 @@ bool load(const char *dictionary)
             */
 
             // 1
-            (*n).word = table[hash_index].word;
+            (*n).word = (*table[hash_index]).word;
             // 2
-            (*n).next = table[hash_index].next;
+            (*n).next = (*table[hash_index]).next;
             // 3
-            table[hash_index].next = (*n).next;
+            (*table[hash_index]).next = (*n).next;
             // 4
-            strcpy(table[hash_index].word, each_word);
+            strcpy((*table[hash_index]).word, each_word);
         }
     }
 
@@ -158,7 +158,7 @@ bool unload(void)
     // TODO
     for (int i = 0; i < N; i++)
     {
-        node *pntr = table[i].next;
+        node *pntr = (*table[i]).next;
         node *tmp = pntr;
         while ((*pntr).next != NULL)
         {
