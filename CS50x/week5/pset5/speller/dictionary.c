@@ -26,6 +26,17 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
+    int pntr = table[hash(word)].next;
+
+    while (table[hash_index].next != NULL)
+    {
+        if (!(strcmp(word, table[hash_index].word)))
+            {
+                return true;
+            }
+
+    }
+
     return false;
 }
 
