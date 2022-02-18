@@ -14,13 +14,14 @@ int main(int argc, char *argv[])
 
     node;
 
-    node *n;
+    node *n = malloc(sizeof(node));
 
-    n->next = NULL;
+    // (*n).next = NULL;
 
     if ((*n).next == NULL)
     {
         printf("true\n");
     }
+    free(n);
     return 1;
 }
