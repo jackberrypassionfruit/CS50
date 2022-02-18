@@ -8,7 +8,7 @@
 
 int main(int argc, char *argv[])
 {
-    int hash_index = hash("bbbeyzs");
+    int hash_index = hash("'");
     printf("%i\n", hash_index);
     return 1;
 }
