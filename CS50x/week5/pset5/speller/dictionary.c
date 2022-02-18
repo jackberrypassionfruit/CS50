@@ -31,22 +31,6 @@ unsigned int count = 0;
 unsigned int hash(const char *word)
 {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // TODO_DONE
     /*
     Hashes the first 6 letters of a word (at most) into an unsigned int
@@ -160,7 +144,7 @@ bool check(const char *word)
 
     while (pntr != NULL)
     {
-        if (!(strcasecmp(word, (*pntr).word)))
+        if (!(strcmp(word, (*pntr).word)))
             {
                 return true;
             }
