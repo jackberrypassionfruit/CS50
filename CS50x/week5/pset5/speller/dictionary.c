@@ -68,7 +68,6 @@ bool load(const char *dictionary)
     {
         count++;
         node *n = malloc(sizeof(node));
-        n = NULL;
         if (n == NULL)
         {
             // printf("couldn't create new node\n");
