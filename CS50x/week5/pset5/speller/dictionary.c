@@ -32,7 +32,6 @@ unsigned int hash(const char *word)
 {
 
     // TODO_DONE
-
     int len = strlen(word);
     unsigned int hash_num = 1;
 
