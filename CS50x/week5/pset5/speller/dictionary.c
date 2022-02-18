@@ -104,7 +104,7 @@ bool load(const char *dictionary)
         unsigned int hash_index = hash(each_word);
 
         // If no word at that node in the hash tree yet
-        if (table[hash_index] == NULL)
+        if ((*table[hash_index]).next == NULL)
         {
             table[hash_index] = n;
             strcpy((*table[hash_index]).word, each_word);
