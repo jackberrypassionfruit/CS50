@@ -156,13 +156,10 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    node *pntr;
-    node *tmp;
-
     for (int i = 0; i < N; i++)
     {
-        pntr = table[i].next;
-        tmp = pntr;
+        node *pntr = table[i].next;
+        node *tmp = pntr;
         while ((*pntr).next != NULL)
         {
             pntr = (*pntr).next;
