@@ -32,7 +32,7 @@ bool check(const char *word)
 {
     // TODO_DONE
     unsigned int hash_index = hash(word);
-    node *pntr = (*table[hash_index]).next;
+    node *pntr = table[hash_index];
 
     while ((*pntr).next != NULL)
     {
