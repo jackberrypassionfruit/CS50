@@ -33,20 +33,13 @@ unsigned int hash(const char *word)
 {
 
     // TODO_DONE
-    /*
-    Hashes the first 6 letters of a word (at most) into an unsigned int
-    27*6 is the number of buckets I will have in my hash table
-    Any words that share the same first 6 letters will thus share a hash an collide
-    Each of those will be in their own linked list together
-    Wouldn't a trie be nice? Yes, but insanely too much memory, and wouldn't have the fun of hashing
-    */
 
     int len = strlen(word);
     unsigned int hash_num = 1;
 
-    if (len > 3)
+    if (len > 4)
     {
-        len = 3;
+        len = 4;
     }
 
     for (int i = 0; i < len; i++)
@@ -56,7 +49,6 @@ unsigned int hash(const char *word)
         {
             alph_index = 27;
         }
-        // hash_num += (alph_index * pow(26, i));
         hash_num *= alph_index;
     }
 
