@@ -148,6 +148,7 @@ bool unload(void)
             free(tmp);
             tmp = pntr;
         }
+        free(pntr);
     }
 
     return true;
