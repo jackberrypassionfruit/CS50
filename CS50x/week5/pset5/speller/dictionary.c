@@ -62,7 +62,7 @@ bool load(const char *dictionary)
     {
         return false;
     }
-
+//
     char each_word[46];
     while (fscanf(dict, "%s", each_word) != EOF)
     {
