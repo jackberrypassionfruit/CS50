@@ -34,7 +34,7 @@ bool check(const char *word)
     unsigned int hash_index = hash(word);
     node *pntr = table[hash_index];
 
-    while ((*pntr).next != NULL)
+    while (pntr != NULL)
     {
         if (!(strcmp(word, (*pntr).word)))
             {
