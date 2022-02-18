@@ -27,25 +27,6 @@ node *table[N];
 // Size counter for size()
 unsigned int count = 0;
 
-// Returns true if word is in dictionary, else false
-bool check(const char *word)
-{
-    // TODO_DONE
-    unsigned int hash_index = hash(word);
-    node *pntr = table[hash_index];
-
-    while (pntr != NULL)
-    {
-        if (!(strcmp(word, (*pntr).word)))
-            {
-                return true;
-            }
-        pntr = (*pntr).next;
-    }
-
-    return false;
-}
-
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
@@ -151,6 +132,25 @@ bool load(const char *dictionary)
     }
 
     return true;
+}
+
+// Returns true if word is in dictionary, else false
+bool check(const char *word)
+{
+    // TODO_DONE
+    unsigned int hash_index = hash(word);
+    node *pntr = table[hash_index];
+
+    while (pntr != NULL)
+    {
+        if (!(strcasecmp(word, (*pntr).word)))
+            {
+                return true;
+            }
+        pntr = (*pntr).next;
+    }
+
+    return false;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
