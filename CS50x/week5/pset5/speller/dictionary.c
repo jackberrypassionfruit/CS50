@@ -108,7 +108,7 @@ bool load(const char *dictionary)
 
         unsigned int hash_index = hash(each_word);
 
-        // If no word at that node in the hash tree yet
+        // If no word at that node in the hash tree yet, create a head
         if (table[hash_index] == NULL)
         {
             table[hash_index] = n;
@@ -117,12 +117,26 @@ bool load(const char *dictionary)
         else
         {
 
-            /* 4 Steps to add new node to linked list in hash table
+            /* Steps to add new node to linked list in hash table
+                1 - make newNode.next same as hashtable pntr
+                2 - make newNode.word each_word
+                3 - make hashtable pntr point to newNode
+            */
+
+           // 1
+           (*n).next = table[hash_index];
+
+           // 2
+           strcpy((*n).word, each_word);
+
+           // 3
+           table[hash_index] = n;
+
+           /* Currently wrong, and also dumb
                 1 - assign current hashtable node.word to new node.word
                 2 - make new node.next the same as current hashtable node.next
                 3 - make current hashtable node.next point to new node
                 4 - make current hashtable node.word the last each_word read from dictionary
-            */
 
             // 1
             strcpy((*n).word, (*table[hash_index]).word);
@@ -132,6 +146,7 @@ bool load(const char *dictionary)
             (*table[hash_index]).next = n;
             // 4
             strcpy((*table[hash_index]).word, each_word);
+            */
         }
     }
 
