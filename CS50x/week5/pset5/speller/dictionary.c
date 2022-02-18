@@ -181,7 +181,7 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    // TODO
+    // TODO_DONE
     for (int i = 0; i < N; i++)
     {
         node *pntr = table[i];
