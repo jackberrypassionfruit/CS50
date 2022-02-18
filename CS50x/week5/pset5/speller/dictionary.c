@@ -185,7 +185,7 @@ bool unload(void)
     {
         node *pntr = table[i];
         node *tmp = pntr;
-        while ((*pntr).next != NULL)
+        while (pntr != NULL)
         {
             pntr = (*pntr).next;
             free(tmp);
