@@ -31,7 +31,8 @@ unsigned int count = 0;
 bool check(const char *word)
 {
     // TODO_DONE
-    node *pntr = (*table[hash(word)]).next;
+    unsigned int hash_index = hash(word);
+    node *pntr = (*table[hash_index]).next;
 
     while ((*pntr).next != NULL)
     {
