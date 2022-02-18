@@ -30,6 +30,9 @@ unsigned int count = 0;
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
+
+
+
     // TODO_DONE
     /*
     Hashes the first 6 letters of a word (at most) into an unsigned int
