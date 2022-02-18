@@ -77,7 +77,7 @@ unsigned int hash(const char *word)
 
     // printf("hash_num is: %u\n", hash_num);
 
-    return hash_num - 1;
+    return hash_num;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
