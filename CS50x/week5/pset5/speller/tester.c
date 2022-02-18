@@ -7,15 +7,16 @@
 int main(int argc, char *argv[])
 {
     typedef struct node
-{
-    char word[46 + 1];
-    struct node *next;
-}
+    {
+        char word[46 + 1];
+        struct node *next;
+    }
+
     node;
 
     node *n;
 
-    (*n).next = NULL;
+    n->next = NULL;
 
     if ((*n).next == NULL)
     {
