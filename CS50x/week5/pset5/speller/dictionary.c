@@ -103,6 +103,7 @@ bool load(const char *dictionary)
         }
     }
 
+    fclose(dict);
     return true;
 }
 
@@ -143,7 +144,7 @@ bool unload(void)
         while (pntr != NULL)
         {
             pntr = (*pntr).next;
-            free((*tmp).word);
+            // free((*tmp).word);
             free(tmp);
             tmp = pntr;
         }
