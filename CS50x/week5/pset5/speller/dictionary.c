@@ -106,22 +106,6 @@ bool load(const char *dictionary)
 
            // 3
            table[hash_index] = n;
-
-           /* Currently wrong, and also dumb
-                1 - assign current hashtable node.word to new node.word
-                2 - make new node.next the same as current hashtable node.next
-                3 - make current hashtable node.next point to new node
-                4 - make current hashtable node.word the last each_word read from dictionary
-
-            // 1
-            strcpy((*n).word, (*table[hash_index]).word);
-            // 2
-            (*n).next = (*table[hash_index]).next;
-            // 3
-            (*table[hash_index]).next = n;
-            // 4
-            strcpy((*table[hash_index]).word, each_word);
-            */
         }
     }
 
@@ -151,22 +135,6 @@ bool check(const char *word)
 unsigned int size(void)
 {
     // TODO_DONE
-    // NVM, made a counter in load() now
-
-    // unsigned int count = 0;
-    // node *pntr;
-
-    // for (int i = 0; i < N; i++)
-    // {
-    //     pntr = table[i].next;
-    //     while ((*pntr).next != NULL)
-    //     {
-    //         count ++;
-    //         pntr = (*pntr).next;
-    //     }
-    // }
-
-    // printf("Hey! Size is %i\n", count);
     return count;
 }
 
