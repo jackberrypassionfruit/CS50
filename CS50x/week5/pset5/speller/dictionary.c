@@ -189,6 +189,7 @@ bool unload(void)
         while (pntr != NULL)
         {
             pntr = (*pntr).next;
+            printf("pntr is %x\n(*pntr).next is %x\n\n", pntr, (*pntr).next);
             free(tmp);
             tmp = pntr;
         }
