@@ -8,7 +8,10 @@
 
 int main(int argc, char *argv[])
 {
-    int hash_index = hash("abbey's");
+    int hash_index = hash("This");
+    printf("%i\n", hash_index);
+
+    hash_index = hash("this");
     printf("%i\n", hash_index);
     return 1;
 }
