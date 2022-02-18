@@ -20,7 +20,7 @@ node;
 
 // TODO_DONE: Choose number of buckets in hash table
 // The biggest power of 26 that fits in an unsigned int, 4 bytes
-const unsigned int N = 387420489;
+const unsigned int N = 20000;
 
 // Hash table
 node *table[N];
@@ -42,11 +42,11 @@ unsigned int hash(const char *word)
     */
 
     int len = strlen(word);
-    unsigned int hash_num = 0;
+    unsigned int hash_num = 1;
 
-    if (len > 6)
+    if (len > 3)
     {
-        len = 6;
+        len = 3;
     }
 
     for (int i = 0; i < len; i++)
@@ -56,7 +56,8 @@ unsigned int hash(const char *word)
         {
             alph_index = 27;
         }
-        hash_num += (alph_index * pow(26, i));
+        // hash_num += (alph_index * pow(26, i));
+        hash_num *= alph_index;
     }
 
     // printf("hash_num is: %u\n", hash_num);
