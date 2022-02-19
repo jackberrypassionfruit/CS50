@@ -4,17 +4,33 @@ import sys
 
 def main():
 
+    """
+    Currently trying to find the best way to make the command take either large or smalll CSV as input
+    And know how to store the subsqs from that first row, to know what to check for later
+    """
+
     # TODO: Check for command-line usage
+    if len(sys.argv) != 3:
+        print("Usage: python dna.py data.csv sequence.txt")
 
     # TODO: Read database file into a variable
+    db = open(f"{sys.argv[1]}", "r")
+    reader = csv.reader(db)
+    
     
     # TODO: Read DNA sequence file into a variable
+    sq = open(f"{sys.argv[2]}", "r")
+    sequence = sq.read().rstrip("\n")
 
     # TODO: Find longest match of each STR in DNA sequence
 
+    
+
+
     # TODO: Check database for matching profiles
 
-    return
+    db.close()
+    sq.close()
 
 
 def longest_match(sequence, subsequence):

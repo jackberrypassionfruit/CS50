@@ -18,9 +18,6 @@ def main():
     cc = input("Enter a credit card number, please: ")
     nums = len(cc)
     
-    # print("cc[0] is: ", cc[0])
-    # print("nums is: ", nums)
-
     if luhn(cc) != 0:
         print("INVALID")
 
@@ -36,9 +33,6 @@ def main():
     else:
         print("INVALID")
     
-    
-
-
 
 def luhn(cc):
     step1 = 0 # DONE
