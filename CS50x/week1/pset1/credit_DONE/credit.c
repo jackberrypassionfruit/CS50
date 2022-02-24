@@ -16,20 +16,10 @@ Credit Card Identitifiers
 
 Pseudocode
 
-What We've Learned
-- When calling a function, even if the functions expected a certain type of number, you still have to specifiy its type when you call that variable. It's dumb, but it'll assume it's an "int" if you don't
-- I like c, but it's unforgiving
-
-Where we left off:
-- Trying to make luhn's steps work
-- Weird print len problem (described below)
-
 Weird Problems
 - For some reason, not having an early printf statement for the global len variable cause the initial length test case to fail. Does printf change something about it?
 
 */
-
-
 
 int getLongLength();
 int luhnCheck();
@@ -126,10 +116,7 @@ int luhnStepOne(string str)
         {
             sum += adder;
         }
-        // printf("adder is: %i\n", adder);
-        // printf("Sum1 is: %i\n", sum);
     }
-    // printf("Sum1 is: %i\n", sum);
     return sum;
 }
 
@@ -140,9 +127,6 @@ int luhnStepTwo(string str)
     {
         int adder = str[i - 1] - 48;
         sum += adder;
-        // printf("adder is: %i\n", adder);
-        // printf("Sum2 is: %i\n", sum);
     }
-    // printf("Sum2 is: %i\n", sum);
     return sum;
 }
