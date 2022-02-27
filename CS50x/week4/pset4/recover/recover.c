@@ -37,20 +37,19 @@ int main(int argc, char *argv[])
     This is the file I will continue writing to until the new file beginning.
     */
 
+    sprintf(name, "000.jpg");
     FILE *output = fopen(name, "w");
     int ready = 1;
 
     while (fread(&block, sizeof(uint8_t), 512, card) == 512)
     {
-        // printf("blocks [1], [2], and [3] are: %x, %x,  %x, and %x\n", block[0], block[1], block[2], block[3]);
-
         // Before ready is true (ie. 0) waits for jpeg header. Then writes to output below
         if (!((block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 0xe0) && (block[3] <= 0xef))) && ready == 1)
         {
             continue;
         }
 
-        // Does same jpeg header check but now with
+        // Does same jpeg header check but now going on to write to files
         if (block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 0xe0) && (block[3] <= 0xef))
         {
             ready = 0;
