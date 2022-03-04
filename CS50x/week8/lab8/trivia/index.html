@@ -4,27 +4,125 @@
     <head>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
         <link href="styles.css" rel="stylesheet">
-        <title>Trivia!</title>
+        <title>Exponential & Logarithmic Functions!</title>
         <script>
-            // TODO: Add code to check answers to questions
+            // TODO_DONE: Add code to check answers to questions
+            function Q1(ans)
+            {
+                let btns = document.querySelectorAll(".btn");
+                for (let i = 0; i < btns.length; i++)
+                {
+                    btns[i].style.background = "#d9edff";
+                }
+
+                let maybes = document.querySelectorAll(".MCQ");
+                maybes.forEach(maybe => {
+                    maybe.style.color = "white";
+                });
+                
+                ans = parseInt(ans);
+
+                if (ans == 3)
+                {
+                    document.querySelector(".btn.A").style.background = "green";
+                    document.querySelector(".MCQ.correct").style.color = "black";
+                }
+                else if (ans == 6)
+                {
+                    document.querySelector(".btn.B").style.background = "red";
+                    document.querySelector(".MCQ.incorrect").style.color = "black";
+                }
+                else if (ans == 216)
+                {
+                    document.querySelector(".btn.C").style.background = "red";
+                    document.querySelector(".MCQ.incorrect").style.color = "black";
+                }
+                else if (ans == 12)
+                {
+                    document.querySelector(".btn.D").style.background = "red";
+                    document.querySelector(".MCQ.incorrect").style.color = "black";
+                }
+            }
+            
+            function Q2()
+            {
+                let ans = parseInt(document.querySelector("#Q2").value);
+
+                if (ans == 69)
+                {
+                    document.querySelector(".FRQ.incorrect").style.color = "white";
+                    
+                    document.querySelector("#Q2").style.background = "green";
+                    document.querySelector(".FRQ.correct").style.color = "black";
+                }
+                else
+                {
+                    document.querySelector(".FRQ.correct").style.color = "white";
+
+
+                    document.querySelector("#Q2").style.background = "red";
+                    document.querySelector(".FRQ.incorrect").style.color = "black";
+                }
+            }
+            // document.querySelector('form').addEventListener('submit', Q2);
+            
         </script>
     </head>
     <body>
         <div class="header">
-            <h1>Trivia!</h1>
+            <h1>Exponential & Logarithmic Functions Quiz!</h1>
         </div>
 
         <div class="container">
-            <div class="section">
+            <!-- I made this into "section1" and "section2", instead of both "section" -->
+            <div class="section1">
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
                 <!-- TODO: Add multiple choice question here -->
+                <h3>
+                    Simplify the following expression using the Change of Base Property.
+                </h3>
+                <img src="MCQ.png" width="75%">
+                <p> </p>
+                <ol>
+                    <li>
+                        <button class="btn A" onclick="Q1('3')">3</button>
+                    </li>
+                    <li>
+                        <button class="btn B" onclick="Q1('6')">6</button>
+                    </li>
+                    <li>
+                        <button class="btn C" onclick="Q1('216')">216</button>
+                    </li>
+                    <li>
+                        <button class="btn D" onclick="Q1('12')">12</button>
+                    </li>
+                </ol>
+
+                <h3 class="MCQ correct">Correct!</h3>
+                <h3 class="MCQ incorrect">Incorrect</h3>
             </div>
 
-            <div class="section">
+            <div class="section2">
                 <h2>Part 2: Free Response</h2>
                 <hr>
-                <!-- TODO: Add free response question here -->
+                <!-- TODO_DONE: Add free response question here -->
+                <h3>
+                    For a given sample of McDonald’s French Fries sitting on top of my refrigerator, it is found that the molecules break down at a rate of 1% per year. This is modelled by the exponential decay function:
+                </h3>
+                <img src="FRQ.png" width="75%">
+                <h3>
+                    with a being the initial # of molecules in the fries, which is extraneous to this problem. What is the half life of the fries, in years?  (Meaning, how many years have to pass for there to be 50%, or ½, of the original number of remaining molecules, a,  in the fries?) <em>(round to nearest whole number)</em>
+                </h3>
+                <h5>
+                    (Hint: if you find yourself chuckling at the answer, it’s probably right)
+                </h5>
+
+                <input autocomplete="off" id="Q2" placeholder="Answer" type="text">
+                <input type="submit" onclick="Q2()">
+
+                <h3 class="FRQ correct">Correct!</h3>
+                <h3 class="FRQ incorrect">Incorrect</h3>
             </div>
         </div>
     </body>
