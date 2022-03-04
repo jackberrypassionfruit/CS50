@@ -1,0 +1,31 @@
+"Create a simple homepage that introduces yourself, your favorite hobby or extracurricular, or anything else of interest to you."
+
+I have lots of pictures of my own [retty face, my nature photos, and stuff I generally find cool
+
+I should probably showcase my hobbies and interests and talents on top of that
+
+This would be a good place to demo something from the math lesson maybe
+
+
+Specs:
+1. >= 4 .html pages
+2. >= 10 unique html tags (not difficult unless I get lazy)
+3. Integrate features from Bootstrap (should happen naturally when I want to muck with CSS. I need to research)
+4. >=1 CSS Style sheet with:
+    A. >= 5 different selectors
+    B. >= 5 different properties/styles
+    (Again, not hard unless I'm REALYY lazy)
+5. >= 1 Javascript Dynamic interactivity features. Creativity is key
+6. Works well on Desktop AND Mobile browsers
+
+
+Webpage ideas
+    I. Homepage - all about mois
+    II. Photos of hiking, nature, cool shit
+    III. Video games I love
+        -> Maybe embedded game? 
+        -> Kinda dumb, but still cool
+    IV. Photos of math teaching stuff
+        -> More integrated quiz with feedback stuff
+        -> Maybe even try to emulate Math Is Fun awesome demos
+    V. "Something, but brainstorm with Sam about it"
