@@ -32,12 +32,9 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    /* My problem is that only the first lines of the image are written.
-    This is because I write to the jpegs only when I see the start of a new one.
-    I stop writing, and leave off the rest this way.
-
-    What I SHOULD do, is every time I see the start condition, close the output file I had been writing, iterate the filename, and open a newfile for the new jpeg.
-    This is the file I will continue writing to until the new beginning.
+    /*
+    Every time I see the start condition, close the output file I had been writing, iterate the filename, and open a newFile for the new jpeg.
+    This is the file I will continue writing to until the new file beginning.
     */
 
     sprintf(name, "000.jpg");
@@ -46,15 +43,13 @@ int main(int argc, char *argv[])
 
     while (fread(&block, sizeof(uint8_t), 512, card) == 512)
     {
-        // printf("blocks [1], [2], and [3] are: %x, %x,  %x, and %x\n", block[0], block[1], block[2], block[3]);
-
         // Before ready is true (ie. 0) waits for jpeg header. Then writes to output below
         if (!((block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 0xe0) && (block[3] <= 0xef))) && ready == 1)
         {
             continue;
         }
 
-        // Does same jpeg header check but now with
+        // Does same jpeg header check but now going on to write to files
         if (block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] >= 0xe0) && (block[3] <= 0xef))
         {
             ready = 0;
