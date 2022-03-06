@@ -35,9 +35,9 @@ unsigned int hash(const char *word)
     int len = strlen(word);
     unsigned int hash_num = 1;
 
-    if (len > 4)
+    if (len > 5)
     {
-        len = 4;
+        len = 5;
     }
 
     for (int i = 0; i < len; i++)
