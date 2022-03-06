@@ -19,7 +19,7 @@ typedef struct node
 node;
 
 // TODO_DONE: Choose number of buckets in hash table
-const unsigned int N = 15000000;
+const unsigned int N = 400000000;
 
 // Hash table
 node *table[N];
@@ -35,9 +35,9 @@ unsigned int hash(const char *word)
     int len = strlen(word);
     unsigned int hash_num = 1;
 
-    if (len > 5)
+    if (len > 6)
     {
-        len = 5;
+        len = 6;
     }
 
     for (int i = 0; i < len; i++)
