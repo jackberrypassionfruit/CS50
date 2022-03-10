@@ -1,6 +1,6 @@
 while True:
     height = int(input("Height of tower?: "))
-    if height > 2 and height < 8:
+    if height > 1 and height < 9:
         break
 
 for i in range(height):
