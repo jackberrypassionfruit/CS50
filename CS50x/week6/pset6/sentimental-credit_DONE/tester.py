@@ -1,2 +1,2 @@
-for i in range(10, 2):
-    print(i)
+poop = "shart"
+print(poop[0:1])
