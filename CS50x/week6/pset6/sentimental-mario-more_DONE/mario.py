@@ -1,5 +1,7 @@
+import cs50
+
 while True:
-    height = int(input("Height of tower?: "))
+    height = cs50.get_int("Height: ")
     if height > 1 and height < 9:
         break
 
