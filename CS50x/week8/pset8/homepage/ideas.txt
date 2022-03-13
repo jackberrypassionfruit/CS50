@@ -8,14 +8,14 @@ This would be a good place to demo something from the math lesson maybe
 
 
 Specs:
-1. >= 4 .html pages
-2. >= 10 unique html tags (not difficult unless I get lazy)
-3. Integrate features from Bootstrap (should happen naturally when I want to muck with CSS. I need to research)
-4. >=1 CSS Style sheet with:
+1. ≥ 4 .html pages
+2. ≥ 10 unique html tags (not difficult unless I get lazy)
+3. Integrate ≥ feature from Bootstrap (should happen naturally when I want to muck with CSS. I need to research)
+4. ≥ 1 CSS Style sheet with:
     A. >= 5 different selectors
     B. >= 5 different properties/styles
     (Again, not hard unless I'm REALYY lazy)
-5. >= 1 Javascript Dynamic interactivity features. Creativity is key
+5. ≥ 1 Javascript Dynamic interactivity features. Creativity is key
 6. Works well on Desktop AND Mobile browsers
 
 

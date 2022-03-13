@@ -3,7 +3,6 @@
 import csv
 import sys
 import random
-import copy
 
 # Number of simluations to run
 N = 1000
@@ -25,7 +24,7 @@ def main():
     db.close()
 
     counts = {}
-    # TODO: Simulate N tournaments and keep track of win counts
+    # TODO_DONE: Simulate N tournaments and keep track of win counts
 
     for i in range(N):
         winner = simulate_tournament(teams)
