@@ -29,6 +29,9 @@ db = SQL("sqlite:///finance.db")
 if not os.environ.get("API_KEY"):
     raise RuntimeError("API_KEY not set")
 
+# My Kindling
+registrants = {}
+
 
 @app.after_request
 def after_request(response):
@@ -43,7 +46,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    return apology("TODO")
+    return render_template("index.html")
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -88,6 +91,9 @@ def login():
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
 
+        # Flashing!
+        flash("Logged In!")
+
         # Redirect user to home page
         return redirect("/")
 
@@ -116,8 +122,31 @@ def quote():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    """Register user"""
-    return apology("TODO")
+    return render_template("register.html")
+
+@app.route("/registration", methods=["GET", "POST"])
+def registration():
+    if request.method == "POST":
+        """Register user"""
+
+        username = request.form.get("username")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
+
+        users = db.execute("SELECT * FROM users")
+
+        if username in [user["username"] for user in users] or username == "":
+            return apology("Username blank or already exists", 403)
+
+        if password != confirmation or password == "":
+            return apology("Passwords do not match or are blank", 403)
+
+        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
+
+        # Not showing up
+        flash("someone has been registered!")
+
+        return redirect("/login")
 
 
 @app.route("/sell", methods=["GET", "POST"])

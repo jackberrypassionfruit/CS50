@@ -4,4 +4,6 @@ db = SQL("sqlite:///birthdays.db")
 
 people = db.execute("SELECT * FROM birthdays")
 
-print(people)
+names = [name["name"] for name in people]
+
+print(names)
