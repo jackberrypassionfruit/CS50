@@ -1,4 +1,5 @@
 import os
+import datetime
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
@@ -29,6 +30,9 @@ db = SQL("sqlite:///finance.db")
 if not os.environ.get("API_KEY"):
     raise RuntimeError("API_KEY not set")
 
+# My Kindling
+registrants = {}
+
 
 @app.after_request
 def after_request(response):
@@ -43,15 +47,53 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    return apology("TODO")
+    if not session.get("name"):
+        return redirect("/login")
+    return render_template("index.html")
 
 
+"""
+Currently Working on this
+SitRep:
+    - Have amalgamated all of the information necessary to log a stock purchase
+    - RN I'm creating the SQL that will save this info
+    - I have to decide how these tables will communicated with each other,
+    - .schema is printing horizontal and bugging te shit out of me
+    - This table will have a lot to do with the /history route and its function
+    - So maybe check that out and keep it in mind
+"""
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
-    """Buy shares of stock"""
-    return apology("TODO")
+    if request.method == "POST":
+        sym = request.form.get("symbol")
+        if sym == "" or None:
+            return apology("Input is blank or the symbol does not exist")
+        shares = request.form.get("shares")
+        if shares < 0:
+            return apology("Input is not a positive integer")
 
+        company = lookup(sym)
+        name = company["name"]
+        price = company["price"]
+        symbol = company["symbol"]
+
+        currentCash = int(db.execute("SELECT cash FROM users WHERE username IS ?", session["name"]))
+
+        if (price * shares) < currentCash:
+            return apology("You cannot afford the number of shares at the current price.")
+
+        now = datetime.datetime.now().replace(microsecond=0).isoformat().replace("T", " ")
+
+        db.execute("INSERT INTO transactions (symbol, shares, price, transacted) VALUES(?, ?, ?, ?)", symbol, shares, price, now)
+
+
+        flash(f"Bought {shares} shares of {symbol} symbol!")
+
+
+        
+    else:
+        return render_template("buy.html")
 
 @app.route("/history")
 @login_required
@@ -87,6 +129,10 @@ def login():
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
+        session["name"] = rows[0]["username"]
+
+        # Flashing!
+        flash("Logged In!")
 
         # Redirect user to home page
         return redirect("/")
@@ -110,14 +156,40 @@ def logout():
 @app.route("/quote", methods=["GET", "POST"])
 @login_required
 def quote():
-    """Get stock quote."""
-    return apology("TODO")
+    if request.method == "POST":
+        company = lookup(request.form.get("symbol"))
+        return render_template("quoted.html", company=company)
+    else:
+        return render_template("quote.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    """Register user"""
-    return apology("TODO")
+    return render_template("register.html")
+
+@app.route("/registration", methods=["GET", "POST"])
+def registration():
+    if request.method == "POST":
+        """Register user"""
+
+        username = request.form.get("username")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
+
+        users = db.execute("SELECT * FROM users")
+
+        if username in [user["username"] for user in users] or username == "":
+            return apology("Username blank or already exists", 403)
+
+        if password != confirmation or password == "":
+            return apology("Passwords do not match or are blank", 403)
+
+        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
+
+        # Not showing up for some reason
+        flash("someone has been registered!")
+
+        return redirect("/login")
 
 
 @app.route("/sell", methods=["GET", "POST"])
