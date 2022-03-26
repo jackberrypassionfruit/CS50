@@ -174,9 +174,8 @@ def buy():
         current_cash -= (new_shares * sql_price)
         db.execute("UPDATE users SET cash = ? WHERE id IS ?", current_cash, session["user_id"])
         
-        portfolios_table = db.execute("SELECT * FROM portfolios WHERE user_id IS ?", session["user_id"])
 
-        return render_template("index.html", lookup=lookup, portfolios_table=portfolios_table, current_cash=current_cash)
+        return redirect("/")
     else:
         return render_template("buy.html")
     
@@ -195,7 +194,7 @@ def sell():
             # 2. Increase my cash by the amount it was worth at the time
 
         flash("Sold some stonks!")
-        company = lookup(request.form.get("stock"))
+        company = lookup(request.form.get("symbol"))
         symbol = company["symbol"]
         name = company["name"]
         selling_shares = -1 * int(request.form.get("shares"))
@@ -224,15 +223,12 @@ def sell():
             current_cash -= sql_price * selling_shares
             db.execute("UPDATE users SET cash = ? WHERE id IS ?", current_cash, session["user_id"])
 
+            return redirect("/")
 
-            portfolios_table = db.execute("SELECT * FROM portfolios WHERE user_id IS ?", session["user_id"])
-            return render_template("index.html", lookup=lookup, current_cash=current_cash, portfolios_table=portfolios_table)
         else:
             return apology("Number of shares must be positive, and you must own that many shares of the stock")
         
-
     else:
-
         return render_template("sell.html", longs=longs)
 
 

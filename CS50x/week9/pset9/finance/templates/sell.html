@@ -7,7 +7,7 @@
 {% block main %}
 
 <form action="/sell" method="POST">
-    <select name="stock" class="form-select form-select-sm mb-3" aria-label=".form-select-lg example">
+    <select name="symbol" class="form-select form-select-sm mb-3" aria-label=".form-select-lg example">
         <option selected>Open this select menu</option>
         {% for long in longs %}
             <option value={{ long }}>{{ long }}</option>

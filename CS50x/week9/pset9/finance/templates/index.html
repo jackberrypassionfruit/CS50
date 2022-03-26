@@ -17,6 +17,7 @@
                     <th>Shares</th>
                     <th>Price</th>
                     <th>TOTAL</th>
+                    <th>Buy/Sell?</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +33,21 @@
                         <td>{{ row["shares"] }}</td>
                         <td>${{ price }}</td>
                         <td>${{ (row["shares"] * price) }}</td>
+
+                        <!--                    
+                        All a plan that's not quite working yet
+                        <td>
+                            <form id="buysell" method="post" action="/buy">    
+                                <input type="number" name="shares" class="form-control" placeholder="#">
+                                <input type="submit" class="btn btn-outline-secondary" value="Buy">
+                            </form>
+                            <form id="buysell" method="post" action="/sell">    
+                                <input type="number" name="shares" class="form-control" placeholder="#">
+                                <input type="submit" class="btn btn-outline-secondary" value="Sell">
+                            </form>
+                        </td>
+                        -->
+
                         {% set accumulator.total = (row["shares"] * price) + accumulator.total %}
                     </tr>
 

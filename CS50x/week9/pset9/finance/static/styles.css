@@ -22,9 +22,8 @@ nav .navbar-brand .green
     color: #2e944b;
 }
 
-/* .spaced {
+#buysell {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row nowrap;
     width: fit-content;
-    align-items: flex-end;
-} */
+}

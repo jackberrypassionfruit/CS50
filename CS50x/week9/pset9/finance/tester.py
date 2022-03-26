@@ -1,6 +1,8 @@
 
 from cs50 import SQL
 from helpers import lookup
+from flask import Flask, flash, redirect, render_template, request, session
+
 
 db = SQL("sqlite:///finance.db")
 
@@ -8,9 +10,10 @@ db = SQL("sqlite:///finance.db")
 
 # rows = db.execute("SELECT * FROM portfolios")
 
-print([company["symbol"] for company in db.execute("SELECT symbol FROM portfolios WHERE user_id IS 1")])
+# print([company["symbol"] for company in db.execute("SELECT symbol FROM portfolios WHERE user_id IS 1")])
 
 # print(int(float(lookup("aapl")["price"]) * 100))
 
 # print(type(lookup("msft")["price"]))
 
+print(request.form.get("poop"))
