@@ -5,6 +5,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
+from datetime import datetime
 
 from helpers import apology, login_required, lookup, usd
 
@@ -49,18 +50,34 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/buy", methods=["GET", "POST"])
-@login_required
-def buy():
-    """Buy shares of stock"""
-    return apology("TODO")
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    return render_template("register.html")
 
 
-@app.route("/history")
-@login_required
-def history():
-    """Show history of transactions"""
-    return apology("TODO")
+@app.route("/registration", methods=["GET", "POST"])
+def registration():
+    if request.method == "POST":
+        """Register user"""
+
+        username = request.form.get("username")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
+
+        users = db.execute("SELECT * FROM users")
+
+        if username in [user["username"] for user in users] or username == "":
+            return apology("Username blank or already exists", 403)
+
+        if password != confirmation or password == "":
+            return apology("Passwords do not match or are blank", 403)
+
+        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
+
+        # Not showing up
+        flash("someone has been registered!")
+
+        return redirect("/login")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -102,6 +119,37 @@ def login():
         return render_template("login.html")
 
 
+@app.route("/quote", methods=["GET", "POST"])
+@login_required
+def quote():
+    """Get stock quote."""
+    return apology("TODO")
+
+
+@app.route("/buy", methods=["GET", "POST"])
+@login_required
+def buy():
+    """Buy shares of stock"""
+    flash("Bought some stonks!")
+    
+
+    return apology("TODO")
+
+
+@app.route("/sell", methods=["GET", "POST"])
+@login_required
+def sell():
+    """Sell shares of stock"""
+    return apology("TODO")
+
+
+@app.route("/history")
+@login_required
+def history():
+    """Show history of transactions"""
+    return apology("TODO")
+
+
 @app.route("/logout")
 def logout():
     """Log user out"""
@@ -111,46 +159,3 @@ def logout():
 
     # Redirect user to login form
     return redirect("/")
-
-
-@app.route("/quote", methods=["GET", "POST"])
-@login_required
-def quote():
-    """Get stock quote."""
-    return apology("TODO")
-
-
-@app.route("/register", methods=["GET", "POST"])
-def register():
-    return render_template("register.html")
-
-@app.route("/registration", methods=["GET", "POST"])
-def registration():
-    if request.method == "POST":
-        """Register user"""
-
-        username = request.form.get("username")
-        password = request.form.get("password")
-        confirmation = request.form.get("confirmation")
-
-        users = db.execute("SELECT * FROM users")
-
-        if username in [user["username"] for user in users] or username == "":
-            return apology("Username blank or already exists", 403)
-
-        if password != confirmation or password == "":
-            return apology("Passwords do not match or are blank", 403)
-
-        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
-
-        # Not showing up
-        flash("someone has been registered!")
-
-        return redirect("/login")
-
-
-@app.route("/sell", methods=["GET", "POST"])
-@login_required
-def sell():
-    """Sell shares of stock"""
-    return apology("TODO")
