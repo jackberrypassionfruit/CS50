@@ -5,13 +5,13 @@ ON movies.id = stars.movie_id
 AND stars.person_id = people.id
 WHERE movies.title IN
 
-(SELECT * FROM movies, stars, people
+(SELECT movies.title FROM movies, stars, people
 ON movies.id = stars.movie_id
 AND stars.person_id = people.id
-WHERE people.name IS "%Kevin Bacon%"
-AND people.birth IS 1958)
+WHERE people.name LIKE "%Kevin Bacon%"
+AND people.birth LIKE 1958)
 
-AND NOT name IS "%Kevin Bacon%";
+AND NOT name LIKE "%Kevin Bacon%";
 
 
 -- SELECT name FROM people, stars
