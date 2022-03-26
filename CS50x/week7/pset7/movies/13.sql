@@ -1,8 +1,8 @@
-SELECT name FROM people, stars 
+SELECT name FROM people, stars
 ON people.id = stars.person_id
 WHERE movies.id IN
 
-(SELECT movies.id FROM movies, stars, people
+(SELECT movie_id FROM movies, stars, people
 ON movies.id = stars.movie_id
 AND stars.person_id = people.id
 WHERE people.name LIKE "%Kevin Bacon%");
