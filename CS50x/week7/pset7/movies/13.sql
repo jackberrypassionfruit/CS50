@@ -5,7 +5,7 @@ ON movies.id = stars.movie_id
 AND stars.person_id = people.id
 WHERE movies.title IN
 
-(SELECT movies.title FROM movies, stars, people
+(SELECT * FROM movies, stars, people
 ON movies.id = stars.movie_id
 AND stars.person_id = people.id
 WHERE people.name IS "%Kevin Bacon%"
