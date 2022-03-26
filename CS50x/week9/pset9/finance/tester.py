@@ -6,6 +6,11 @@ db = SQL("sqlite:///finance.db")
 
 # usernames = db.execute("SELECT username FROM users")
 
-rows = db.execute("SELECT * FROM users WHERE username IS 'dad'")
+# rows = db.execute("SELECT * FROM portfolios")
 
-print(rows)
+print([company["symbol"] for company in db.execute("SELECT symbol FROM portfolios WHERE user_id IS 1")])
+
+# print(int(float(lookup("aapl")["price"]) * 100))
+
+# print(type(lookup("msft")["price"]))
+

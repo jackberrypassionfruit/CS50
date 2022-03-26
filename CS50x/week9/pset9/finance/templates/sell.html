@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+
+<form action="/sell" method="POST">
+    <select name="stock" class="form-select form-select-sm mb-3" aria-label=".form-select-lg example">
+        <option selected>Open this select menu</option>
+        {% for long in longs %}
+            <option value={{ long }}>{{ long }}</option>
+        {% endfor %}
+    </select>    
+    <input autocomplete="off" autofocus name="shares" placeholder="Shares" type="number">
+    <input type="submit" value="Sell">
+
+</form>
+
+{% endblock %}

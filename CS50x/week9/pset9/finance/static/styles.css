@@ -21,3 +21,10 @@ nav .navbar-brand .green
 {
     color: #2e944b;
 }
+
+/* .spaced {
+    display: flex;
+    flex-flow: column wrap;
+    width: fit-content;
+    align-items: flex-end;
+} */

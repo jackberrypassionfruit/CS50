@@ -8,8 +8,52 @@
 
 {% block main %}
 
-<div>
-    
-</div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <!-- List all holdings for the given user -->
+                {% set accumulator = namespace(total = 0) %}
+                {% for row in portfolios_table %}
+
+                    {% set price = lookup(row["symbol"])["price"] %}
+                    <tr>
+                        <td>{{ row["symbol"] }}</td>
+                        <td>{{ row["name"] }}</td>
+                        <td>{{ row["shares"] }}</td>
+                        <td>${{ price }}</td>
+                        <td>${{ (row["shares"] * price) }}</td>
+                        {% set accumulator.total = (row["shares"] * price) + accumulator.total %}
+                    </tr>
+
+                {% endfor %}
+                <!-- THEN, create last 2 row items for their cash and total assets -->
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Cash</td>
+                    <td>${{ current_cash / 100 }}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Total</td>
+                    <!-- current cash is in non-cent format, but acctotal is, so have to account for that -->
+                    <td>${{ (current_cash + accumulator.total * 100) / 100 }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 {% endblock %}
