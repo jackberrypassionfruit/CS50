@@ -1,4 +1,5 @@
 import os
+import datetime
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
@@ -47,6 +48,8 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
+    if not session.get("name"):
+        return redirect("/login")
     return render_template("index.html")
 
 
@@ -107,6 +110,7 @@ def login():
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
+        session["name"] = rows[0]["username"]
 
         # Flashing!
         flash("Logged In!")
@@ -122,8 +126,11 @@ def login():
 @app.route("/quote", methods=["GET", "POST"])
 @login_required
 def quote():
-    """Get stock quote."""
-    return apology("TODO")
+    if request.method == "POST":
+        company = lookup(request.form.get("symbol"))
+        return render_template("quoted.html", company=company)
+    else:
+        return render_template("quote.html")
 
 
 @app.route("/buy", methods=["GET", "POST"])
