@@ -22,8 +22,15 @@ nav .navbar-brand .green
     color: #2e944b;
 }
 
-#buysell {
+.table {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    text-align: right;
+}
+
+/* #buysell {
     display: flex;
     flex-flow: row nowrap;
     width: fit-content;
-}
+} */

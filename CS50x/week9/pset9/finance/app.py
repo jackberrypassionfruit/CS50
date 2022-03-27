@@ -57,11 +57,6 @@ def index():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    return render_template("register.html")
-
-
-@app.route("/registration", methods=["GET", "POST"])
-def registration():
     if request.method == "POST":
         """Register user"""
 
@@ -79,10 +74,19 @@ def registration():
 
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
 
-        # Not showing up
-        flash("someone has been registered!")
+        # Query database for username
+        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
-        return redirect("/login")
+        # Remember which user has logged in
+        session["user_id"] = rows[0]["id"]
+        session["name"] = rows[0]["username"]
+
+        # Showing up now, but wasn't before I made sure to log in user on registration
+        flash(f"{session['name']} has been registered and logged in!")
+
+        return redirect("/")
+    else:
+        return render_template("register.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -250,3 +254,52 @@ def logout():
 
     # Redirect user to login form
     return redirect("/")
+
+
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
+    """Manage account details"""
+
+    if request.method == "post":
+        pass
+    else:
+        current_cash = db.execute("SELECT cash FROM users WHERE id IS ?", session["user_id"])[0]["cash"]
+        return render_template("profile.html", current_cash=current_cash)
+
+
+@app.route("/addCash", methods=["GET", "POST"])
+def addCash():
+    """Manage account details"""
+    current_cash = db.execute("SELECT cash FROM users WHERE id IS ?", session["user_id"])[0]["cash"]
+    secret_code = "please12345"
+
+    new_cash = int(request.form.get("new_cash"))
+    secret = request.form.get("secret")
+
+    if secret != secret_code:
+        flash("You forgot the secret code!")
+        return redirect("/profile")
+    
+    # Add new_cash to user's account
+    current_cash += 100 * new_cash
+    db.execute("UPDATE users SET cash = ? WHERE id IS ?", current_cash, session["user_id"])
+    
+    flash(f"Added ${new_cash} to account ")
+    return redirect("/profile")
+
+
+@app.route("/changePassword", methods=["GET", "POST"])
+def changePassword():
+
+    old = request.form.get("old")
+    new = request.form.get("new")
+    again = request.form.get("again")
+
+    if new != again:
+        flash("Passwords aren't the same!")
+        return redirect("/profile")
+
+    # Change Password
+    db.execute("UPDATE users SET hash = ? WHERE id IS ?", generate_password_hash(new), session["user_id"])
+    flash("Password Changed")
+    return redirect("/profile")
