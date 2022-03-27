@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block main %}
+
+<!-- Have to make the cash value show two decimal places, even when no cents -->
+<h3>Current Cash is ${{ '%.2f' % (current_cash / 100) }}</h3>
+<form action="/addCash" method="POST">
+    <input autocomplete="off" autofocus name="new_cash" placeholder="Cash to Add" type="number">
+    <input autocomplete="off" autofocus name="secret" placeholder="Secret Code" type="password">
+    <input type="submit" value="Purchase">
+
+</form>
+
+
+{% for i in range(6) %}
+<br>
+{% endfor %}
+
+
+<form action="/changePassword" method="POST">
+    <input autocomplete="off" autofocus name="old" placeholder="Type Old Password" type="password">
+    <br>
+    <input autocomplete="off" autofocus name="new" placeholder="Type New Password" type="password">
+    <input autocomplete="off" autofocus name="again" placeholder="Verify New Password" type="password">
+    <input type="submit" value="Change Password">
+
+</form>
+
+{% endblock %}
