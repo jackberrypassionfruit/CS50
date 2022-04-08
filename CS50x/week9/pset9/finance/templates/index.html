@@ -16,39 +16,25 @@
                     <th>Shares</th>
                     <th>Price</th>
                     <th>TOTAL</th>
-                    <th>Buy/Sell?</th>
                 </tr>
             </thead>
             <tbody>
                 
                 <!-- List all holdings for the given user -->
-                {% set accumulator = namespace(total = 0) %}
+                {% set accumulator = namespace( total = 0) %}
                 {% for row in portfolios_table %}
 
                     {% set price = lookup(row["symbol"])["price"] %}
                     <tr>
-                        <td>{{ row["symbol"] }}</td>
+                        <td name="symbol">{{ row["symbol"] }}</td>
                         <td>{{ row["name"] }}</td>
                         <td>{{ row["shares"] }}</td>
                         <td>${{ price }}</td>
                         <td>${{ (row["shares"] * price) }}</td>
 
-                        <!--                    
-                        All a plan that's not quite working yet
-                        <td>
-                            <form id="buysell" method="post" action="/buy">    
-                                <input type="number" name="shares" class="form-control" placeholder="#">
-                                <input type="submit" class="btn btn-outline-secondary" value="Buy">
-                            </form>
-                            <form id="buysell" method="post" action="/sell">    
-                                <input type="number" name="shares" class="form-control" placeholder="#">
-                                <input type="submit" class="btn btn-outline-secondary" value="Sell">
-                            </form>
-                        </td>
-                        -->
-
-                        {% set accumulator.total = (row["shares"] * price) + accumulator.total %}
                     </tr>
+
+                    {% set accumulator.total = (row["shares"] * price) + (accumulator.total // 1) %}
 
                 {% endfor %}
             </tbody>

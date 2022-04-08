@@ -16,4 +16,4 @@ db = SQL("sqlite:///finance.db")
 
 # print(type(lookup("msft")["price"]))
 
-print(request.form.get("poop"))
+print(db.execute("SELECT cash FROM users WHERE id = 9")[0]["cash"])

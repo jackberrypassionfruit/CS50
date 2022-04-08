@@ -144,11 +144,13 @@ def quote():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        flash("Bought some stonks!")
         company = lookup(request.form.get("symbol"))
         symbol = company["symbol"]
         name = company["name"]
-        new_shares = int(request.form.get("shares"))
+        new_shares = request.form.get("shares")
+        if not new_shares:
+            return redirect("/buy")
+        new_shares = int(new_shares)
         transaction_time = datetime.now().replace(microsecond=0).isoformat().replace("T", " ")
         current_cash = db.execute("SELECT cash FROM users WHERE id IS ?", session["user_id"])[0]["cash"]
         float_price = company["price"]
@@ -177,6 +179,8 @@ def buy():
         current_cash -= (new_shares * sql_price)
         db.execute("UPDATE users SET cash = ? WHERE id IS ?", current_cash, session["user_id"])
         
+        flash("Bought some stonks!")
+
 
         return redirect("/")
     else:
@@ -196,11 +200,13 @@ def sell():
             # 1. Remove stock from my portfolio
             # 2. Increase my cash by the amount it was worth at the time
 
-        flash("Sold some stonks!")
         company = lookup(request.form.get("symbol"))
         symbol = company["symbol"]
         name = company["name"]
-        selling_shares = -1 * abs(int(request.form.get("shares")))
+        selling_shares = request.form.get("shares")
+        if not selling_shares:
+            return redirect("/sell")
+        selling_shares = -1 * abs(int(selling_shares))
         transaction_time = datetime.now().replace(microsecond=0).isoformat().replace("T", " ")
         current_cash = db.execute("SELECT cash FROM users WHERE id IS ?", session["user_id"])[0]["cash"]
         float_price = company["price"]
@@ -225,6 +231,9 @@ def sell():
             #2
             current_cash -= sql_price * selling_shares
             db.execute("UPDATE users SET cash = ? WHERE id IS ?", current_cash, session["user_id"])
+
+            flash("Sold some stonks!")
+
 
             return redirect("/")
 
@@ -303,3 +312,14 @@ def changePassword():
     db.execute("UPDATE users SET hash = ? WHERE id IS ?", generate_password_hash(new), session["user_id"])
     flash("Password Changed")
     return redirect("/profile")
+
+
+# @app.route("/buysell", methods=["GET", "POST"])
+# def buysell():
+#     shares = request.form.get("shares")
+#     symbol = request.form.get("symbol") 
+    
+#     db.execute("SELECT symbol FROM portfolios WHERE user_id IS ?", session["user_id"])
+
+    
+    
