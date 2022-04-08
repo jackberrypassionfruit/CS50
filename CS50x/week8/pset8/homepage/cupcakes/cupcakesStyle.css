@@ -7,7 +7,6 @@ body {
 }
 
 .header {
-    flex auto;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -174,4 +173,11 @@ button {
     background-color: rgb(46, 46, 46);
     padding: 20px ;
     color: white;
+}
+
+.frosting
+{
+    display: flex;
+    flex-flow: row nowrap;
+    font-size: medium;
 }

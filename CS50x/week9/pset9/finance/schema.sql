@@ -31,9 +31,3 @@ CREATE TABLE portfolios (
     PRIMARY KEY(id),
     FOREIGN KEY(user_id) REFERENCES users(id)
 );
-
--- Use this bit to delete all the tables
-
-DROP TABLE users;
-DROP TABLE portfolios;
-DROP TABLE transactions;

@@ -200,7 +200,7 @@ def sell():
         company = lookup(request.form.get("symbol"))
         symbol = company["symbol"]
         name = company["name"]
-        selling_shares = -1 * int(request.form.get("shares"))
+        selling_shares = -1 * abs(int(request.form.get("shares")))
         transaction_time = datetime.now().replace(microsecond=0).isoformat().replace("T", " ")
         current_cash = db.execute("SELECT cash FROM users WHERE id IS ?", session["user_id"])[0]["cash"]
         float_price = company["price"]
@@ -271,7 +271,7 @@ def profile():
 def addCash():
     """Manage account details"""
     current_cash = db.execute("SELECT cash FROM users WHERE id IS ?", session["user_id"])[0]["cash"]
-    secret_code = "please12345"
+    secret_code = "johnismyfavoritestudent"
 
     new_cash = int(request.form.get("new_cash"))
     secret = request.form.get("secret")
