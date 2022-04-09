@@ -67,10 +67,10 @@ def register():
         users = db.execute("SELECT * FROM users")
 
         if username in [user["username"] for user in users] or username == "":
-            return apology("Username blank or already exists", 403)
+            return apology("Username blank or already exists", 400)
 
         if password != confirmation or password == "":
-            return apology("Passwords do not match or are blank", 403)
+            return apology("Passwords do not match or are blank", 400)
 
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
 
@@ -101,18 +101,18 @@ def login():
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("must provide username", 400)
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            return apology("must provide password", 400)
 
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-            return apology("invalid username and/or password", 403)
+            return apology("invalid username and/or password", 400)
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
@@ -134,6 +134,8 @@ def login():
 def quote():
     if request.method == "POST":
         company = lookup(request.form.get("symbol"))
+        if not company:
+            return apology("Invalid ticker symbol", 400)
         name = company["name"]
         price = usd(company["price"])
         return render_template("quoted.html", company=company, name=name, price=price)
@@ -147,6 +149,8 @@ def buy():
     """Buy shares of stock"""
     if request.method == "POST":
         company = lookup(request.form.get("symbol"))
+        if not company:
+            return apology("Invalid ticker symbol", 400)
         symbol = company["symbol"]
         name = company["name"]
         new_shares = request.form.get("shares")
@@ -163,7 +167,7 @@ def buy():
         # That changes in real time
 
         if current_cash < new_shares*sql_price:
-            return apology("You cannot afford the number of shares at the current price.", 403)
+            return apology("You cannot afford the number of shares at the current price.", 400)
 
         db.execute("INSERT INTO transactions (user_id, symbol, name, shares, price, transaction_time) VALUES(?, ?, ?, ?, ?, ?)", session["user_id"], symbol, name, new_shares, sql_price, transaction_time)
         
@@ -203,6 +207,8 @@ def sell():
             # 2. Increase my cash by the amount it was worth at the time
 
         company = lookup(request.form.get("symbol"))
+        if not company:
+            return apology("Invalid ticker symbol", 400)
         symbol = company["symbol"]
         name = company["name"]
         selling_shares = request.form.get("shares")
@@ -222,7 +228,7 @@ def sell():
             current_shares += selling_shares
             
             if current_shares < 0:
-                return apology("You don't have that many shares to sell", 403)
+                return apology("You don't have that many shares to sell", 400)
             elif current_shares == 0:
                 db.execute("DELETE FROM portfolios WHERE user_id IS ? AND symbol IS ?", session["user_id"], symbol)
             else:
