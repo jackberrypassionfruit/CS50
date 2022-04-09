@@ -14,10 +14,6 @@ db = SQL("sqlite:///finance.db")
 
 # print(int(float(lookup("aapl")["price"]) * 100))
 
-<<<<<<< HEAD
-print(lookup("AAPL"))
-=======
 print(type(usd(lookup("msft")["price"])))
->>>>>>> 33336716fa87234eb21b8bc4f95bb51b9c250ee8
 
 # print(db.execute("SELECT cash FROM users WHERE id = 9")[0]["cash"])

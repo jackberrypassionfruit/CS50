@@ -6,6 +6,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 from datetime import datetime
+from math import floor, ceil
 
 from helpers import apology, login_required, lookup, usd
 
@@ -153,13 +154,13 @@ def buy():
             return apology("Invalid ticker symbol", 400)
         symbol = company["symbol"]
         name = company["name"]
-        new_shares = request.form.get("shares")
-        if not new_shares:
-            return redirect("/buy")
+        new_shares = float(request.form.get("shares"))
+        if not new_shares or new_shares < 1 or ceil(new_shares) != floor(new_shares):
+            return apology("input a positive integer of shares plz", 400)
         new_shares = int(new_shares)
         transaction_time = datetime.now().replace(microsecond=0).isoformat().replace("T", " ")
         current_cash = db.execute("SELECT cash FROM users WHERE id IS ?", session["user_id"])[0]["cash"]
-        float_price = usd(company["price"])
+        float_price = company["price"]
         sql_price = int(float_price * 100) # Converts currency float to workable integer for sql ex. 47.62 --> 4762
         # Reminder, this is how users.cash (ie. current_cash) is stored in finance.db
 
