@@ -150,11 +150,7 @@ def buy():
     if request.method == "POST":
         company = lookup(request.form.get("symbol"))
         if not company:
-<<<<<<< HEAD
-            return apology("invalid ticker symbol", 400)
-=======
             return apology("Invalid ticker symbol", 400)
->>>>>>> 7af9bc662fe5b2544faabb58db00b3c7e2e3a8e8
         symbol = company["symbol"]
         name = company["name"]
         new_shares = request.form.get("shares")
@@ -212,11 +208,7 @@ def sell():
 
         company = lookup(request.form.get("symbol"))
         if not company:
-<<<<<<< HEAD
-            return apology("invalid ticker symbol", 400)
-=======
             return apology("Invalid ticker symbol", 400)
->>>>>>> 7af9bc662fe5b2544faabb58db00b3c7e2e3a8e8
         symbol = company["symbol"]
         name = company["name"]
         selling_shares = request.form.get("shares")
