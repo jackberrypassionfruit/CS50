@@ -157,7 +157,7 @@ def buy():
         new_shares = int(new_shares)
         transaction_time = datetime.now().replace(microsecond=0).isoformat().replace("T", " ")
         current_cash = db.execute("SELECT cash FROM users WHERE id IS ?", session["user_id"])[0]["cash"]
-        float_price = company["price"]
+        float_price = usd(company["price"])
         sql_price = int(float_price * 100) # Converts currency float to workable integer for sql ex. 47.62 --> 4762
         # Reminder, this is how users.cash (ie. current_cash) is stored in finance.db
 
