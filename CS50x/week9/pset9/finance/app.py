@@ -154,7 +154,10 @@ def buy():
             return apology("Invalid ticker symbol", 400)
         symbol = company["symbol"]
         name = company["name"]
-        new_shares = float(request.form.get("shares"))
+        new_shares = request.form.get("shares")
+        if not new_shares.isnumeric():
+            return apology("input a positive integer of shares plz", 400)
+        new_shares = float(new_shares)
         if not new_shares or new_shares < 1 or ceil(new_shares) != floor(new_shares):
             return apology("input a positive integer of shares plz", 400)
         new_shares = int(new_shares)
