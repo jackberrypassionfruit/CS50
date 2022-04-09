@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Transacted At</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- List all transactions for the given user -->
+                {% for row in transactions_table %}
+                    {% set price = lookup(row["symbol"])["price"] %}
+                    <tr>
+                        <td>{{ row["symbol"] }}</td>
+                        <td>{{ row["shares"] }}</td>
+                        <td>${{ price }}</td>
+                        <td>{{ row["transaction_time"] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

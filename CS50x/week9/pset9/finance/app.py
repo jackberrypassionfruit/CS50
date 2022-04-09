@@ -1,11 +1,11 @@
 import os
-import datetime
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
+from datetime import datetime
 
 from helpers import apology, login_required, lookup, usd
 
@@ -49,57 +49,44 @@ def index():
     """Show portfolio of stocks"""
     if not session.get("name"):
         return redirect("/login")
-    return render_template("index.html")
+    portfolios_table = db.execute("SELECT * FROM portfolios WHERE user_id IS ?", session["user_id"])
+    current_cash = db.execute("SELECT cash FROM users WHERE id IS ?", session["user_id"])[0]["cash"]
+
+    return render_template("index.html", portfolios_table=portfolios_table, lookup=lookup, current_cash=current_cash)
 
 
-"""
-Currently Working on this
-SitRep:
-    - Have amalgamated all of the information necessary to log a stock purchase
-    - RN I'm creating the SQL that will save this info
-    - I have to decide how these tables will communicated with each other,
-    - .schema is printing horizontal and bugging te shit out of me
-    - This table will have a lot to do with the /history route and its function
-    - So maybe check that out and keep it in mind
-"""
-@app.route("/buy", methods=["GET", "POST"])
-@login_required
-def buy():
+@app.route("/register", methods=["GET", "POST"])
+def register():
     if request.method == "POST":
-        sym = request.form.get("symbol")
-        if sym == "" or None:
-            return apology("Input is blank or the symbol does not exist")
-        shares = request.form.get("shares")
-        if shares < 0:
-            return apology("Input is not a positive integer")
+        """Register user"""
 
-        company = lookup(sym)
-        name = company["name"]
-        price = company["price"]
-        symbol = company["symbol"]
+        username = request.form.get("username")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
 
-        currentCash = int(db.execute("SELECT cash FROM users WHERE username IS ?", session["name"]))
+        users = db.execute("SELECT * FROM users")
 
-        if (price * shares) < currentCash:
-            return apology("You cannot afford the number of shares at the current price.")
+        if username in [user["username"] for user in users] or username == "":
+            return apology("Username blank or already exists", 403)
 
-        now = datetime.datetime.now().replace(microsecond=0).isoformat().replace("T", " ")
+        if password != confirmation or password == "":
+            return apology("Passwords do not match or are blank", 403)
 
-        db.execute("INSERT INTO transactions (symbol, shares, price, transacted) VALUES(?, ?, ?, ?)", symbol, shares, price, now)
+        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
 
+        # Query database for username
+        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
-        flash(f"Bought {shares} shares of {symbol} symbol!")
+        # Remember which user has logged in
+        session["user_id"] = rows[0]["id"]
+        session["name"] = rows[0]["username"]
 
+        # Showing up now, but wasn't before I made sure to log in user on registration
+        flash(f"{session['name']} has been registered and logged in!")
 
-        
+        return redirect("/")
     else:
-        return render_template("buy.html")
-
-@app.route("/history")
-@login_required
-def history():
-    """Show history of transactions"""
-    return apology("TODO")
+        return render_template("register.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -142,6 +129,131 @@ def login():
         return render_template("login.html")
 
 
+@app.route("/quote", methods=["GET", "POST"])
+@login_required
+def quote():
+    if request.method == "POST":
+        company = lookup(request.form.get("symbol"))
+        return render_template("quoted.html", company=company)
+    else:
+        return render_template("quote.html")
+
+
+@app.route("/buy", methods=["GET", "POST"])
+@login_required
+def buy():
+    """Buy shares of stock"""
+    if request.method == "POST":
+        company = lookup(request.form.get("symbol"))
+        symbol = company["symbol"]
+        name = company["name"]
+        new_shares = request.form.get("shares")
+        if not new_shares:
+            return redirect("/buy")
+        new_shares = int(new_shares)
+        transaction_time = datetime.now().replace(microsecond=0).isoformat().replace("T", " ")
+        current_cash = db.execute("SELECT cash FROM users WHERE id IS ?", session["user_id"])[0]["cash"]
+        float_price = company["price"]
+        sql_price = int(float_price * 100) # Converts currency float to workable integer for sql ex. 47.62 --> 4762
+        # Reminder, this is how users.cash (ie. current_cash) is stored in finance.db
+
+        # Also, the price here is stored in "transactions", but not in "portfolios"
+        # That changes in real time
+
+        if current_cash < new_shares*sql_price:
+            return apology("You cannot afford the number of shares at the current price.", 403)
+
+        db.execute("INSERT INTO transactions (user_id, symbol, name, shares, price, transaction_time) VALUES(?, ?, ?, ?, ?, ?)", session["user_id"], symbol, name, new_shares, sql_price, transaction_time)
+        
+        # Use list comprehsion to create a list of the companies that a user owns stocks in
+        longs = [company["symbol"] for company in db.execute("SELECT symbol FROM portfolios WHERE user_id IS ?", session["user_id"])]
+        
+        if symbol in longs:
+            current_shares = db.execute("SELECT shares FROM portfolios WHERE user_id IS ? AND symbol IS ?", session["user_id"], symbol)[0]["shares"]
+            current_shares += new_shares
+            db.execute("UPDATE portfolios SET shares = ? WHERE user_id IS ? AND symbol IS ?", current_shares, session["user_id"], symbol)
+        else:
+            db.execute("INSERT INTO portfolios (user_id, symbol, name, shares) VALUES(?, ?, ?, ?)", session["user_id"], symbol, name, new_shares)
+        
+        # Subtract the stock value from the user's cash value
+        current_cash -= (new_shares * sql_price)
+        db.execute("UPDATE users SET cash = ? WHERE id IS ?", current_cash, session["user_id"])
+        
+        flash("Bought some stonks!")
+
+
+        return redirect("/")
+    else:
+        return render_template("buy.html")
+    
+
+
+@app.route("/sell", methods=["GET", "POST"])
+@login_required
+def sell():
+    """Sell shares of stock"""
+    # Use list comprehsion to create a list of the companies that a user owns stocks in
+    longs = [company["symbol"] for company in db.execute("SELECT symbol FROM portfolios WHERE user_id IS ?", session["user_id"])]
+
+    if request.method == "POST":
+        # 2 Do 2 things:
+            # 1. Remove stock from my portfolio
+            # 2. Increase my cash by the amount it was worth at the time
+
+        company = lookup(request.form.get("symbol"))
+        symbol = company["symbol"]
+        name = company["name"]
+        selling_shares = request.form.get("shares")
+        if not selling_shares:
+            return redirect("/sell")
+        selling_shares = -1 * abs(int(selling_shares))
+        transaction_time = datetime.now().replace(microsecond=0).isoformat().replace("T", " ")
+        current_cash = db.execute("SELECT cash FROM users WHERE id IS ?", session["user_id"])[0]["cash"]
+        float_price = company["price"]
+        sql_price = int(float_price * 100) # Converts currency float to workable integer for sql ex. 47.62 --> 4762
+        
+      
+        if symbol in longs or selling_shares > 0:
+            #1
+            current_shares = db.execute("SELECT shares FROM portfolios WHERE user_id IS ? AND symbol IS ?", session["user_id"], symbol)[0]["shares"]
+            
+            current_shares += selling_shares
+            
+            if current_shares < 0:
+                return apology("You don't have that many shares to sell", 403)
+            elif current_shares == 0:
+                db.execute("DELETE FROM portfolios WHERE user_id IS ? AND symbol IS ?", session["user_id"], symbol)
+            else:
+                db.execute("UPDATE portfolios SET shares = ? WHERE user_id IS ? AND symbol IS ?", current_shares, session["user_id"], symbol)
+
+            db.execute("INSERT INTO transactions (user_id, symbol, name, shares, price, transaction_time) VALUES(?, ?, ?, ?, ?, ?)", session["user_id"], symbol, name, selling_shares, sql_price, transaction_time)
+
+            #2
+            current_cash -= sql_price * selling_shares
+            db.execute("UPDATE users SET cash = ? WHERE id IS ?", current_cash, session["user_id"])
+
+            flash("Sold some stonks!")
+
+
+            return redirect("/")
+
+        else:
+            return apology("Number of shares must be positive, and you must own that many shares of the stock")
+        
+    else:
+        return render_template("sell.html", longs=longs)
+
+
+@app.route("/history")
+@login_required
+def history():
+    """Show history of transactions"""
+
+    transactions_table = db.execute("SELECT * FROM transactions WHERE user_id IS ?", session["user_id"])
+
+    return render_template("history.html", transactions_table=transactions_table, lookup=lookup)
+
+
 @app.route("/logout")
 def logout():
     """Log user out"""
@@ -153,47 +265,61 @@ def logout():
     return redirect("/")
 
 
-@app.route("/quote", methods=["GET", "POST"])
-@login_required
-def quote():
-    if request.method == "POST":
-        company = lookup(request.form.get("symbol"))
-        return render_template("quoted.html", company=company)
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
+    """Manage account details"""
+
+    if request.method == "post":
+        pass
     else:
-        return render_template("quote.html")
+        current_cash = db.execute("SELECT cash FROM users WHERE id IS ?", session["user_id"])[0]["cash"]
+        return render_template("profile.html", current_cash=current_cash)
 
 
-@app.route("/register", methods=["GET", "POST"])
-def register():
-    return render_template("register.html")
+@app.route("/addCash", methods=["GET", "POST"])
+def addCash():
+    """Manage account details"""
+    current_cash = db.execute("SELECT cash FROM users WHERE id IS ?", session["user_id"])[0]["cash"]
+    secret_code = "johnismyfavoritestudent"
 
-@app.route("/registration", methods=["GET", "POST"])
-def registration():
-    if request.method == "POST":
-        """Register user"""
+    new_cash = int(request.form.get("new_cash"))
+    secret = request.form.get("secret")
 
-        username = request.form.get("username")
-        password = request.form.get("password")
-        confirmation = request.form.get("confirmation")
-
-        users = db.execute("SELECT * FROM users")
-
-        if username in [user["username"] for user in users] or username == "":
-            return apology("Username blank or already exists", 403)
-
-        if password != confirmation or password == "":
-            return apology("Passwords do not match or are blank", 403)
-
-        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
-
-        # Not showing up for some reason
-        flash("someone has been registered!")
-
-        return redirect("/login")
+    if secret != secret_code:
+        flash("You forgot the secret code!")
+        return redirect("/profile")
+    
+    # Add new_cash to user's account
+    current_cash += 100 * new_cash
+    db.execute("UPDATE users SET cash = ? WHERE id IS ?", current_cash, session["user_id"])
+    
+    flash(f"Added ${new_cash} to account ")
+    return redirect("/profile")
 
 
-@app.route("/sell", methods=["GET", "POST"])
-@login_required
-def sell():
-    """Sell shares of stock"""
-    return apology("TODO")
+@app.route("/changePassword", methods=["GET", "POST"])
+def changePassword():
+
+    old = request.form.get("old")
+    new = request.form.get("new")
+    again = request.form.get("again")
+
+    if new != again:
+        flash("Passwords aren't the same!")
+        return redirect("/profile")
+
+    # Change Password
+    db.execute("UPDATE users SET hash = ? WHERE id IS ?", generate_password_hash(new), session["user_id"])
+    flash("Password Changed")
+    return redirect("/profile")
+
+
+# @app.route("/buysell", methods=["GET", "POST"])
+# def buysell():
+#     shares = request.form.get("shares")
+#     symbol = request.form.get("symbol") 
+    
+#     db.execute("SELECT symbol FROM portfolios WHERE user_id IS ?", session["user_id"])
+
+    
+    
