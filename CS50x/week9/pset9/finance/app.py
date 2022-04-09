@@ -134,6 +134,8 @@ def login():
 def quote():
     if request.method == "POST":
         company = lookup(request.form.get("symbol"))
+        if not company:
+            return apology("invalid ticker symbol", 400)
         return render_template("quoted.html", company=company)
     else:
         return render_template("quote.html")
@@ -203,6 +205,8 @@ def sell():
             # 2. Increase my cash by the amount it was worth at the time
 
         company = lookup(request.form.get("symbol"))
+        if not company:
+            return apology("invalid ticker symbol", 400)
         symbol = company["symbol"]
         name = company["name"]
         selling_shares = request.form.get("shares")
