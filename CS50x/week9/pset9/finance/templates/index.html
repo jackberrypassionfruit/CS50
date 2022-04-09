@@ -29,8 +29,8 @@
                         <td name="symbol">{{ row["symbol"] }}</td>
                         <td>{{ row["name"] }}</td>
                         <td>{{ row["shares"] }}</td>
-                        <td>${{ price }}</td>
-                        <td>${{ (row["shares"] * price) }}</td>
+                        <td>{{ usd(price) }}</td>
+                        <td>{{ usd((row["shares"] * price)) }}</td>
 
                     </tr>
 
@@ -43,13 +43,13 @@
                 <tr>
                     <td colspan="3"></td>
                     <td><strong>Cash</strong></td>
-                    <td>${{ '%.2f' % (current_cash / 100) }}</td>
+                    <td>{{ usd((current_cash / 100)) }}</td>
                 </tr>
                 <tr>
                     <td colspan="3"></td>
                     <td><strong>Total</strong></td>
                     <!-- current cash is in non-cent format, but acctotal is, so have to account for that -->
-                    <td>${{ '%.2f' % ((current_cash + accumulator.total * 100) / 100) }}</td>
+                    <td>{{ usd(((current_cash + accumulator.total * 100) / 100)) }}</td>
                 </tr>
             </tfoot>
         </table>

@@ -52,7 +52,7 @@ def index():
     portfolios_table = db.execute("SELECT * FROM portfolios WHERE user_id IS ?", session["user_id"])
     current_cash = db.execute("SELECT cash FROM users WHERE id IS ?", session["user_id"])[0]["cash"]
 
-    return render_template("index.html", portfolios_table=portfolios_table, lookup=lookup, current_cash=current_cash)
+    return render_template("index.html", portfolios_table=portfolios_table, lookup=lookup, current_cash=current_cash, usd=usd)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -134,9 +134,9 @@ def login():
 def quote():
     if request.method == "POST":
         company = lookup(request.form.get("symbol"))
-        if not company:
-            return apology("invalid ticker symbol", 400)
-        return render_template("quoted.html", company=company)
+        name = company["name"]
+        price = usd(company["price"])
+        return render_template("quoted.html", company=company, name=name, price=price)
     else:
         return render_template("quote.html")
 
