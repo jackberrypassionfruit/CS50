@@ -145,6 +145,8 @@ def buy():
     """Buy shares of stock"""
     if request.method == "POST":
         company = lookup(request.form.get("symbol"))
+        if not company:
+            return apology("invalid ticker symbol", 400)
         symbol = company["symbol"]
         name = company["name"]
         new_shares = request.form.get("shares")
