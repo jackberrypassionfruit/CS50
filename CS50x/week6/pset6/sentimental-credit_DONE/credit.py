@@ -17,22 +17,22 @@ from math import *
 def main():
     cc = input("Enter a credit card number, please: ")
     nums = len(cc)
-    
+
     if luhn(cc) != 0:
         print("INVALID")
 
-    elif nums == 15 and (cc[0:1] == "34" or cc[0:1] == "37"):
+    elif nums == 15 and (cc[0:1] == "34" or cc[0:2] == "37"):
         print("AMEX")
 
     elif nums == 16 and cc[0] == "5" and (cc[1] == "1" or cc[1] == "2" or cc[1] == "3" or cc[1] == "4" or cc[1] == "5"):
         print("MASTERCARD")
-    
+
     elif (nums == 16 or nums == 13) and cc[0] == "4":
         print("VISA")
 
     else:
         print("INVALID")
-    
+
 
 def luhn(cc):
     step1 = 0 # DONE
