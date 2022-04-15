@@ -1,0 +1,455 @@
+----------------Q1------------------
+
+Checking Speller
+
+TODO "File is never closed in load function"
+
+# Enter code here
+In the load(dictionary) function on line 11, the file name "file", which is opened on line 12, is not closed before the end of the function. This has widely been regarded as a bad move. If the load function is all encased in a "with open() as outfile", or adding some code after line 14 that reads
+
+$ file.close()
+
+
+TODO "Capitalized words are always considered misspelled"
+
+# Enter code here
+In the load(word) function on line 5, each word is only compared against the exact string literal in words, the list of words in this database. Capitalized words are considered misspelled because they may not have been stored in the dictionary that way, even if they carry the same sementic meaning. The way to fix this would be to only compared a new instance of the word being tested as all lowercase, as this is how it is stored.
+
+on line 6 $ word = word.lower()
+
+TODO "Implementation of check is longer than it needs to be"
+
+# Enter code here
+The return value of the if or else condition is just True or False, so the function may as well cut lines 6 through 8 out and just return the output of the condition "if word in words" on line 5
+
+
+TODO "Determining size of dictionary always takes linear time"
+
+# Enter code here
+As the code stands, getting size of dictionary would have to iterate over every item, causing O(n). Would be preferable and cause size() to be O(1) would be if load(dictionary) actually kept track of the items stored in memeory in an index variabe, which could just be returned by size().
+
+
+TODO "Checking words always takes linear time"
+
+# Enter code here
+Checking for a word in this "dictionary" takes O(n) because its structure is a simple list. Every sequential item has to be checked. If the load function instead created a more abvantageous structure for the dictionary like a hash table than the check function could have a much smaller and more specific pool of potential words to compare against.
+
+
+Debrief
+Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs.
+
+TODO
+
+https://stackoverflow.com/questions/9282967/how-to-open-a-file-using-the-open-with-statement
+https://www.programiz.com/python-programming/methods/string/lower
+I also verified my vocabulary for the words I was talking about
+
+
+
+TODO
+
+About how long, in minutes, did you spend on this problem’s questions?
+25 min
+
+
+
+
+
+
+
+
+
+
+
+---------------------Q2--------------------
+
+
+Code Reviews
+
+TODO
+1)
+This function returns a pointer to a character, which is how an array of characters known as a string is identified inside the heap, as well as accepting a pointer to another character which is a string of a prompt for the user. The problem with this functon is that the new pointer created by the function does not have any memory allocated to it, so it will not be able to write anything there.
+
+TODO
+2)
+This script is meant to allocate memory for a new instance of a node struct. It mostly works, except that it forgot the important step of checking if the malloc was successful, which is not always the case. If not, the code should break with failure condition. 
+
+TODO
+3)
+The HTML code shows a form tag meant to accept a text input and a passward, ostensibly for a login screen. This login action however is requested with the GET method, which is incorrect, because it exposes the submitted information to the URL which is not well hidden. A POST request is preferable becuase it saves and delivers the user-submitted information quitely to the server.
+
+TODO
+4)
+This is a textbook example of code that leave the website susceptiable to an SQL injection attack on the part of the User. If they submit a search query that has a single symbol anywhere inside it, and then a semicolon and -- to comment out following code, then the following code with be run as a new SQl query and the user will have full control over the contents of the database. The problems could be solved by disallowing input with certain significant characters, not giving the user open forms to input text into, or escpaing all character input.
+
+TODO
+5)
+This code directly stores the actual password that the user submitted in the database. This is awful practice, because a potential data leak could give hackers access to this user's account. Hashing functions and only having the server-side capability of comparing against salted hashes of passwords is a much more secure means of verifying identity.
+
+Debrief
+Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs.
+
+TODO
+https://tousu.in/qa/?qa=698526/
+https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
+
+About how long, in minutes, did you spend on this problem’s questions?
+
+TODO
+45 min
+
+
+
+
+
+
+
+
+
+
+
+
+--Q3--
+
+
+Duo Mobile
+
+TODO
+The Duo Mobile smartphone app is a Possession authenticator Factor
+
+TODO
+Using varying type of security factors is more secure, because it leaves less possibility of both or all security measures failing at the same time. For example, if you had two passwords that you remembered to log in somewhere, and you become incapacited, then no other person would be able to access your account on your behalf with something like a physical RSA token. 
+
+TODO
+A downside to using Duo Mobile is that it adds the potential failure point to logging in, whereas even if you remember your Harvard ID name and password, if your phone is missing or uncharged, you have no access. With planning, this trade off is still very much worth the expense.
+
+TODO
+The RSA token probably has some sort of algorithm that is perpetually running and outputting different passwords based on parameters like the current time, a secret key, and/or the serial number of the device. Once it'd been paired in some way with the account it is verifying, then its value will pass some sort of checksum test on the computer of the user.
+
+Debrief
+Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs. 
+
+TODO
+https://stackoverflow.com/questions/8340495/how-do-rsa-tokens-work
+
+About how long, in minutes, did you spend on this problem’s questions?
+
+TODO
+30 min
+
+
+
+
+
+
+
+
+
+
+--Q4--
+
+
+Emojicode
+
+TODO
+
+
+TODO
+
+
+TODO
+
+
+TODO
+
+
+TODO
+
+
+Answer this question in emojicode/6.py. This question will be autograded, so be sure your file is named as prescribed, compiles, and works as intended!
+
+
+Answer this question in emojicode/7.py. This question will be autograded, so be sure your file is named as prescribed, compiles, and works as intended!
+
+
+Answer this question in emojicode/8.py. This question will be autograded, so be sure your file is named as prescribed, compiles, and works as intended!
+
+Debrief
+Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs.
+
+TODO
+About how long, in minutes, did you spend on this problem’s questions?
+
+TODO
+
+
+
+
+
+
+
+
+
+
+
+
+--Q5--
+
+
+Harvard Pep Squad
+
+Answer this question in squad/red.py. This question will be autograded, so be sure your file is named as prescribed and works as intended!
+
+Answer this question in squad/prank.py. This question will be autograded, so be sure your file is named as prescribed and works as intended!
+Debrief
+Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs.
+
+TODO
+About how long, in minutes, did you spend on this problem’s questions?
+
+TODO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Q6--
+
+Imagineering
+
+TODO
+
+TODO
+
+
+TODO
+
+
+TODO
+
+
+TODO
+
+
+// Enter code here
+
+
+
+
+TODO
+
+
+TODO
+Debrief
+Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs.
+
+TODO
+About how long, in minutes, did you spend on this problem’s questions?
+
+TODO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Q7--
+
+
+International Obfuscated C Code Contest
+
+TODO
+
+TODO
+
+TODO
+
+TODO
+Debrief
+Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs.
+
+TODO
+About how long, in minutes, did you spend on this problem’s questions?
+
+TODO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Q8--
+
+
+Reinventing Some Wheels
+
+Answer this question in wheels/tests.c and wheels/ctype.c. This question will be autograded, so be sure your file is named as prescribed, compiles, and works as intended!
+
+Answer this question in wheels/tests.c and wheels/ctype.c. This question will be autograded, so be sure your file is named as prescribed, compiles, and works as intended!
+
+Answer this question in wheels/tests.c and wheels/ctype.c. This question will be autograded, so be sure your file is named as prescribed, compiles, and works as intended!
+
+Debrief
+Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs.
+
+TODO
+About how long, in minutes, did you spend on this problem’s questions?
+
+TODO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Q9--
+
+View Source
+
+TODO
+
+
+TODO
+
+
+TODO
+
+
+TODO
+Debrief
+Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs.
+
+TODO
+About how long, in minutes, did you spend on this problem’s questions?
+
+TODO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Q10--
+
+XCheck
+
+TODO
+
+TODO
+
+
+let vip = false;
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('form').addEventListener('submit', function(e) {
+
+        // TODO
+
+    });
+});
+
+
+TODO
+
+// List strings here
+
+
+
+
+
+
+
+TODO
+
+
+TODO
+
+
+TODO
+
+import cs50
+
+db = cs50.SQL("sqlite:///facebook.db")
+
+
+def is_vip(username):
+
+    # TODO
+
+
+
+
+TODO
+
+
+TODO
+
+
+TODO
+Debrief
+Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs.
+
+TODO
+About how long, in minutes, did you spend on this problem’s questions?
+
+TODO
