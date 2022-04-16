@@ -39,8 +39,11 @@ void test_isalnum(void)
     assert(isalnum('9') == true);
     assert(isalnum('+') == false);
     assert(isalnum('/') == false);
+}
 
 void test_areupper(void)
+
+
 {
     assert(areupper("ABC") == true);
     assert(areupper("xyz") == true);
