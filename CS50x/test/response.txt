@@ -350,7 +350,7 @@ TODO
 About how long, in minutes, did you spend on this problem’s questions?
 
 TODO
-
+1 hr
 
 
 
@@ -374,23 +374,26 @@ TODO
 View Source
 
 TODO
-
-
-TODO
-
+1) As fun as it is to tamper with the source code on a webpage, it should not be considered "hacking" because the entity that wrote the website did so in full knowledge that you would have access to it, even if not from the GUI. Thus, if well implemented, anything you affect on the source code should not reveal any information that you are not supposed to see as part of the typical user experience.
 
 TODO
-
+2) If the webpage decided to store the user's SS # in a hidden tag, purely in the HTML of the page, then it would be easy for the user to see that in the DOM, with the SS # attached to it as a value or something. It would make sense that this would happen if a user only set up a static website, like on our problem set 8, where there was no server to store data away from the user.
 
 TODO
+3) Making people aware of the exploit in the website without patching it first would be unhelpful at best, because it would inspire other people to steal the information while they still have the chance.
+
+TODO
+4) Is the broader scope of the world, beyond just this school system, there may have been other schools or entities that have faulty systems for storing data that are in dire need of better security. Publishing that article about the school is not meant to shame this school, but make others aware of this situation, so it is best to be prompt about publishing as soon as the St. Louis school will not longer be hurt by it.
+
 Debrief
 Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs.
+-> None
 
 TODO
 About how long, in minutes, did you spend on this problem’s questions?
 
 TODO
-
+15 min
 
 
 
