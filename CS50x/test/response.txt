@@ -443,20 +443,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 TODO
-
+3)
 // List strings here
-
-
-
-
-
+"covid"
+"covid-19"
+"vaccine"
+"vaccinated"
+"vaccinations"
+"vaccinat"
 
 
 TODO
-
+4)
+This is a bad implementation because it excludes lot of other tenses of the root word vaccine, it doesn't include wildcard characters to handle the same thing, it doesn't have a way of handling unintentional or "intentional" typos. It would be very easy to still talk about about vaccines with this filter.
 
 TODO
-
+5)
+This regex filter does nothing to check for the deeper meaning of people posts when talking about vaccines. There are plenty of good and important reasons to be talking about vaccines online, and a blanket prohibition on the subject doesn't allow those conversations to happen.
 
 TODO
 
@@ -467,8 +470,9 @@ db = cs50.SQL("sqlite:///facebook.db")
 
 def is_vip(username):
 
-    # TODO
+    username = "Joe Blow"
 
+    if db.execute("SELECT vip FROM users WHERE username IS ?", username)
 
 
 
