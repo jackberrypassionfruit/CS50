@@ -19,13 +19,26 @@ void test_isalpha(void)
 
 void test_isdigit(void)
 {
-    // TODO
+    assert(isdigit('A') == false);
+    assert(isdigit('Z') == false);
+    assert(isdigit('a') == false);
+    assert(isdigit('z') == false);
+    assert(isdigit('0') == true);
+    assert(isdigit('9') == true);
+    assert(isdigit('+') == false);
+    assert(isdigit('/') == false);
 }
 
 void test_isalnum(void)
 {
-    // TODO
-}
+    assert(isalnum('A') == false);
+    assert(isalnum('Z') == false);
+    assert(isalnum('a') == false);
+    assert(isalnum('z') == false);
+    assert(isalnum('0') == true);
+    assert(isalnum('9') == true);
+    assert(isalnum('+') == false);
+    assert(isalnum('/') == false);}
 
 void test_areupper(void)
 {
