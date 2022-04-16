@@ -482,9 +482,13 @@ TODO
 "UPDATE users SET vip = 0"
 
 TODO
-
+8)
+"Hey Mr. Koenig, it seems like this priority system for VIP clients has the potential to be inherantly unequal, and who's to say that VIP clients shouldn't be under even more scrutiny in their posts based on the power of their platforms? I just think that putting our emphasis on not upsetting high profile clients instead of actually having safer lines of communication will do more harm than good in the long term"
 
 TODO
+
+"That's a very reasonable concern Josh, I have my own thoughts about that. The company's emphasis on growth at all costs has backed me and my colleqgues into some tough corners over the years, and we've watched the site become very different from what we set out to make it. Let's talk about this some more, and maybe we can think of some ideas for how to make the site less focused on getting it's users addicted to hatred, and more about real connection"
+
 Debrief
 Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs.
 
