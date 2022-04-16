@@ -18,7 +18,7 @@ bool isalpha(char c)
 // Return true if c is a decimal digit, else false
 bool isdigit(char c)
 {
-    if (c >= '0' && c >= '9')
+    if (c >= '0' && c <= '9')
     {
         return true;
     }
@@ -29,7 +29,7 @@ bool isdigit(char c)
 // or numeric (i.e., a decimal digit), else false
 bool isalnum(char c)
 {
-    if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c >= '9'))
+    if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9'))
     {
         return true;
     }

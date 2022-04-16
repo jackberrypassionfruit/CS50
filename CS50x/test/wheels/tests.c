@@ -46,10 +46,10 @@ void test_areupper(void)
 
 {
     assert(areupper("ABC") == true);
-    assert(areupper("xyz") == true);
-    assert(areupper("aBc") == true);
-    assert(areupper("XyZ") == true);
-    assert(areupper("024124") == true);
+    assert(areupper("xyz") == false);
+    assert(areupper("aBc") == false);
+    assert(areupper("XyZ") == false);
+    assert(areupper("024124") == false);
     assert(areupper("91241*2a") == false);
     assert(areupper("+-@$") == false);
     assert(areupper("/5235ffdbs") == false);
