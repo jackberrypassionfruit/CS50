@@ -152,18 +152,23 @@ TODO
 Emojicode
 
 TODO
-
-
-TODO
-
+1)
+🏁 is similar to the "int main" part of our C code, because it is the function name defining the code that is run when we execute our file
 
 TODO
-
-
-TODO
-
+2)
+🍇 and 🍉 are the same as open and closed brackets in C, { and }
 
 TODO
+3)
+😀 is the same as the "printf" function in C, which sends its string type arguments to the standard output
+
+TODO
+4)
+🔤 and 🔤 are similar to double quotes in C, " ", which are uses to deliniate a string
+
+TODO
+5)
 
 
 Answer this question in emojicode/6.py. This question will be autograded, so be sure your file is named as prescribed, compiles, and works as intended!
