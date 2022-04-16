@@ -31,16 +31,23 @@ void test_isdigit(void)
 
 void test_isalnum(void)
 {
-    assert(isalnum('A') == false);
-    assert(isalnum('Z') == false);
-    assert(isalnum('a') == false);
-    assert(isalnum('z') == false);
+    assert(isalnum('A') == true);
+    assert(isalnum('Z') == true);
+    assert(isalnum('a') == true);
+    assert(isalnum('z') == true);
     assert(isalnum('0') == true);
     assert(isalnum('9') == true);
     assert(isalnum('+') == false);
-    assert(isalnum('/') == false);}
+    assert(isalnum('/') == false);
 
 void test_areupper(void)
 {
-    // TODO
+    assert(areupper("ABC") == true);
+    assert(areupper("xyz") == true);
+    assert(areupper("aBc") == true);
+    assert(areupper("XyZ") == true);
+    assert(areupper("024124") == true);
+    assert(areupper("91241*2a") == false);
+    assert(areupper("+-@$") == false);
+    assert(areupper("/5235ffdbs") == false);
 }
