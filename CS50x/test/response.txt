@@ -205,10 +205,13 @@ Debrief
 Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs.
 
 TODO
+https://stackoverflow.com/questions/4989763/when-is-it-better-to-use-zip-instead-of-izip
+https://www.delftstack.com/howto/python/python-for-loop-multiple-variables/
+
 About how long, in minutes, did you spend on this problem’s questions?
 
 TODO
-
+90 min
 
 
 
@@ -229,37 +232,45 @@ TODO
 
 Imagineering
 
+TODO - 
+1) In no more than one sentence, explain how you could change how many boids are in the system.
+-> In the for loop, if you make the i value iterate to a higher number before the loopstops, the script will have created more Boid objects
 TODO
-
-TODO
-
-
-TODO
-
-
-TODO
-
+2) 
+-> This line creates a new instance if the object type of Boid, and then puts it into the boid[] list at the index of i
 
 TODO
+3)
+-> When the run method is called, there are four methods that are run: flock(), update(), borders(), and render().
 
+TODO
+4)
+-> Right now, the draw method iterates the run functions over every element of the boids list. If you included some parameters to the boid function, you could specify exactly which boids are passed to the run function, like changing the for loops starting place from 0 to somewhere else, the end from boids.length ot somewhere else, or something more complicated.
+
+
+TODO
+5)
+->As it stands, the draw method always, calls the background method with a parameter of 51, which created a grayscale color. If you passed a different rgb value to that function, you can pass the color Aqua instead.
+
+background(0, 255, 255);
 
 // Enter code here
-
-
+-> self.flock(boids) needs to be passed an array of boids, as opposed to just one boid, because the separate, align, and cohesion functions that are called below rely on an array of boids to work. They would throw an error if they were just passes one single boid.
 
 
 TODO
-
+-> In order to create a school of fish, you want to set the separate parameter to 7, so there is some distance but not too far apart. The alightment was 3, not too big because they have to look unique.And cohesion was 7, high because they are a school of fish after, moving very similarly.
 
 TODO
 Debrief
 Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs.
 
 TODO
+-> The p5 documentation
+
 About how long, in minutes, did you spend on this problem’s questions?
-
 TODO
-
+~30 min
 
 
 
@@ -281,20 +292,29 @@ TODO
 International Obfuscated C Code Contest
 
 TODO
+int f(float x){return(int)(x+0.5);}
+-> This function adds the input float, x, to 0.5, casts that value to an int type, and then returns that int.
 
 TODO
+ int f(char *s){char*t=s;while(*t!='\0'){t++;}return t-s;}
+-> This function takes a pointer to a character (ideally the beginning of a string) and initializes a new char pointer with the same value. Then it iteratively checks the next pointer location until that value dereferences to a null value, meaning the end of a string. It then returns t - s, whiich will be the length of the string.
 
 TODO
+-> This function takes 2 inputs, x and y. They, it initailzed another int n to 1. Then, in a for loop iterating i to the value of y, it multiplies n by x again and again to a final value. This has the effect of exponentiating x to the power of y.
 
 TODO
+-> This function takes as input a pointer to a character s, which is pointing to the first character of a string. In the body of the function, it initializes an adder int to 0 and another to the length of the string, and then within a for loop subtracts the ASCII value of "0" from that character in the input, turning it into a digit 0-9. At the same time, this number is multiplied by some power of 10 and added to the adder variable, in effect turing the character of digints into an integer number, which is returned.
+
 Debrief
 Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs.
 
 TODO
+-> No other resources
+
 About how long, in minutes, did you spend on this problem’s questions?
 
 TODO
-
+-> 30min
 
 
 
