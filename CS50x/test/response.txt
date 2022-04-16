@@ -462,6 +462,7 @@ TODO
 This regex filter does nothing to check for the deeper meaning of people posts when talking about vaccines. There are plenty of good and important reasons to be talking about vaccines online, and a blanket prohibition on the subject doesn't allow those conversations to happen.
 
 TODO
+6)
 
 import cs50
 
@@ -472,12 +473,13 @@ def is_vip(username):
 
     username = "Joe Blow"
 
-    if db.execute("SELECT vip FROM users WHERE username IS ?", username)
+    return db.execute("SELECT vip FROM users WHERE username IS ?", username) == 1
 
 
 
 TODO
-
+7)
+"UPDATE users SET vip = 0"
 
 TODO
 
