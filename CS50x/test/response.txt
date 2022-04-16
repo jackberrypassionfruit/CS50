@@ -72,7 +72,7 @@ This function returns a pointer to a character, which is how an array of charact
 
 TODO
 2)
-This script is meant to allocate memory for a new instance of a node struct. It mostly works, except that it forgot the important step of checking if the malloc was successful, which is not always the case. If not, the code should break with failure condition. 
+This script is meant to allocate memory for a new instance of a node struct. It mostly works, except that it forgot the important step of checking if the malloc was successful, which is not always the case. If not, the code should break with failure condition.
 
 TODO
 3)
@@ -118,7 +118,7 @@ TODO
 The Duo Mobile smartphone app is a Possession authenticator Factor
 
 TODO
-Using varying type of security factors is more secure, because it leaves less possibility of both or all security measures failing at the same time. For example, if you had two passwords that you remembered to log in somewhere, and you become incapacited, then no other person would be able to access your account on your behalf with something like a physical RSA token. 
+Using varying type of security factors is more secure, because it leaves less possibility of both or all security measures failing at the same time. For example, if you had two passwords that you remembered to log in somewhere, and you become incapacited, then no other person would be able to access your account on your behalf with something like a physical RSA token.
 
 TODO
 A downside to using Duo Mobile is that it adds the potential failure point to logging in, whereas even if you remember your Harvard ID name and password, if your phone is missing or uncharged, you have no access. With planning, this trade off is still very much worth the expense.
@@ -127,7 +127,7 @@ TODO
 The RSA token probably has some sort of algorithm that is perpetually running and outputting different passwords based on parameters like the current time, a secret key, and/or the serial number of the device. Once it'd been paired in some way with the account it is verifying, then its value will pass some sort of checksum test on the computer of the user.
 
 Debrief
-Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs. 
+Which resources, if any, did you find helpful in answering this problem's questions? Cite specific URLs.
 
 TODO
 https://stackoverflow.com/questions/8340495/how-do-rsa-tokens-work
@@ -232,11 +232,11 @@ TODO
 
 Imagineering
 
-TODO - 
+TODO -
 1) In no more than one sentence, explain how you could change how many boids are in the system.
 -> In the for loop, if you make the i value iterate to a higher number before the loopstops, the script will have created more Boid objects
 TODO
-2) 
+2)
 -> This line creates a new instance if the object type of Boid, and then puts it into the boid[] list at the index of i
 
 TODO
@@ -417,16 +417,26 @@ TODO
 XCheck
 
 TODO
+1) This implementation, much like the last problem, is vulnerable to users changing the source code themselves. In this case, because the POST request to the server first checks the value of the input tag, it is possible for the user to change that themselves in the DOM, and then the POST request will treat them as a VIP, avoiding the scrutiny.
 
 TODO
+2)
 
 
 let vip = false;
 
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('form').addEventListener('submit', function(e) {
+        let text = document.getElementsById("content")[0];
+        if (text.value == *vaccine* && vip == false)
+        {
+            console.log("request not submitted");
+        }
+        else
+        {
+            console.log("request submitted");
+        }
 
-        // TODO
 
     });
 });
