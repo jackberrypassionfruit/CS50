@@ -169,9 +169,13 @@ TODO
 
 TODO
 5)
-
+❗️is similar to a semicolon in C, but it works a little differently. In Emojicode, it is meant to show that a function is done accepting parameters, and whatever word comes next will take over in the scope above, whether that means a new function or more parameters to a previous function, as in the case with multiple ❗️s next to each other.
 
 Answer this question in emojicode/6.py. This question will be autograded, so be sure your file is named as prescribed, compiles, and works as intended!
+
+from random import randint
+
+print(randint(0, 9))
 
 
 Answer this question in emojicode/7.py. This question will be autograded, so be sure your file is named as prescribed, compiles, and works as intended!
@@ -435,14 +439,9 @@ document.addEventListener('DOMContentLoaded', function() {
         let text = document.getElementsById("content")[0];
         if (text.value == *vaccine* && vip == false)
         {
-            console.log("request not submitted");
+            e.preventDefault();
         }
-        else
-        {
-            console.log("request submitted");
-        }
-
-
+        
     });
 });
 
