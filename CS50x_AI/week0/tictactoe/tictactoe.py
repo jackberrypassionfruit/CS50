@@ -27,7 +27,7 @@ def player(board):
     for i in range(len(board)):
         x_count += board[i].count(X)
         o_count += board[i].count(O)
-    
+
     if x_count > o_count:
         return O
     else:
@@ -50,7 +50,9 @@ def result(board, action):
     """
     Returns the board that results from making move (i, j) on the board.
     """
-    new_board = board
+    if board[action[0]][action[1]] is not EMPTY:
+        raise ValueError("Move already taken")
+    new_board = copy.deepcopy(board)
     new_board[action[0]][action[1]] = player(board)
     return new_board
 
@@ -81,6 +83,9 @@ def terminal(board):
     """
     Returns True if game is over, False otherwise.
     """
+    # print(winner(board))
+    if winner(board) is not None:
+        return True
 
     for i in range(3):
         for j in range(3):
@@ -100,9 +105,44 @@ def utility(board):
         return -1
     else: return 0
 
+# next 2 are helper functions for minimax()
+def maxValue(board):
+    if terminal(board) or winner(board):
+        return utility(board)
+    v = -1 # Ideally would make v = -inf, but -1 is the lowest the utility can go so I don't care
+    for action in actions(board):
+        v = max(v, minValue(result(board, action)))
+    return v
+
+def minValue(board):
+    if terminal(board) or winner(board):
+        return utility(board)
+    v = 1 # Ideally would make v = inf, but 1 is the highest the utility can go so I don't care
+    for action in actions(board):
+        v = min(v, maxValue(result(board, action)))
+    return v
 
 def minimax(board):
-    """
-    Returns the optimal action for the current player on the board.
-    """
-    raise NotImplementedError
+    print(player(board))
+    if terminal(board):
+        return None
+    current_player = player(board)
+    if current_player == X:
+        v = -1
+        for action in actions(board):
+            util = minValue(result(board, action))
+            if util > v:
+                v = util
+                next_move = action
+            elif util == -1:
+                next_move = action
+    elif current_player == O:
+        v = 1
+        for action in actions(board):
+            util = maxValue(result(board, action))
+            if util < v:
+                v = util
+                next_move = action
+            elif util == 1:
+                next_move = action
+    return next_move
