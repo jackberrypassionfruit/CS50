@@ -1,5 +1,6 @@
 import csv
 import sys
+import time
 
 from util import Node, StackFrontier, QueueFrontier
 
@@ -83,6 +84,26 @@ def main():
             movie = movies[path[i + 1][0]]["title"]
             print(f"{i + 1}: {person1} and {person2} starred in {movie}")
 
+<<<<<<< HEAD
+=======
+# MyOwn helper function
+
+def person_id_in_path(node, person_id):
+    while node:
+        if node.state is person_id:
+            return True
+        node = node.parent
+    return False
+
+def compile_path(node):
+    path = []
+    while node:
+        path.append((node.action, node.state))
+        node = node.parent
+    path.reverse()
+    return path
+
+>>>>>>> bd0509d16726cd255ebc5237043af8f9eeb91331
 
 def shortest_path(source, target):
     """
@@ -93,12 +114,16 @@ def shortest_path(source, target):
     """
 
     # TODO
+<<<<<<< HEAD
 
     exhausted_actors = set()
+=======
+>>>>>>> bd0509d16726cd255ebc5237043af8f9eeb91331
     frontier = QueueFrontier()
 
     for movie_id, person_id in neighbors_for_person(source):
         frontier.add(Node(state=person_id, parent=None, action=movie_id))
+<<<<<<< HEAD
         exhausted_actors.add(person_id)
 
     for i in range(6):
@@ -137,6 +162,35 @@ def shortest_path(source, target):
     AND and, it gets first connections, but not later ones, so I think the problem is in the frontier population after "neighbors_for_person"
 
     """
+=======
+
+
+    while frontier:
+        current = frontier.remove()
+        # print(f'removing {people[current.state]["name"]} from frontier')
+        # print(f'current path is {compile_path(current)}')
+        # print(f'{current.state} & {target}')
+        if current.state == target:
+            return compile_path(current)
+
+        for movie_id, person_id in neighbors_for_person(current.state):
+            if not person_id_in_path(current, person_id):
+                frontier.add(Node(state=person_id, parent=current, action=movie_id))
+                # print(f'adding {movies[movie_id]["title"]}, {people[person_id]["name"]} to frontier')
+
+        # print("")
+        # time.sleep(1.5)
+                
+
+
+
+
+    # If no Bacon after frontier Empty
+    return None
+
+
+
+>>>>>>> bd0509d16726cd255ebc5237043af8f9eeb91331
 
 def person_id_for_name(name):
     """
