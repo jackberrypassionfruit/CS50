@@ -84,8 +84,6 @@ def main():
             movie = movies[path[i + 1][0]]["title"]
             print(f"{i + 1}: {person1} and {person2} starred in {movie}")
 
-<<<<<<< HEAD
-=======
 # MyOwn helper function
 
 def person_id_in_path(node, person_id):
@@ -103,7 +101,6 @@ def compile_path(node):
     path.reverse()
     return path
 
->>>>>>> bd0509d16726cd255ebc5237043af8f9eeb91331
 
 def shortest_path(source, target):
     """
@@ -114,55 +111,10 @@ def shortest_path(source, target):
     """
 
     # TODO
-<<<<<<< HEAD
-
-    exhausted_actors = set()
-=======
->>>>>>> bd0509d16726cd255ebc5237043af8f9eeb91331
     frontier = QueueFrontier()
 
     for movie_id, person_id in neighbors_for_person(source):
         frontier.add(Node(state=person_id, parent=None, action=movie_id))
-<<<<<<< HEAD
-        exhausted_actors.add(person_id)
-
-    for i in range(6):
-        # If nothing left in frontier, then no path
-        if frontier.empty():
-            return None
-        
-        # Choose a node from the frontier
-        node = frontier.remove()
-
-        # If node is target, then we have a solution
-        if node.state == target:
-            connections = []
-            while node is not None:
-                connections.append((node.action, node.state))
-                node = node.parent
-            connections.reverse()
-
-            # Return a list of tuples of movie_id and person_id at each connection
-            return connections
-
-        for movie_id, person_id in neighbors_for_person(node.state):
-            # print(exhausted_actors)
-            # print(frontier)
-            if not frontier.contains_state(person_id) and person_id not in exhausted_actors:
-                print("okay")
-                frontier.add(Node(state=person_id, parent=node, action=movie_id))
-
-    # If no path within 6 connections
-    return None
-
-    """
-    Lots wrong with this. I haven't coded in a while.
-    For one thing, the connection depth should be an attribute of each node as they come up in the frontier, because they will be check at different depths at different times.
-    And I'm not sure if this is related, but my exhausted actors list is repeating names, because of multiple movies in common with source actor
-    AND and, it gets first connections, but not later ones, so I think the problem is in the frontier population after "neighbors_for_person"
-
-    """
-=======
 
 
     while frontier:
@@ -190,7 +142,6 @@ def shortest_path(source, target):
 
 
 
->>>>>>> bd0509d16726cd255ebc5237043af8f9eeb91331
 
 def person_id_for_name(name):
     """
