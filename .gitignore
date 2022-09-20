@@ -1,4 +1,4 @@
-*.
+ls*.
 __pycache__
 flasksession/
-!.gitignore
+.gitignore
